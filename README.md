@@ -1,4 +1,4 @@
-# NeuroCraft Fly
+# NeuroCraft Fly [In Progress]
 
 **An interactive fruit-fly connectome model in Minecraft.**
 
