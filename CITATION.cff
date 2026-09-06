@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: >-
+  If you reference NeuroCraft Fly, please cite this project. When using
+  MaleCNS-derived data, cite the original MaleCNS reconstruction separately.
+type: software
+title: NeuroCraft Fly
+authors:
+  - family-names: Smith
+    given-names: Evan
+    website: https://github.com/evnsnclr
+abstract: >-
+  Public landing page for NeuroCraft Fly, an interactive Minecraft demo with
+  modeled dynamics on a retained MaleCNS fruit-fly connectome. Engineered inputs
+  and hand-chosen readouts select scripted body programs. Software downloads and
+  a reproducible research starter kit are being prepared for distribution.
+repository-code: https://github.com/evnsnclr/neurocraft-fly-public
+url: https://github.com/evnsnclr/neurocraft-fly-public
+license: MIT
+keywords:
+  - connectomics
+  - computational neuroscience
+  - Minecraft
+  - reproducible experiments
