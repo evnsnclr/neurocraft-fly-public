@@ -1,7 +1,8 @@
 cff-version: 1.2.0
 message: >-
-  If you reference NeuroCraft Fly, please cite this project. When using
-  MaleCNS-derived data, cite the original MaleCNS reconstruction separately.
+  If you reference NeuroCraft Fly, please cite the project landing page using
+  the preferred citation below or CITATION.bib. When using MaleCNS-derived data,
+  cite the original MaleCNS reconstruction separately.
 type: software
 title: NeuroCraft Fly
 authors:
@@ -16,6 +17,15 @@ abstract: >-
 repository-code: https://github.com/evnsnclr/neurocraft-fly-public
 url: https://github.com/evnsnclr/neurocraft-fly-public
 license: MIT
+preferred-citation:
+  type: generic
+  title: NeuroCraft Fly
+  authors:
+    - family-names: Smith
+      given-names: Evan
+  year: 2026
+  url: https://github.com/evnsnclr/neurocraft-fly-public
+  notes: Project landing page; software release is in preparation.
 keywords:
   - connectomics
   - computational neuroscience

@@ -1,0 +1,104 @@
+{
+  "schema": "neurocraft.public-demo-media.v1",
+  "recorded_date": "2026-09-05",
+  "recorded_source_commit": "87ebb97577d6db062a9506f28ce943c46fcbca35",
+  "scope": "Real Minecraft OBS footage; prepared automated trials; explicitly labeled operator-selected body-program tour; edited cuts; no generated or interpolated movement",
+  "assets": [
+    {
+      "file": "brush-demo.gif",
+      "sha256": "e920800080442061211229f9059a25c4c37a56c72d611304debaf6a5b1fa40b5",
+      "bytes": 5582040,
+      "source_export": "original-02-brush.gif",
+      "transformation": "Byte-for-byte copy of the reviewed September 5 export"
+    },
+    {
+      "file": "neurocraft-demo.mp4",
+      "sha256": "8d9d5160c0a3253e2b6249db2e9a30825e20fc6e3c17afea9abebe202d9b00d4",
+      "bytes": 26874383,
+      "source_export": "neurocraft-demo-30fps.mp4",
+      "transformation": "Byte-for-byte copy of the reviewed September 5 export"
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Approach | Original weights",
+      "start_seconds": 0.0
+    },
+    {
+      "title": "Brush | Original weights",
+      "start_seconds": 7.0
+    },
+    {
+      "title": "Attack | Original weights",
+      "start_seconds": 14.0
+    },
+    {
+      "title": "Food | Original weights",
+      "start_seconds": 20.967
+    },
+    {
+      "title": "Nearby mob | Original weights",
+      "start_seconds": 27.933
+    },
+    {
+      "title": "Light | Original weights",
+      "start_seconds": 34.9
+    },
+    {
+      "title": "Approach | Shuffled weights (seed 7)",
+      "start_seconds": 41.9
+    },
+    {
+      "title": "Brush | Shuffled weights (seed 7)",
+      "start_seconds": 48.9
+    },
+    {
+      "title": "Attack | Shuffled weights (seed 7)",
+      "start_seconds": 55.867
+    },
+    {
+      "title": "Food | Shuffled weights (seed 7)",
+      "start_seconds": 62.867
+    },
+    {
+      "title": "Nearby mob | Shuffled weights (seed 7)",
+      "start_seconds": 68.333
+    },
+    {
+      "title": "Light | Shuffled weights (seed 7)",
+      "start_seconds": 75.3
+    },
+    {
+      "title": "Approach | No sensory input",
+      "start_seconds": 79.767
+    },
+    {
+      "title": "Brush | No sensory input",
+      "start_seconds": 85.3
+    },
+    {
+      "title": "Attack | No sensory input",
+      "start_seconds": 90.833
+    },
+    {
+      "title": "Food | No sensory input",
+      "start_seconds": 96.366
+    },
+    {
+      "title": "Nearby mob | No sensory input",
+      "start_seconds": 101.833
+    },
+    {
+      "title": "Light | No sensory input",
+      "start_seconds": 107.333
+    },
+    {
+      "title": "Original weights restored | Brush",
+      "start_seconds": 114.0
+    },
+    {
+      "title": "Scripted body movement tour",
+      "start_seconds": 120.966
+    }
+  ]
+}

@@ -17,11 +17,21 @@ mappings and dynamics are modeled, and hand-chosen readouts select and modulate
 scripted body programs. This makes the connection visible and testable; it does
 not establish recovered fly physiology or natural behavior.
 
+## Demo
+
+[![Automated brush input followed by grooming, with original weights and the compact neural HUD](media/brush-demo.gif)](media/neurocraft-demo.mp4)
+
+**[Watch or download the full demo · 2:27 · 1080p / 30 FPS](https://raw.githubusercontent.com/evnsnclr/neurocraft-fly-public/main/media/neurocraft-demo.mp4)**
+
+*Real Minecraft footage. The preview shows automated brushing and grooming;
+the longer edit includes the six inputs, comparison conditions and a separately
+labeled operator tour. [Recording notes](media/README.md).*
+
 ## Release status
 
 This repository is the project's public landing page. The interactive demo has
 been implemented and recorded locally. The mod, companion source and research
-starter kit are being prepared for distribution; **downloads and runnable assets
+starter kit are being prepared for distribution; **software downloads and runnable assets
 are not available here yet**.
 
 The first release is being prepared around two entry points:
@@ -47,6 +57,24 @@ DNp01 changes about 300× the wing-pool changes, TTMn activity 35.1× its near-s
 baseline, and propagation over four neural steps. These concern their original
 configurations, not biological validation or a general control advantage. The
 release documentation will include their provenance and limits.
+
+## Cite this project
+
+Smith, E. (2026). *NeuroCraft Fly*. [Project landing page](https://github.com/evnsnclr/neurocraft-fly-public).
+
+```bibtex
+@misc{smith2026neurocraftfly,
+  author = {Smith, Evan},
+  title = {{NeuroCraft Fly}},
+  year = {2026},
+  url = {https://github.com/evnsnclr/neurocraft-fly-public},
+  note = {Project landing page; software release is in preparation}
+}
+```
+
+[Download BibTeX](CITATION.bib) or use GitHub's **Cite this repository** menu.
+This citation identifies the project landing page; the software release is being
+prepared. Please also cite the MaleCNS reconstruction below when using its data.
 
 ## Credits and license
 
