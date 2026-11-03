@@ -1,19 +1,22 @@
 cff-version: 1.2.0
 message: >-
-  If you reference NeuroCraft Fly, please cite the project landing page using
-  the preferred citation below or CITATION.bib. When using MaleCNS-derived data,
-  cite the original MaleCNS reconstruction separately.
-type: software
+  If you reference NeuroCraft Fly, cite the project landing page using the
+  preferred citation below. If you use this local software candidate, also
+  record its version and source revision. Cite the original MaleCNS
+  reconstruction separately when using its data.
 title: NeuroCraft Fly
+type: software
 authors:
   - family-names: Smith
     given-names: Evan
     website: https://github.com/evnsnclr
+version: 0.2.0-rc.5
 abstract: >-
-  Public landing page for NeuroCraft Fly, an interactive Minecraft demo with
-  modeled dynamics on a retained MaleCNS fruit-fly connectome. Engineered inputs
-  and hand-chosen readouts select scripted body programs. Software downloads and
-  a reproducible research starter kit are being prepared for distribution.
+  Local release candidate for an interactive Minecraft demo with modeled
+  dynamics on a retained MaleCNS fruit-fly connectome. Engineered inputs and
+  hand-chosen neural readouts select and modulate scripted body programs.
+  Includes a separate small-fixture research tutorial. This metadata does not
+  announce software publication or independent installation qualification.
 repository-code: https://github.com/evnsnclr/neurocraft-fly-public
 url: https://github.com/evnsnclr/neurocraft-fly-public
 license: MIT
@@ -31,3 +34,26 @@ keywords:
   - computational neuroscience
   - Minecraft
   - reproducible experiments
+references:
+  - type: article
+    title: Sexual dimorphism in the complete Drosophila male central nervous system connectome
+    authors:
+      - family-names: Berg
+        given-names: Stuart
+      - family-names: Beckett
+        given-names: Isabella R.
+      - family-names: Costa
+        given-names: Marta
+    journal: Cell
+    volume: 189
+    issue: 18
+    start: 5504
+    end: 5526
+    year: 2026
+    doi: 10.1016/j.cell.2026.08.015
+    notes: >-
+      The MaleCNS v1.0 reconstruction this project derives its network from, pages
+      5504-5526.e15. The article lists 111 authors; the first three are given here.
+      The pinned
+      acquisition manifest records the bioRxiv v2 preprint that was current at
+      acquisition, doi:10.1101/2025.10.09.680999.

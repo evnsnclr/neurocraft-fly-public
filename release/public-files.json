@@ -1,0 +1,3312 @@
+{
+  "exclusions": [
+    {
+      "path": ".git and private branch history",
+      "reason": "No Git database, bundle, branch checkout, or history export."
+    },
+    {
+      "path": "artifacts, recordings, logs, worlds, account and authentication material",
+      "reason": "Private local execution material is outside the source release."
+    },
+    {
+      "path": "data/raw, data/cache, data/processed and bulk source or runtime arrays",
+      "reason": "Users acquire verified model inputs separately; source distribution is not bulk-data permission."
+    },
+    {
+      "path": "Historical traces and unselected internal operating documents",
+      "reason": "Local telemetry and private work records remain outside the public export; immutable receipts are never rewritten."
+    },
+    {
+      "path": "Minecraft binaries and compiled distribution JARs",
+      "reason": "This is the source candidate. Minecraft is acquired separately; a production mod JAR requires separate build and artifact inspection."
+    }
+  ],
+  "files": [
+    {
+      "destination": ".env.example",
+      "source": ".env.example"
+    },
+    {
+      "source": ".gitattributes",
+      "destination": ".gitattributes"
+    },
+    {
+      "destination": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "source": ".github/ISSUE_TEMPLATE/bug_report.yml"
+    },
+    {
+      "destination": ".github/ISSUE_TEMPLATE/config.yml",
+      "source": ".github/ISSUE_TEMPLATE/config.yml"
+    },
+    {
+      "destination": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "source": ".github/ISSUE_TEMPLATE/feature_request.yml"
+    },
+    {
+      "destination": ".github/ISSUE_TEMPLATE/private_contact.yml",
+      "source": ".github/ISSUE_TEMPLATE/private_contact.yml"
+    },
+    {
+      "destination": ".github/PULL_REQUEST_TEMPLATE.md",
+      "source": ".github/PULL_REQUEST_TEMPLATE.md"
+    },
+    {
+      "destination": ".github/workflows/ci.yml",
+      "source": "release/ci.public.yml"
+    },
+    {
+      "destination": ".gitignore",
+      "source": ".gitignore"
+    },
+    {
+      "destination": ".python-version",
+      "source": ".python-version"
+    },
+    {
+      "destination": "CITATION.cff",
+      "source": "CITATION.cff"
+    },
+    {
+      "destination": "CODE_OF_CONDUCT.md",
+      "source": "CODE_OF_CONDUCT.md"
+    },
+    {
+      "destination": "CONTRIBUTING.md",
+      "source": "CONTRIBUTING.md"
+    },
+    {
+      "destination": "LICENSE",
+      "source": "LICENSE"
+    },
+    {
+      "destination": "Makefile",
+      "source": "release/Makefile.public"
+    },
+    {
+      "destination": "NOTICE",
+      "source": "NOTICE"
+    },
+    {
+      "destination": "README.md",
+      "source": "docs/public/README.md"
+    },
+    {
+      "destination": "SECURITY.md",
+      "source": "SECURITY.md"
+    },
+    {
+      "destination": "THIRD_PARTY.md",
+      "source": "THIRD_PARTY.md"
+    },
+    {
+      "destination": "apps/brain-viewer/app.js",
+      "source": "apps/brain-viewer/app.js"
+    },
+    {
+      "destination": "apps/brain-viewer/index.html",
+      "source": "apps/brain-viewer/index.html"
+    },
+    {
+      "destination": "apps/brain-viewer/layout-flight-steering-v1.json",
+      "source": "apps/brain-viewer/layout-flight-steering-v1.json"
+    },
+    {
+      "destination": "apps/brain-viewer/styles.css",
+      "source": "apps/brain-viewer/styles.css"
+    },
+    {
+      "source": "apps/companion/app.js",
+      "destination": "apps/companion/app.js"
+    },
+    {
+      "source": "apps/companion/index.html",
+      "destination": "apps/companion/index.html"
+    },
+    {
+      "source": "apps/companion/style.css",
+      "destination": "apps/companion/style.css"
+    },
+    {
+      "destination": "apps/observatory-dashboard/README.md",
+      "source": "apps/observatory-dashboard/README.md"
+    },
+    {
+      "destination": "apps/observatory-dashboard/app.js",
+      "source": "apps/observatory-dashboard/app.js"
+    },
+    {
+      "destination": "apps/observatory-dashboard/index.html",
+      "source": "apps/observatory-dashboard/index.html"
+    },
+    {
+      "destination": "apps/observatory-dashboard/styles.css",
+      "source": "apps/observatory-dashboard/styles.css"
+    },
+    {
+      "destination": "data/README.md",
+      "source": "data/README.md"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-eem-v1.json",
+      "source": "data/calibration/full-readout-calibration-eem-v1.json"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-eem-v2.json",
+      "source": "data/calibration/full-readout-calibration-eem-v2.json"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-escape-v1.json",
+      "source": "data/calibration/full-readout-calibration-escape-v1.json"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-escape-v2.json",
+      "source": "data/calibration/full-readout-calibration-escape-v2.json"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-loom-v1.json",
+      "source": "data/calibration/full-readout-calibration-loom-v1.json"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-loom-v2.json",
+      "source": "data/calibration/full-readout-calibration-loom-v2.json"
+    },
+    {
+      "destination": "data/calibration/full-readout-calibration-v1.json",
+      "source": "data/calibration/full-readout-calibration-v1.json"
+    },
+    {
+      "destination": "data/fixtures/mcns-v1.0-flight-power-v1.json",
+      "source": "data/fixtures/mcns-v1.0-flight-power-v1.json"
+    },
+    {
+      "destination": "data/fixtures/mcns-v1.0-flight-steering-v1.json",
+      "source": "data/fixtures/mcns-v1.0-flight-steering-v1.json"
+    },
+    {
+      "destination": "data/manifests/male-cns-v1.0.sources.json",
+      "source": "data/manifests/male-cns-v1.0.sources.json"
+    },
+    {
+      "destination": "data/readouts/trm-cloned-readout-v1.json",
+      "source": "data/readouts/trm-cloned-readout-v1.json"
+    },
+    {
+      "destination": "data/readouts/trm-cloned-readout-v2.json",
+      "source": "data/readouts/trm-cloned-readout-v2.json"
+    },
+    {
+      "destination": "docs/ARCHITECTURE.md",
+      "source": "docs/ARCHITECTURE.md"
+    },
+    {
+      "destination": "docs/ARCHITECTURE_2026-08-18.md",
+      "source": "docs/ARCHITECTURE_2026-08-18.md"
+    },
+    {
+      "source": "docs/public/COMPANION.md",
+      "destination": "docs/COMPANION.md"
+    },
+    {
+      "destination": "docs/CREDITS.md",
+      "source": "docs/public/CREDITS.md"
+    },
+    {
+      "destination": "docs/DATA_PROVENANCE.md",
+      "source": "docs/DATA_PROVENANCE.md"
+    },
+    {
+      "destination": "docs/EVIDENCE.md",
+      "source": "docs/EVIDENCE.md"
+    },
+    {
+      "destination": "docs/EXPERIMENTS.md",
+      "source": "docs/public/EXPERIMENTS.md"
+    },
+    {
+      "destination": "docs/FULL_GRAPH_RESOURCES.md",
+      "source": "docs/FULL_GRAPH_RESOURCES.md"
+    },
+    {
+      "destination": "docs/INSTALL.md",
+      "source": "docs/public/INSTALL.md"
+    },
+    {
+      "destination": "docs/MODEL_CARD.md",
+      "source": "docs/MODEL_CARD.md"
+    },
+    {
+      "destination": "docs/RELEASE_COMPARISONS.md",
+      "source": "docs/public/RELEASE_COMPARISONS.md"
+    },
+    {
+      "destination": "docs/RELEASE_SCOPE.md",
+      "source": "docs/public/RELEASE_SCOPE.md"
+    },
+    {
+      "destination": "docs/RESEARCH_QUICKSTART.md",
+      "source": "docs/RESEARCH_QUICKSTART.md"
+    },
+    {
+      "destination": "docs/ROADMAP.md",
+      "source": "docs/public/ROADMAP.md"
+    },
+    {
+      "destination": "docs/SCIENTIFIC_CLAIMS.md",
+      "source": "docs/SCIENTIFIC_CLAIMS.md"
+    },
+    {
+      "destination": "docs/SCIENTIFIC_CLAIMS_2026-08-18.md",
+      "source": "docs/SCIENTIFIC_CLAIMS_2026-08-18.md"
+    },
+    {
+      "destination": "docs/TROUBLESHOOTING.md",
+      "source": "docs/public/TROUBLESHOOTING.md"
+    },
+    {
+      "destination": "docs/adr/0000-research-before-implementation.md",
+      "source": "docs/adr/0000-research-before-implementation.md"
+    },
+    {
+      "destination": "docs/adr/0001-connectome-data.md",
+      "source": "docs/adr/0001-connectome-data.md"
+    },
+    {
+      "destination": "docs/adr/0002-neural-dynamics.md",
+      "source": "docs/adr/0002-neural-dynamics.md"
+    },
+    {
+      "destination": "docs/adr/0003-minecraft-and-transport.md",
+      "source": "docs/adr/0003-minecraft-and-transport.md"
+    },
+    {
+      "destination": "docs/adr/0004-causal-trace-and-replay.md",
+      "source": "docs/adr/0004-causal-trace-and-replay.md"
+    },
+    {
+      "destination": "docs/adr/0005-fixture-and-claim-gates.md",
+      "source": "docs/adr/0005-fixture-and-claim-gates.md"
+    },
+    {
+      "destination": "docs/adr/0006-reset-boundary-retirement.md",
+      "source": "docs/adr/0006-reset-boundary-retirement.md"
+    },
+    {
+      "destination": "docs/adr/0007-mutual-hmac-handshake.md",
+      "source": "docs/adr/0007-mutual-hmac-handshake.md"
+    },
+    {
+      "destination": "docs/adr/0008-engineering-frame-and-mode-taxonomy.md",
+      "source": "docs/adr/0008-engineering-frame-and-mode-taxonomy.md"
+    },
+    {
+      "destination": "docs/adr/0009-charter-right-sizing.md",
+      "source": "docs/adr/0009-charter-right-sizing.md"
+    },
+    {
+      "destination": "docs/adr/0010-cancel-recruited-expert-review-workstream.md",
+      "source": "docs/adr/0010-cancel-recruited-expert-review-workstream.md"
+    },
+    {
+      "destination": "docs/adr/0011-lateness-retirement-in-the-command-validator.md",
+      "source": "docs/adr/0011-lateness-retirement-in-the-command-validator.md"
+    },
+    {
+      "destination": "docs/adr/0012-dormancy-reanchor-in-the-command-validator.md",
+      "source": "docs/adr/0012-dormancy-reanchor-in-the-command-validator.md"
+    },
+    {
+      "destination": "docs/adr/0013-actuation-hold-grace-in-the-command-validator.md",
+      "source": "docs/adr/0013-actuation-hold-grace-in-the-command-validator.md"
+    },
+    {
+      "destination": "docs/adr/0014-symmetric-hover-actuation-envelope.md",
+      "source": "docs/adr/0014-symmetric-hover-actuation-envelope.md"
+    },
+    {
+      "destination": "docs/adr/0015-body-frame-handedness.md",
+      "source": "docs/adr/0015-body-frame-handedness.md"
+    },
+    {
+      "destination": "docs/adr/0016-motor-driven-client-animation.md",
+      "source": "docs/adr/0016-motor-driven-client-animation.md"
+    },
+    {
+      "destination": "docs/adr/0017-entity-aware-sensor-rays.md",
+      "source": "docs/adr/0017-entity-aware-sensor-rays.md"
+    },
+    {
+      "destination": "docs/adr/0018-cold-start-grace-and-target-tick-window-boundary.md",
+      "source": "docs/adr/0018-cold-start-grace-and-target-tick-window-boundary.md"
+    },
+    {
+      "destination": "docs/adr/0019-pivot-to-interactive-connectome-demo.md",
+      "source": "docs/adr/0019-pivot-to-interactive-connectome-demo.md"
+    },
+    {
+      "destination": "docs/adr/0020-body-programs.md",
+      "source": "docs/adr/0020-body-programs.md"
+    },
+    {
+      "destination": "docs/adr/0021-readout-selected-body-programs.md",
+      "source": "docs/adr/0021-readout-selected-body-programs.md"
+    },
+    {
+      "destination": "docs/adr/0022-two-tick-action-budget.md",
+      "source": "docs/adr/0022-two-tick-action-budget.md"
+    },
+    {
+      "destination": "docs/adr/0023-entity-gated-looming.md",
+      "source": "docs/adr/0023-entity-gated-looming.md"
+    },
+    {
+      "destination": "docs/adr/0024-optional-neural-display.md",
+      "source": "docs/adr/0024-optional-neural-display.md"
+    },
+    {
+      "destination": "docs/adr/0025-comparison-session-handover.md",
+      "source": "docs/adr/0025-comparison-session-handover.md"
+    },
+    {
+      "destination": "docs/adr/0026-engineered-world-events.md",
+      "source": "docs/adr/0026-engineered-world-events.md"
+    },
+    {
+      "destination": "docs/adr/0027-controlled-live-diagnostics.md",
+      "source": "docs/adr/0027-controlled-live-diagnostics.md"
+    },
+    {
+      "destination": "docs/adr/0028-observation-retention-alignment.md",
+      "source": "docs/adr/0028-observation-retention-alignment.md"
+    },
+    {
+      "destination": "docs/adr/0029-retained-operator-program-authority.md",
+      "source": "docs/adr/0029-retained-operator-program-authority.md"
+    },
+    {
+      "destination": "docs/adr/0030-same-hit-actor-metadata.md",
+      "source": "docs/adr/0030-same-hit-actor-metadata.md"
+    },
+    {
+      "destination": "docs/adr/0031-separate-interaction-inputs.md",
+      "source": "docs/adr/0031-separate-interaction-inputs.md"
+    },
+    {
+      "destination": "docs/adr/0032-six-interaction-program-policy.md",
+      "source": "docs/adr/0032-six-interaction-program-policy.md"
+    },
+    {
+      "destination": "docs/adr/0033-compact-recording-hud.md",
+      "source": "docs/adr/0033-compact-recording-hud.md"
+    },
+    {
+      "destination": "docs/adr/0034-public-local-alpha-distribution.md",
+      "source": "docs/adr/0034-public-local-alpha-distribution.md"
+    },
+    {
+      "destination": "docs/adr/0035-project-code-mit-license.md",
+      "source": "docs/adr/0035-project-code-mit-license.md"
+    },
+    {
+      "source": "docs/adr/0036-private-companion-and-native-windows.md",
+      "destination": "docs/adr/0036-private-companion-and-native-windows.md"
+    },
+    {
+      "source": "docs/compliance/COMPANION_RUNTIME_NOTICES.md",
+      "destination": "docs/compliance/COMPANION_RUNTIME_NOTICES.md"
+    },
+    {
+      "destination": "docs/compliance/JVM_THIRD_PARTY_NOTICES.md",
+      "source": "docs/compliance/JVM_THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "destination": "docs/compliance/jvm-license-overrides.json",
+      "source": "docs/compliance/jvm-license-overrides.json"
+    },
+    {
+      "destination": "docs/encoders/eem-loom-v1.md",
+      "source": "docs/encoders/eem-loom-v1.md"
+    },
+    {
+      "destination": "docs/encoders/eem-loom-v2.md",
+      "source": "docs/encoders/eem-loom-v2.md"
+    },
+    {
+      "destination": "docs/receipts/ACQ-MCNS-01.md",
+      "source": "docs/receipts/ACQ-MCNS-01.md"
+    },
+    {
+      "destination": "docs/receipts/BENCH-FIXTURE-01.json",
+      "source": "docs/receipts/BENCH-FIXTURE-01.json"
+    },
+    {
+      "destination": "docs/receipts/ESCAPE-ARC-01.json",
+      "source": "docs/receipts/ESCAPE-ARC-01.json"
+    },
+    {
+      "destination": "docs/receipts/ESCAPE-ARC-01.md",
+      "source": "docs/receipts/ESCAPE-ARC-01.md"
+    },
+    {
+      "destination": "docs/receipts/FIXTURE-MCNS-01.md",
+      "source": "docs/receipts/FIXTURE-MCNS-01.md"
+    },
+    {
+      "destination": "docs/receipts/FIXTURE-MCNS-02.md",
+      "source": "docs/receipts/FIXTURE-MCNS-02.md"
+    },
+    {
+      "destination": "docs/receipts/READOUT-CENSUS-01.md",
+      "source": "docs/receipts/READOUT-CENSUS-01.md"
+    },
+    {
+      "destination": "docs/receipts/RENDERER-CLIENT-01.json",
+      "source": "docs/receipts/RENDERER-CLIENT-01.json"
+    },
+    {
+      "destination": "docs/receipts/RUNTIME-MCNS-01.json",
+      "source": "docs/receipts/RUNTIME-MCNS-01.json"
+    },
+    {
+      "destination": "docs/receipts/RUNTIME-MCNS-01.md",
+      "source": "docs/receipts/RUNTIME-MCNS-01.md"
+    },
+    {
+      "destination": "docs/receipts/SIGN-OVERLAY-01.json",
+      "source": "docs/receipts/SIGN-OVERLAY-01.json"
+    },
+    {
+      "destination": "docs/security/jvm-advisory-exceptions.json",
+      "source": "docs/security/jvm-advisory-exceptions.json"
+    },
+    {
+      "destination": "experiments/arenas/crosswind-gap-v1.json",
+      "source": "experiments/arenas/crosswind-gap-v1.json"
+    },
+    {
+      "destination": "experiments/arenas/external-bridge-gametest-v1.json",
+      "source": "experiments/arenas/external-bridge-gametest-v1.json"
+    },
+    {
+      "destination": "experiments/arenas/light-corridor-v1.json",
+      "source": "experiments/arenas/light-corridor-v1.json"
+    },
+    {
+      "destination": "experiments/baselines/README.md",
+      "source": "experiments/baselines/README.md"
+    },
+    {
+      "destination": "experiments/preregistration/control-matrix-v1.json",
+      "source": "experiments/preregistration/control-matrix-v1.json"
+    },
+    {
+      "destination": "experiments/preregistration/control-matrix-v2.json",
+      "source": "experiments/preregistration/control-matrix-v2.json"
+    },
+    {
+      "destination": "experiments/preregistration/eem-embodied-senses-v1.md",
+      "source": "experiments/preregistration/eem-embodied-senses-v1.md"
+    },
+    {
+      "destination": "experiments/preregistration/eem-embodied-senses-v2.md",
+      "source": "experiments/preregistration/eem-embodied-senses-v2.md"
+    },
+    {
+      "destination": "experiments/preregistration/eem-escape-v1.md",
+      "source": "experiments/preregistration/eem-escape-v1.md"
+    },
+    {
+      "destination": "experiments/preregistration/eem-escape-v2.md",
+      "source": "experiments/preregistration/eem-escape-v2.md"
+    },
+    {
+      "destination": "experiments/preregistration/eem-optic-flow-lptc-v1.md",
+      "source": "experiments/preregistration/eem-optic-flow-lptc-v1.md"
+    },
+    {
+      "destination": "experiments/preregistration/fixture-physics-pilot-v1.json",
+      "source": "experiments/preregistration/fixture-physics-pilot-v1.json"
+    },
+    {
+      "destination": "experiments/preregistration/fixture-physics-pilot-v2.json",
+      "source": "experiments/preregistration/fixture-physics-pilot-v2.json"
+    },
+    {
+      "destination": "experiments/preregistration/fixture-physics-pilot-v3.json",
+      "source": "experiments/preregistration/fixture-physics-pilot-v3.json"
+    },
+    {
+      "destination": "experiments/preregistration/trm-live-demo-v1.md",
+      "source": "experiments/preregistration/trm-live-demo-v1.md"
+    },
+    {
+      "destination": "experiments/preregistration/trm-live-demo-v2.md",
+      "source": "experiments/preregistration/trm-live-demo-v2.md"
+    },
+    {
+      "destination": "experiments/preregistration/trm-structure-vs-learning-v1-frozen.json",
+      "source": "experiments/preregistration/trm-structure-vs-learning-v1-frozen.json"
+    },
+    {
+      "destination": "experiments/preregistration/trm-structure-vs-learning-v1.md",
+      "source": "experiments/preregistration/trm-structure-vs-learning-v1.md"
+    },
+    {
+      "destination": "experiments/reports/README.md",
+      "source": "experiments/reports/README.md"
+    },
+    {
+      "destination": "experiments/results/fixture-physics-pilot-v1.json",
+      "source": "experiments/results/fixture-physics-pilot-v1.json"
+    },
+    {
+      "destination": "experiments/results/fixture-physics-pilot-v2.json",
+      "source": "experiments/results/fixture-physics-pilot-v2.json"
+    },
+    {
+      "destination": "experiments/results/fixture-physics-pilot-v3.json",
+      "source": "experiments/results/fixture-physics-pilot-v3.json"
+    },
+    {
+      "destination": "experiments/results/trm-e1-v1.json",
+      "source": "experiments/results/trm-e1-v1.json"
+    },
+    {
+      "destination": "mod/.gitignore",
+      "source": "mod/.gitignore"
+    },
+    {
+      "destination": "mod/art/fly_texture.svg",
+      "source": "mod/art/fly_texture.svg"
+    },
+    {
+      "destination": "mod/build.gradle",
+      "source": "mod/build.gradle"
+    },
+    {
+      "destination": "mod/gradle.lockfile",
+      "source": "mod/gradle.lockfile"
+    },
+    {
+      "destination": "mod/gradle.properties",
+      "source": "mod/gradle.properties"
+    },
+    {
+      "destination": "mod/gradle/verification-metadata.xml",
+      "source": "mod/gradle/verification-metadata.xml"
+    },
+    {
+      "destination": "mod/gradle/wrapper/gradle-wrapper.jar",
+      "source": "mod/gradle/wrapper/gradle-wrapper.jar"
+    },
+    {
+      "destination": "mod/gradle/wrapper/gradle-wrapper.properties",
+      "source": "mod/gradle/wrapper/gradle-wrapper.properties"
+    },
+    {
+      "destination": "mod/gradlew",
+      "source": "mod/gradlew"
+    },
+    {
+      "destination": "mod/gradlew.bat",
+      "source": "mod/gradlew.bat"
+    },
+    {
+      "destination": "mod/settings.gradle",
+      "source": "mod/settings.gradle"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/EventReplayControls.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/EventReplayControls.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/EventReplayScreen.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/EventReplayScreen.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/FlyAnimation.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/FlyAnimation.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/FlyModel.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/FlyModel.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/FlyPresentationSmoother.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/FlyPresentationSmoother.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/FlyRenderState.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/FlyRenderState.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/FlyRenderer.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/FlyRenderer.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/LiveFrameCapture.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/LiveFrameCapture.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/ModelDetailsScreen.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/ModelDetailsScreen.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/NeuroCraftFlyClient.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/NeuroCraftFlyClient.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/NeuroCraftHud.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/NeuroCraftHud.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/RecordingHud.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/RecordingHud.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/client/RecordingHudControls.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/client/RecordingHudControls.java"
+    },
+    {
+      "destination": "mod/src/client/java/dev/neurocraft/fly/control/DiagnosticClientActions.java",
+      "source": "mod/src/client/java/dev/neurocraft/fly/control/DiagnosticClientActions.java"
+    },
+    {
+      "destination": "mod/src/client/resources/assets/neurocraft_fly/textures/entity/fly.png",
+      "source": "mod/src/client/resources/assets/neurocraft_fly/textures/entity/fly.png"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/client/LiveFrameCaptureClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/client/LiveFrameCaptureClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/control/DiagnosticClientActionsGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/control/DiagnosticClientActionsGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ActorSensorGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ActorSensorGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/BodyProgramGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/BodyProgramGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/BodyProgramPoseClientChecks.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/BodyProgramPoseClientChecks.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ControlEffectFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ControlEffectFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/CruiseFlightFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/CruiseFlightFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/CruiseFloorBandGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/CruiseFloorBandGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EscapeArenaFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EscapeArenaFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EscapeJumpProgramGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EscapeJumpProgramGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EscapeProfileFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EscapeProfileFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EventDisplayRuntimeFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EventDisplayRuntimeFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EventHudClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EventHudClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EventV3GameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/EventV3GameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ExternalBridgeGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ExternalBridgeGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ExternalBridgeProgramAuthorityGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ExternalBridgeProgramAuthorityGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ExternalGameTestTickPacer.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ExternalGameTestTickPacer.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FloorBandFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FloorBandFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FlyAnimationClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FlyAnimationClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FlyClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FlyClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FlyEntityGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/FlyEntityGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/GroomFeedProgramGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/GroomFeedProgramGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/HudHonestyClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/HudHonestyClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/LandFeedPhysicsGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/LandFeedPhysicsGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/MatchedTrialGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/MatchedTrialGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ObstacleObservationFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ObstacleObservationFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/OperatorCommandClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/OperatorCommandClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/OperatorProgramSwitchFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/OperatorProgramSwitchFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RayEntityFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RayEntityFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RaySideFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RaySideFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RayVerticalFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RayVerticalFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ReadoutLaneFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ReadoutLaneFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ReadoutProgramGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/ReadoutProgramGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RecordingBridgeFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RecordingBridgeFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RecordingHudClientGameTest.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/RecordingHudClientGameTest.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/TargetFlightProgramGameTests.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/TargetFlightProgramGameTests.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/TraceRecordCeiling.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/TraceRecordCeiling.java"
+    },
+    {
+      "destination": "mod/src/gametest/java/dev/neurocraft/fly/gametest/TurnBiasFence.java",
+      "source": "mod/src/gametest/java/dev/neurocraft/fly/gametest/TurnBiasFence.java"
+    },
+    {
+      "destination": "mod/src/gametest/resources/data/neurocraft_fly_gametest/gametest/structure/tall_arena.snbt",
+      "source": "mod/src/gametest/resources/data/neurocraft_fly_gametest/gametest/structure/tall_arena.snbt"
+    },
+    {
+      "destination": "mod/src/gametest/resources/fabric.mod.json",
+      "source": "mod/src/gametest/resources/fabric.mod.json"
+    },
+    {
+      "destination": "mod/src/gametest/resources/neurocraft/event-display.json",
+      "source": "mod/src/gametest/resources/neurocraft/event-display.json"
+    },
+    {
+      "destination": "mod/src/gametest/resources/neurocraft/fly-tick-baseline-main.txt",
+      "source": "mod/src/gametest/resources/neurocraft/fly-tick-baseline-main.txt"
+    },
+    {
+      "destination": "mod/src/gametest/resources/neurocraft/interaction-display-v2.json",
+      "source": "mod/src/gametest/resources/neurocraft/interaction-display-v2.json"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/FlyCommands.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/FlyCommands.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/FlyControllerRuntime.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/FlyControllerRuntime.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/NeuroCraftFly.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/NeuroCraftFly.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/StagedProgramAuthority.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/StagedProgramAuthority.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/StagedReset.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/StagedReset.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/StagedResetSlot.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/StagedResetSlot.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramChannel.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramChannel.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramContext.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramContext.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramContextSampler.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramContextSampler.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramId.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramId.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramRuntime.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramRuntime.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramState.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramState.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramStep.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/BodyProgramStep.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/Modulation.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/Modulation.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/MotorAuthority.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/MotorAuthority.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/ProgramExecution.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/ProgramExecution.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/ProgramParameters.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/ProgramParameters.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/ProgramRefusalReason.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/ProgramRefusalReason.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/ReadoutChannel.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/ReadoutChannel.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/ReadoutValues.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/ReadoutValues.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/SelectionSource.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/SelectionSource.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/ApproachProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/ApproachProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/BankProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/BankProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/CruiseProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/CruiseProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/EscapeJumpProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/EscapeJumpProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/FeedProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/FeedProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/FleeProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/FleeProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/GroomProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/GroomProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/HoverProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/HoverProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/LandProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/LandProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/body/programs/WalkProgram.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/body/programs/WalkProgram.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ActionFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ActionFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BoundedActionWindow.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BoundedActionWindow.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayClientCache.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayClientCache.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayPresentation.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayPresentation.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayReader.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayReader.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayState.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BrainDisplayState.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/BridgeConfig.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/BridgeConfig.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/CoalescingObservationSlot.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/CoalescingObservationSlot.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/CommandFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/CommandFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/CommandValidator.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/CommandValidator.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ComparisonLaneClientCache.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ComparisonLaneClientCache.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ComparisonLanePresentation.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ComparisonLanePresentation.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ComparisonLaneSession.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ComparisonLaneSession.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControlAckFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControlAckFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControlCommandFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControlCommandFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControlOperation.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControlOperation.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControlProtocol.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControlProtocol.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControlState.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControlState.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControllerBridge.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControllerBridge.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControllerFault.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControllerFault.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ControllerIdentity.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ControllerIdentity.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayClientCache.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayClientCache.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayPresentation.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayPresentation.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayReader.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayReader.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayState.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventDisplayState.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventReplayHistory.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventReplayHistory.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/EventSample.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/EventSample.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/FaultFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/FaultFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/FirstActionLatencyWindow.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/FirstActionLatencyWindow.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/HelloAck.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/HelloAck.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/InboundFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/InboundFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/LaneCatalog.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/LaneCatalog.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/NeuralBridge.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/NeuralBridge.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/NeutralBridge.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/NeutralBridge.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/PhysicalSensorSnapshot.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/PhysicalSensorSnapshot.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/PrimitiveAction.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/PrimitiveAction.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ProgramActionFrame.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ProgramActionFrame.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ProtocolException.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ProtocolException.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/RawPrimitiveAction.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/RawPrimitiveAction.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/SensorRayHit.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/SensorRayHit.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/SentObservationWindow.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/SentObservationWindow.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/StrictJson.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/StrictJson.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/control/ValidationResult.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/control/ValidationResult.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/ActuationReceipt.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/ActuationReceipt.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/BodyFrameMath.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/BodyFrameMath.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/EventAccumulator.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/EventAccumulator.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/EventNbt.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/EventNbt.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/FlyEntity.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/FlyEntity.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/FlySensors.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/FlySensors.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/FoodEventSampler.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/FoodEventSampler.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/entity/PrimitiveActuator.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/entity/PrimitiveActuator.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/presentation/FlyTrailColor.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/presentation/FlyTrailColor.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/presentation/FlyTrailPresentation.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/presentation/FlyTrailPresentation.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/trial/MatchedTrialLedger.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/trial/MatchedTrialLedger.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/trial/MatchedTrialPlan.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/trial/MatchedTrialPlan.java"
+    },
+    {
+      "destination": "mod/src/main/java/dev/neurocraft/fly/trial/MatchedTrialRunner.java",
+      "source": "mod/src/main/java/dev/neurocraft/fly/trial/MatchedTrialRunner.java"
+    },
+    {
+      "destination": "mod/src/main/resources/assets/neurocraft_fly/lang/en_us.json",
+      "source": "mod/src/main/resources/assets/neurocraft_fly/lang/en_us.json"
+    },
+    {
+      "destination": "mod/src/main/resources/fabric.mod.json",
+      "source": "mod/src/main/resources/fabric.mod.json"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/StagedProgramAuthorityTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/StagedProgramAuthorityTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/StagedResetTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/StagedResetTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/BodyPackageBoundaryTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/BodyPackageBoundaryTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/BodyProgramChannelTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/BodyProgramChannelTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/BodyProgramRuntimeReadoutTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/BodyProgramRuntimeReadoutTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/BodyTrialSeedTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/BodyTrialSeedTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/CruiseDefaultStreamTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/CruiseDefaultStreamTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/CruiseFloorBandTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/CruiseFloorBandTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/EscapeJumpReshapingTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/EscapeJumpReshapingTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/GroomFeedProgramTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/GroomFeedProgramTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/GroundProgramTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/GroundProgramTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/ReadoutChannelTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/ReadoutChannelTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/TargetFlightProgramTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/TargetFlightProgramTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/body/TurnBiasParameterTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/body/TurnBiasParameterTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/client/FlyTextureResourceTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/client/FlyTextureResourceTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/ActorObservationTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/ActorObservationTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/BoundedActionWindowTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/BoundedActionWindowTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/BrainDisplayClientCacheTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/BrainDisplayClientCacheTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/BrainDisplayTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/BrainDisplayTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/BridgeConfigIdentityTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/BridgeConfigIdentityTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/BridgeConfigTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/BridgeConfigTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/CoalescingObservationSlotTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/CoalescingObservationSlotTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/CommandValidatorTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/CommandValidatorTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/ComparisonFixtures.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/ComparisonFixtures.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/ComparisonLaneClientCacheTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/ComparisonLaneClientCacheTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/ComparisonLaneSessionTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/ComparisonLaneSessionTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/ControlProtocolTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/ControlProtocolTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/CrossLanguageGoldenTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/CrossLanguageGoldenTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/EventDisplayTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/EventDisplayTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/EventObservationTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/EventObservationTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/EventReplayHistoryTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/EventReplayHistoryTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/FirstActionLatencyWindowTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/FirstActionLatencyWindowTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/InteractionDisplayTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/InteractionDisplayTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/LaneCatalogTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/LaneCatalogTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/LifecycleLogCapture.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/LifecycleLogCapture.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/NeuralBridgeTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/NeuralBridgeTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/SensorRayHitTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/SensorRayHitTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/control/SentObservationWindowTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/control/SentObservationWindowTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/entity/BodyFrameMathTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/entity/BodyFrameMathTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/entity/EventAccumulatorTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/entity/EventAccumulatorTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/entity/EventNbtTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/entity/EventNbtTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/entity/FlyEntityArchitectureTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/entity/FlyEntityArchitectureTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/presentation/FlyTrailPresentationTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/presentation/FlyTrailPresentationTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/trial/MatchedTrialLedgerTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/trial/MatchedTrialLedgerTest.java"
+    },
+    {
+      "destination": "mod/src/test/java/dev/neurocraft/fly/trial/MatchedTrialPlanTest.java",
+      "source": "mod/src/test/java/dev/neurocraft/fly/trial/MatchedTrialPlanTest.java"
+    },
+    {
+      "destination": "mod/tools/GenerateFlyTexture.java",
+      "source": "mod/tools/GenerateFlyTexture.java"
+    },
+    {
+      "destination": "notebooks/01_meet_the_network.ipynb",
+      "source": "notebooks/01_meet_the_network.ipynb"
+    },
+    {
+      "destination": "notebooks/02_stimulate_and_observe.ipynb",
+      "source": "notebooks/02_stimulate_and_observe.ipynb"
+    },
+    {
+      "destination": "notebooks/03_change_and_compare.ipynb",
+      "source": "notebooks/03_change_and_compare.ipynb"
+    },
+    {
+      "destination": "packages/connectome-data/LICENSE",
+      "source": "packages/connectome-data/LICENSE"
+    },
+    {
+      "destination": "packages/connectome-data/pyproject.toml",
+      "source": "packages/connectome-data/pyproject.toml"
+    },
+    {
+      "destination": "packages/connectome-data/src/neurocraft_connectome/__init__.py",
+      "source": "packages/connectome-data/src/neurocraft_connectome/__init__.py"
+    },
+    {
+      "destination": "packages/connectome-data/src/neurocraft_connectome/flight_pin.py",
+      "source": "packages/connectome-data/src/neurocraft_connectome/flight_pin.py"
+    },
+    {
+      "destination": "packages/connectome-data/src/neurocraft_connectome/full_runtime.py",
+      "source": "packages/connectome-data/src/neurocraft_connectome/full_runtime.py"
+    },
+    {
+      "destination": "packages/connectome-data/src/neurocraft_connectome/loader.py",
+      "source": "packages/connectome-data/src/neurocraft_connectome/loader.py"
+    },
+    {
+      "destination": "packages/connectome-data/src/neurocraft_connectome/model.py",
+      "source": "packages/connectome-data/src/neurocraft_connectome/model.py"
+    },
+    {
+      "destination": "packages/connectome-data/src/neurocraft_connectome/py.typed",
+      "source": "packages/connectome-data/src/neurocraft_connectome/py.typed"
+    },
+    {
+      "destination": "packages/controller-runtime/LICENSE",
+      "source": "packages/controller-runtime/LICENSE"
+    },
+    {
+      "destination": "packages/controller-runtime/pyproject.toml",
+      "source": "packages/controller-runtime/pyproject.toml"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/__init__.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/__init__.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/brain_display.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/brain_display.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/config.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/config.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/controller.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/controller.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/controls.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/controls.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/embodied_senses.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/embodied_senses.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/escape_reflex.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/escape_reflex.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/event_program_policy.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/event_program_policy.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/events_senses.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/events_senses.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/features.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/features.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/flight_controller.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/flight_controller.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/flight_pools.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/flight_pools.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/full_brain_controller.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/full_brain_controller.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/interaction_program_controller.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/interaction_program_controller.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/interaction_program_policy.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/interaction_program_policy.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/interaction_senses.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/interaction_senses.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/loom_senses.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/loom_senses.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/loom_senses_v2.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/loom_senses_v2.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/named_event_evidence.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/named_event_evidence.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/named_interaction_evidence.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/named_interaction_evidence.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/program_policy.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/program_policy.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/py.typed",
+      "source": "packages/controller-runtime/src/neurocraft_controller/py.typed"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/runtime_control.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/runtime_control.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/steering_readout.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/steering_readout.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/trace.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/trace.py"
+    },
+    {
+      "destination": "packages/controller-runtime/src/neurocraft_controller/trained_readout_controller.py",
+      "source": "packages/controller-runtime/src/neurocraft_controller/trained_readout_controller.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/LICENSE",
+      "source": "packages/embodiment-runtime/LICENSE"
+    },
+    {
+      "destination": "packages/embodiment-runtime/pyproject.toml",
+      "source": "packages/embodiment-runtime/pyproject.toml"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/__init__.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/__init__.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/cli.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/cli.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/flygym_body.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/flygym_body.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/flygym_boundary.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/flygym_boundary.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/flygym_sensing.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/flygym_sensing.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/identity.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/identity.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/loop.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/loop.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/py.typed",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/py.typed"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/reference.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/reference.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/reference_sensing.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/reference_sensing.py"
+    },
+    {
+      "destination": "packages/embodiment-runtime/src/neurocraft_embodiment/seam.py",
+      "source": "packages/embodiment-runtime/src/neurocraft_embodiment/seam.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/LICENSE",
+      "source": "packages/experiment-sdk/LICENSE"
+    },
+    {
+      "destination": "packages/experiment-sdk/pyproject.toml",
+      "source": "packages/experiment-sdk/pyproject.toml"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/__init__.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/__init__.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/arena.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/arena.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/baseline.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/baseline.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/controls.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/controls.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/evaluation.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/evaluation.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/identity.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/identity.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/nulls.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/nulls.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/pilot.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/pilot.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/preregister.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/preregister.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/py.typed",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/py.typed"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/reservoir.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/reservoir.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/trm_demo_training.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/trm_demo_training.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/trm_e1.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/trm_e1.py"
+    },
+    {
+      "destination": "packages/experiment-sdk/src/neurocraft_experiments/trm_tasks.py",
+      "source": "packages/experiment-sdk/src/neurocraft_experiments/trm_tasks.py"
+    },
+    {
+      "destination": "packages/neural-runtime/LICENSE",
+      "source": "packages/neural-runtime/LICENSE"
+    },
+    {
+      "destination": "packages/neural-runtime/pyproject.toml",
+      "source": "packages/neural-runtime/pyproject.toml"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/.gitignore",
+      "source": "packages/neural-runtime/src/neurocraft_neural/.gitignore"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/__init__.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/__init__.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/_spmv.c",
+      "source": "packages/neural-runtime/src/neurocraft_neural/_spmv.c"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/adapters.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/adapters.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/engine.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/engine.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/full_controls.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/full_controls.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/full_engine.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/full_engine.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/full_records.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/full_records.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/full_signs.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/full_signs.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/full_view.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/full_view.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/model.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/model.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/py.typed",
+      "source": "packages/neural-runtime/src/neurocraft_neural/py.typed"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/spmv_kernel.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/spmv_kernel.py"
+    },
+    {
+      "destination": "packages/neural-runtime/src/neurocraft_neural/view_verification.py",
+      "source": "packages/neural-runtime/src/neurocraft_neural/view_verification.py"
+    },
+    {
+      "destination": "packages/protocol/LICENSE",
+      "source": "packages/protocol/LICENSE"
+    },
+    {
+      "destination": "packages/protocol/golden/action.json",
+      "source": "packages/protocol/golden/action.json"
+    },
+    {
+      "destination": "packages/protocol/golden/actuation_receipt.json",
+      "source": "packages/protocol/golden/actuation_receipt.json"
+    },
+    {
+      "destination": "packages/protocol/golden/actuation_receipt_rejected.json",
+      "source": "packages/protocol/golden/actuation_receipt_rejected.json"
+    },
+    {
+      "destination": "packages/protocol/golden/control_ack.json",
+      "source": "packages/protocol/golden/control_ack.json"
+    },
+    {
+      "destination": "packages/protocol/golden/control_command.json",
+      "source": "packages/protocol/golden/control_command.json"
+    },
+    {
+      "destination": "packages/protocol/golden/fault.json",
+      "source": "packages/protocol/golden/fault.json"
+    },
+    {
+      "destination": "packages/protocol/golden/hello.json",
+      "source": "packages/protocol/golden/hello.json"
+    },
+    {
+      "destination": "packages/protocol/golden/hello_ack.json",
+      "source": "packages/protocol/golden/hello_ack.json"
+    },
+    {
+      "destination": "packages/protocol/golden/interaction_display_v2.json",
+      "source": "packages/protocol/golden/interaction_display_v2.json"
+    },
+    {
+      "destination": "packages/protocol/golden/intervention_control_ack.json",
+      "source": "packages/protocol/golden/intervention_control_ack.json"
+    },
+    {
+      "destination": "packages/protocol/golden/intervention_control_command.json",
+      "source": "packages/protocol/golden/intervention_control_command.json"
+    },
+    {
+      "destination": "packages/protocol/golden/observation.json",
+      "source": "packages/protocol/golden/observation.json"
+    },
+    {
+      "destination": "packages/protocol/golden/observation_v2.json",
+      "source": "packages/protocol/golden/observation_v2.json"
+    },
+    {
+      "destination": "packages/protocol/golden/observation_v3.json",
+      "source": "packages/protocol/golden/observation_v3.json"
+    },
+    {
+      "destination": "packages/protocol/golden/observation_v4.json",
+      "source": "packages/protocol/golden/observation_v4.json"
+    },
+    {
+      "destination": "packages/protocol/golden/program_action.json",
+      "source": "packages/protocol/golden/program_action.json"
+    },
+    {
+      "destination": "packages/protocol/golden/program_receipt.json",
+      "source": "packages/protocol/golden/program_receipt.json"
+    },
+    {
+      "destination": "packages/protocol/golden/program_receipt_refused.json",
+      "source": "packages/protocol/golden/program_receipt_refused.json"
+    },
+    {
+      "destination": "packages/protocol/golden/program_receipt_refused_operator.json",
+      "source": "packages/protocol/golden/program_receipt_refused_operator.json"
+    },
+    {
+      "destination": "packages/protocol/golden/program_receipt_rejected.json",
+      "source": "packages/protocol/golden/program_receipt_rejected.json"
+    },
+    {
+      "destination": "packages/protocol/golden/reset_control_ack.json",
+      "source": "packages/protocol/golden/reset_control_ack.json"
+    },
+    {
+      "destination": "packages/protocol/pyproject.toml",
+      "source": "packages/protocol/pyproject.toml"
+    },
+    {
+      "destination": "packages/protocol/schema/protocol-v2.schema.json",
+      "source": "packages/protocol/schema/protocol-v2.schema.json"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/__init__.py",
+      "source": "packages/protocol/src/neurocraft_protocol/__init__.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/budget.py",
+      "source": "packages/protocol/src/neurocraft_protocol/budget.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/canonical.py",
+      "source": "packages/protocol/src/neurocraft_protocol/canonical.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/dispatch.py",
+      "source": "packages/protocol/src/neurocraft_protocol/dispatch.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/errors.py",
+      "source": "packages/protocol/src/neurocraft_protocol/errors.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/event_sensors.py",
+      "source": "packages/protocol/src/neurocraft_protocol/event_sensors.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/messages.py",
+      "source": "packages/protocol/src/neurocraft_protocol/messages.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/program_messages.py",
+      "source": "packages/protocol/src/neurocraft_protocol/program_messages.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/py.typed",
+      "source": "packages/protocol/src/neurocraft_protocol/py.typed"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/sensor_contract.py",
+      "source": "packages/protocol/src/neurocraft_protocol/sensor_contract.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/sequence.py",
+      "source": "packages/protocol/src/neurocraft_protocol/sequence.py"
+    },
+    {
+      "destination": "packages/protocol/src/neurocraft_protocol/trace.py",
+      "source": "packages/protocol/src/neurocraft_protocol/trace.py"
+    },
+    {
+      "destination": "pyproject.toml",
+      "source": "pyproject.toml"
+    },
+    {
+      "source": "release/companion-runtime-pins.json",
+      "destination": "release/companion-runtime-pins.json"
+    },
+    {
+      "destination": "release/public-files.json",
+      "source": "release/public-files.json"
+    },
+    {
+      "destination": "research/example-v1/README.md",
+      "source": "research/example-v1/README.md"
+    },
+    {
+      "destination": "research/example-v1/activity.csv",
+      "source": "research/example-v1/activity.csv"
+    },
+    {
+      "destination": "research/example-v1/edges.csv",
+      "source": "research/example-v1/edges.csv"
+    },
+    {
+      "destination": "research/example-v1/inputs.csv",
+      "source": "research/example-v1/inputs.csv"
+    },
+    {
+      "destination": "research/example-v1/manifest.json",
+      "source": "research/example-v1/manifest.json"
+    },
+    {
+      "destination": "research/example-v1/nodes.csv",
+      "source": "research/example-v1/nodes.csv"
+    },
+    {
+      "destination": "research/example-v1/readouts.csv",
+      "source": "research/example-v1/readouts.csv"
+    },
+    {
+      "destination": "research/example-v1/summary.json",
+      "source": "research/example-v1/summary.json"
+    },
+    {
+      "destination": "scripts/__init__.py",
+      "source": "scripts/__init__.py"
+    },
+    {
+      "destination": "scripts/acquire_malecns.py",
+      "source": "scripts/acquire_malecns.py"
+    },
+    {
+      "destination": "scripts/action_latency_telemetry.py",
+      "source": "scripts/action_latency_telemetry.py"
+    },
+    {
+      "destination": "scripts/analyze_reachability.py",
+      "source": "scripts/analyze_reachability.py"
+    },
+    {
+      "destination": "scripts/analyze_readout.py",
+      "source": "scripts/analyze_readout.py"
+    },
+    {
+      "destination": "scripts/analyze_readout_candidates.py",
+      "source": "scripts/analyze_readout_candidates.py"
+    },
+    {
+      "destination": "scripts/analyze_vision_feasibility.py",
+      "source": "scripts/analyze_vision_feasibility.py"
+    },
+    {
+      "destination": "scripts/audit_repository.py",
+      "source": "scripts/audit_repository.py"
+    },
+    {
+      "destination": "scripts/benchmark_controller.py",
+      "source": "scripts/benchmark_controller.py"
+    },
+    {
+      "destination": "scripts/benchmark_full_controller.py",
+      "source": "scripts/benchmark_full_controller.py"
+    },
+    {
+      "destination": "scripts/benchmark_full_engine.py",
+      "source": "scripts/benchmark_full_engine.py"
+    },
+    {
+      "destination": "scripts/benchmark_interaction_policy.py",
+      "source": "scripts/benchmark_interaction_policy.py"
+    },
+    {
+      "destination": "scripts/build_brain_viewer_layout.py",
+      "source": "scripts/build_brain_viewer_layout.py"
+    },
+    {
+      "source": "scripts/build_companion.py",
+      "destination": "scripts/build_companion.py"
+    },
+    {
+      "destination": "scripts/build_jvm_inventory.py",
+      "source": "scripts/build_jvm_inventory.py"
+    },
+    {
+      "destination": "scripts/build_malecns_runtime.py",
+      "source": "scripts/build_malecns_runtime.py"
+    },
+    {
+      "destination": "scripts/build_public_release.py",
+      "source": "scripts/build_public_release.py"
+    },
+    {
+      "destination": "scripts/build_spmv_kernel.py",
+      "source": "scripts/build_spmv_kernel.py"
+    },
+    {
+      "destination": "scripts/calibrate_full_readout.py",
+      "source": "scripts/calibrate_full_readout.py"
+    },
+    {
+      "source": "scripts/circuit_playground_masks.py",
+      "destination": "scripts/circuit_playground_masks.py"
+    },
+    {
+      "source": "scripts/companion_app.py",
+      "destination": "scripts/companion_app.py"
+    },
+    {
+      "source": "scripts/companion_bootstrap.py",
+      "destination": "scripts/companion_bootstrap.py"
+    },
+    {
+      "source": "scripts/companion_downloads.py",
+      "destination": "scripts/companion_downloads.py"
+    },
+    {
+      "destination": "scripts/export_capture_video.py",
+      "source": "scripts/export_capture_video.py"
+    },
+    {
+      "destination": "scripts/extract_flight_fixture.py",
+      "source": "scripts/extract_flight_fixture.py"
+    },
+    {
+      "destination": "scripts/extract_malecns_fixture.py",
+      "source": "scripts/extract_malecns_fixture.py"
+    },
+    {
+      "source": "scripts/fetch_companion_runtime.py",
+      "destination": "scripts/fetch_companion_runtime.py"
+    },
+    {
+      "destination": "scripts/fixture_harness.py",
+      "source": "scripts/fixture_harness.py"
+    },
+    {
+      "destination": "scripts/flight_fixture_circuit.py",
+      "source": "scripts/flight_fixture_circuit.py"
+    },
+    {
+      "destination": "scripts/flight_fixture_sources.py",
+      "source": "scripts/flight_fixture_sources.py"
+    },
+    {
+      "destination": "scripts/installed_mod.py",
+      "source": "scripts/installed_mod.py"
+    },
+    {
+      "destination": "scripts/measure_escape_arc.py",
+      "source": "scripts/measure_escape_arc.py"
+    },
+    {
+      "destination": "scripts/measure_full_sign_overlay.py",
+      "source": "scripts/measure_full_sign_overlay.py"
+    },
+    {
+      "destination": "scripts/measure_sign_overlay.py",
+      "source": "scripts/measure_sign_overlay.py"
+    },
+    {
+      "destination": "scripts/prepare_gametest_demo.py",
+      "source": "scripts/prepare_gametest_demo.py"
+    },
+    {
+      "destination": "scripts/probe_entity_loom.py",
+      "source": "scripts/probe_entity_loom.py"
+    },
+    {
+      "destination": "scripts/probe_event_contexts.py",
+      "source": "scripts/probe_event_contexts.py"
+    },
+    {
+      "destination": "scripts/probe_event_populations.py",
+      "source": "scripts/probe_event_populations.py"
+    },
+    {
+      "destination": "scripts/probe_full_controls.py",
+      "source": "scripts/probe_full_controls.py"
+    },
+    {
+      "destination": "scripts/probe_interaction_inputs.py",
+      "source": "scripts/probe_interaction_inputs.py"
+    },
+    {
+      "destination": "scripts/probe_light_response.py",
+      "source": "scripts/probe_light_response.py"
+    },
+    {
+      "destination": "scripts/probe_loom_encoder.py",
+      "source": "scripts/probe_loom_encoder.py"
+    },
+    {
+      "destination": "scripts/probe_program_controls.py",
+      "source": "scripts/probe_program_controls.py"
+    },
+    {
+      "destination": "scripts/probe_program_policy.py",
+      "source": "scripts/probe_program_policy.py"
+    },
+    {
+      "source": "scripts/process_lifecycle.py",
+      "destination": "scripts/process_lifecycle.py"
+    },
+    {
+      "destination": "scripts/program_decision_telemetry.py",
+      "source": "scripts/program_decision_telemetry.py"
+    },
+    {
+      "destination": "scripts/public_alpha.py",
+      "source": "scripts/public_alpha.py"
+    },
+    {
+      "destination": "scripts/reachability_graph.py",
+      "source": "scripts/reachability_graph.py"
+    },
+    {
+      "destination": "scripts/reachability_measures.py",
+      "source": "scripts/reachability_measures.py"
+    },
+    {
+      "destination": "scripts/readout_annotations.py",
+      "source": "scripts/readout_annotations.py"
+    },
+    {
+      "destination": "scripts/readout_candidates.py",
+      "source": "scripts/readout_candidates.py"
+    },
+    {
+      "destination": "scripts/readout_census.py",
+      "source": "scripts/readout_census.py"
+    },
+    {
+      "destination": "scripts/readout_connectivity.py",
+      "source": "scripts/readout_connectivity.py"
+    },
+    {
+      "source": "scripts/render_circuit_playground.py",
+      "destination": "scripts/render_circuit_playground.py"
+    },
+    {
+      "destination": "scripts/replay_minecraft_trace.py",
+      "source": "scripts/replay_minecraft_trace.py"
+    },
+    {
+      "destination": "scripts/research_example.py",
+      "source": "scripts/research_example.py"
+    },
+    {
+      "destination": "scripts/research_figures.py",
+      "source": "scripts/research_figures.py"
+    },
+    {
+      "destination": "scripts/run_ab11_java_mutants.py",
+      "source": "scripts/run_ab11_java_mutants.py"
+    },
+    {
+      "destination": "scripts/run_brain_viewer.py",
+      "source": "scripts/run_brain_viewer.py"
+    },
+    {
+      "source": "scripts/run_circuit_playground.py",
+      "destination": "scripts/run_circuit_playground.py"
+    },
+    {
+      "destination": "scripts/run_connectome_service.py",
+      "source": "scripts/run_connectome_service.py"
+    },
+    {
+      "destination": "scripts/run_external_gametest.py",
+      "source": "scripts/run_external_gametest.py"
+    },
+    {
+      "destination": "scripts/run_fixture_experiment.py",
+      "source": "scripts/run_fixture_experiment.py"
+    },
+    {
+      "destination": "scripts/run_flygym_embodiment.py",
+      "source": "scripts/run_flygym_embodiment.py"
+    },
+    {
+      "destination": "scripts/run_gauntlet_demo.py",
+      "source": "scripts/run_gauntlet_demo.py"
+    },
+    {
+      "destination": "scripts/run_interaction_trials.py",
+      "source": "scripts/run_interaction_trials.py"
+    },
+    {
+      "destination": "scripts/run_interactive_demo.py",
+      "source": "scripts/run_interactive_demo.py"
+    },
+    {
+      "destination": "scripts/run_program_authority_gametest.py",
+      "source": "scripts/run_program_authority_gametest.py"
+    },
+    {
+      "destination": "scripts/run_release_comparisons.py",
+      "source": "scripts/run_release_comparisons.py"
+    },
+    {
+      "destination": "scripts/run_research_notebooks.py",
+      "source": "scripts/run_research_notebooks.py"
+    },
+    {
+      "destination": "scripts/run_trm_e1.py",
+      "source": "scripts/run_trm_e1.py"
+    },
+    {
+      "destination": "scripts/scan_jvm_advisories.py",
+      "source": "scripts/scan_jvm_advisories.py"
+    },
+    {
+      "destination": "scripts/showcase_world.py",
+      "source": "scripts/showcase_world.py"
+    },
+    {
+      "destination": "scripts/summarize_comparison_session.py",
+      "source": "scripts/summarize_comparison_session.py"
+    },
+    {
+      "destination": "scripts/summarize_interactive_session.py",
+      "source": "scripts/summarize_interactive_session.py"
+    },
+    {
+      "destination": "scripts/summarize_matched_trials.py",
+      "source": "scripts/summarize_matched_trials.py"
+    },
+    {
+      "source": "scripts/verify_circuit_playground.py",
+      "destination": "scripts/verify_circuit_playground.py"
+    },
+    {
+      "destination": "scripts/verify_fixture_pilot_snapshot.py",
+      "source": "scripts/verify_fixture_pilot_snapshot.py"
+    },
+    {
+      "destination": "scripts/verify_paused_window.py",
+      "source": "scripts/verify_paused_window.py"
+    },
+    {
+      "destination": "scripts/vision_circuits.py",
+      "source": "scripts/vision_circuits.py"
+    },
+    {
+      "destination": "scripts/vision_columns.py",
+      "source": "scripts/vision_columns.py"
+    },
+    {
+      "destination": "scripts/vision_report.py",
+      "source": "scripts/vision_report.py"
+    },
+    {
+      "destination": "services/neural-engine/LICENSE",
+      "source": "services/neural-engine/LICENSE"
+    },
+    {
+      "destination": "services/neural-engine/README.md",
+      "source": "services/neural-engine/README.md"
+    },
+    {
+      "destination": "services/neural-engine/pyproject.toml",
+      "source": "services/neural-engine/pyproject.toml"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/__init__.py",
+      "source": "services/neural-engine/src/neurocraft_service/__init__.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/__main__.py",
+      "source": "services/neural-engine/src/neurocraft_service/__main__.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/cli.py",
+      "source": "services/neural-engine/src/neurocraft_service/cli.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/controller.py",
+      "source": "services/neural-engine/src/neurocraft_service/controller.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/lane_sessions.py",
+      "source": "services/neural-engine/src/neurocraft_service/lane_sessions.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/py.typed",
+      "source": "services/neural-engine/src/neurocraft_service/py.typed"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/queues.py",
+      "source": "services/neural-engine/src/neurocraft_service/queues.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/server.py",
+      "source": "services/neural-engine/src/neurocraft_service/server.py"
+    },
+    {
+      "destination": "services/neural-engine/src/neurocraft_service/session_telemetry.py",
+      "source": "services/neural-engine/src/neurocraft_service/session_telemetry.py"
+    },
+    {
+      "destination": "tests/ab11/__init__.py",
+      "source": "tests/ab11/__init__.py"
+    },
+    {
+      "destination": "tests/ab11/acceptance.py",
+      "source": "tests/ab11/acceptance.py"
+    },
+    {
+      "destination": "tests/ab11/conftest.py",
+      "source": "tests/ab11/conftest.py"
+    },
+    {
+      "destination": "tests/ab11/mutants.py",
+      "source": "tests/ab11/mutants.py"
+    },
+    {
+      "destination": "tests/ab11/test_ab11_controller_bypass.py",
+      "source": "tests/ab11/test_ab11_controller_bypass.py"
+    },
+    {
+      "destination": "tests/ab11/test_ab11_graph_substitution.py",
+      "source": "tests/ab11/test_ab11_graph_substitution.py"
+    },
+    {
+      "destination": "tests/ab11/test_ab11_mutation_power.py",
+      "source": "tests/ab11/test_ab11_mutation_power.py"
+    },
+    {
+      "destination": "tests/analysis/test_analyze_reachability.py",
+      "source": "tests/analysis/test_analyze_reachability.py"
+    },
+    {
+      "destination": "tests/analysis/test_analyze_readout.py",
+      "source": "tests/analysis/test_analyze_readout.py"
+    },
+    {
+      "destination": "tests/analysis/test_analyze_vision_feasibility.py",
+      "source": "tests/analysis/test_analyze_vision_feasibility.py"
+    },
+    {
+      "destination": "tests/analysis/test_measure_sign_overlay.py",
+      "source": "tests/analysis/test_measure_sign_overlay.py"
+    },
+    {
+      "destination": "tests/analysis/test_readout_candidates.py",
+      "source": "tests/analysis/test_readout_candidates.py"
+    },
+    {
+      "destination": "tests/compliance/test_build_jvm_inventory.py",
+      "source": "tests/compliance/test_build_jvm_inventory.py"
+    },
+    {
+      "destination": "tests/connectome/test_fixture_loader.py",
+      "source": "tests/connectome/test_fixture_loader.py"
+    },
+    {
+      "destination": "tests/connectome/test_flight_fixture.py",
+      "source": "tests/connectome/test_flight_fixture.py"
+    },
+    {
+      "destination": "tests/connectome/test_full_runtime_binding.py",
+      "source": "tests/connectome/test_full_runtime_binding.py"
+    },
+    {
+      "destination": "tests/connectome/test_synthetic_canonicalization.py",
+      "source": "tests/connectome/test_synthetic_canonicalization.py"
+    },
+    {
+      "destination": "tests/controller/__init__.py",
+      "source": "tests/controller/__init__.py"
+    },
+    {
+      "destination": "tests/controller/conftest.py",
+      "source": "tests/controller/conftest.py"
+    },
+    {
+      "destination": "tests/controller/event_candidate_probe.py",
+      "source": "tests/controller/event_candidate_probe.py"
+    },
+    {
+      "destination": "tests/controller/event_thread_probe.py",
+      "source": "tests/controller/event_thread_probe.py"
+    },
+    {
+      "destination": "tests/controller/test_action_latency_telemetry.py",
+      "source": "tests/controller/test_action_latency_telemetry.py"
+    },
+    {
+      "destination": "tests/controller/test_benchmark_script.py",
+      "source": "tests/controller/test_benchmark_script.py"
+    },
+    {
+      "destination": "tests/controller/test_binding_hash_cache.py",
+      "source": "tests/controller/test_binding_hash_cache.py"
+    },
+    {
+      "destination": "tests/controller/test_brain_display.py",
+      "source": "tests/controller/test_brain_display.py"
+    },
+    {
+      "destination": "tests/controller/test_causal_controller.py",
+      "source": "tests/controller/test_causal_controller.py"
+    },
+    {
+      "destination": "tests/controller/test_causal_trace_factory.py",
+      "source": "tests/controller/test_causal_trace_factory.py"
+    },
+    {
+      "destination": "tests/controller/test_controls.py",
+      "source": "tests/controller/test_controls.py"
+    },
+    {
+      "destination": "tests/controller/test_embodied_senses.py",
+      "source": "tests/controller/test_embodied_senses.py"
+    },
+    {
+      "destination": "tests/controller/test_embodied_senses_v2.py",
+      "source": "tests/controller/test_embodied_senses_v2.py"
+    },
+    {
+      "destination": "tests/controller/test_escape_reflex.py",
+      "source": "tests/controller/test_escape_reflex.py"
+    },
+    {
+      "destination": "tests/controller/test_escape_reflex_v2.py",
+      "source": "tests/controller/test_escape_reflex_v2.py"
+    },
+    {
+      "destination": "tests/controller/test_event_program_policy.py",
+      "source": "tests/controller/test_event_program_policy.py"
+    },
+    {
+      "destination": "tests/controller/test_events_senses.py",
+      "source": "tests/controller/test_events_senses.py"
+    },
+    {
+      "destination": "tests/controller/test_features.py",
+      "source": "tests/controller/test_features.py"
+    },
+    {
+      "destination": "tests/controller/test_flight_controller.py",
+      "source": "tests/controller/test_flight_controller.py"
+    },
+    {
+      "destination": "tests/controller/test_flight_pools.py",
+      "source": "tests/controller/test_flight_pools.py"
+    },
+    {
+      "destination": "tests/controller/test_full_brain_controller.py",
+      "source": "tests/controller/test_full_brain_controller.py"
+    },
+    {
+      "destination": "tests/controller/test_full_controller_controls.py",
+      "source": "tests/controller/test_full_controller_controls.py"
+    },
+    {
+      "destination": "tests/controller/test_interaction_program_controller.py",
+      "source": "tests/controller/test_interaction_program_controller.py"
+    },
+    {
+      "destination": "tests/controller/test_interaction_program_policy.py",
+      "source": "tests/controller/test_interaction_program_policy.py"
+    },
+    {
+      "destination": "tests/controller/test_interaction_senses.py",
+      "source": "tests/controller/test_interaction_senses.py"
+    },
+    {
+      "destination": "tests/controller/test_loom_senses.py",
+      "source": "tests/controller/test_loom_senses.py"
+    },
+    {
+      "destination": "tests/controller/test_loom_senses_v2.py",
+      "source": "tests/controller/test_loom_senses_v2.py"
+    },
+    {
+      "destination": "tests/controller/test_presentation_telemetry.py",
+      "source": "tests/controller/test_presentation_telemetry.py"
+    },
+    {
+      "destination": "tests/controller/test_program_decision_telemetry.py",
+      "source": "tests/controller/test_program_decision_telemetry.py"
+    },
+    {
+      "destination": "tests/controller/test_program_policy.py",
+      "source": "tests/controller/test_program_policy.py"
+    },
+    {
+      "destination": "tests/controller/test_policy_steering_configuration.py",
+      "source": "tests/controller/test_policy_steering_configuration.py"
+    },
+    {
+      "destination": "tests/controller/test_receipt_trace.py",
+      "source": "tests/controller/test_receipt_trace.py"
+    },
+    {
+      "destination": "tests/controller/test_service_entrypoint.py",
+      "source": "tests/controller/test_service_entrypoint.py"
+    },
+    {
+      "destination": "tests/controller/test_steering_readout.py",
+      "source": "tests/controller/test_steering_readout.py"
+    },
+    {
+      "destination": "tests/controller/test_trained_readout_controller.py",
+      "source": "tests/controller/test_trained_readout_controller.py"
+    },
+    {
+      "destination": "tests/data/test_acquire_malecns.py",
+      "source": "tests/data/test_acquire_malecns.py"
+    },
+    {
+      "destination": "tests/data/test_build_malecns_runtime.py",
+      "source": "tests/data/test_build_malecns_runtime.py"
+    },
+    {
+      "destination": "tests/data/test_extract_malecns_fixture.py",
+      "source": "tests/data/test_extract_malecns_fixture.py"
+    },
+    {
+      "destination": "tests/embodiment/__init__.py",
+      "source": "tests/embodiment/__init__.py"
+    },
+    {
+      "destination": "tests/embodiment/conftest.py",
+      "source": "tests/embodiment/conftest.py"
+    },
+    {
+      "destination": "tests/embodiment/test_arena_envelope.py",
+      "source": "tests/embodiment/test_arena_envelope.py"
+    },
+    {
+      "destination": "tests/embodiment/test_arena_parameters.py",
+      "source": "tests/embodiment/test_arena_parameters.py"
+    },
+    {
+      "destination": "tests/embodiment/test_budget_isolation.py",
+      "source": "tests/embodiment/test_budget_isolation.py"
+    },
+    {
+      "destination": "tests/embodiment/test_embodiment_trace.py",
+      "source": "tests/embodiment/test_embodiment_trace.py"
+    },
+    {
+      "destination": "tests/embodiment/test_flygym_body.py",
+      "source": "tests/embodiment/test_flygym_body.py"
+    },
+    {
+      "destination": "tests/embodiment/test_flygym_boundary.py",
+      "source": "tests/embodiment/test_flygym_boundary.py"
+    },
+    {
+      "destination": "tests/embodiment/test_flygym_install_pin.py",
+      "source": "tests/embodiment/test_flygym_install_pin.py"
+    },
+    {
+      "destination": "tests/embodiment/test_flygym_slot_sourcing.py",
+      "source": "tests/embodiment/test_flygym_slot_sourcing.py"
+    },
+    {
+      "destination": "tests/embodiment/test_identity.py",
+      "source": "tests/embodiment/test_identity.py"
+    },
+    {
+      "destination": "tests/embodiment/test_purity.py",
+      "source": "tests/embodiment/test_purity.py"
+    },
+    {
+      "destination": "tests/embodiment/test_reference_embodiment.py",
+      "source": "tests/embodiment/test_reference_embodiment.py"
+    },
+    {
+      "destination": "tests/embodiment/test_replay_failures.py",
+      "source": "tests/embodiment/test_replay_failures.py"
+    },
+    {
+      "destination": "tests/embodiment/test_seam_channels.py",
+      "source": "tests/embodiment/test_seam_channels.py"
+    },
+    {
+      "destination": "tests/experiments/test_arena_baseline_plan.py",
+      "source": "tests/experiments/test_arena_baseline_plan.py"
+    },
+    {
+      "destination": "tests/experiments/test_controls.py",
+      "source": "tests/experiments/test_controls.py"
+    },
+    {
+      "destination": "tests/experiments/test_evaluation.py",
+      "source": "tests/experiments/test_evaluation.py"
+    },
+    {
+      "destination": "tests/experiments/test_fixture_pilot.py",
+      "source": "tests/experiments/test_fixture_pilot.py"
+    },
+    {
+      "destination": "tests/experiments/test_identity.py",
+      "source": "tests/experiments/test_identity.py"
+    },
+    {
+      "destination": "tests/experiments/test_nulls.py",
+      "source": "tests/experiments/test_nulls.py"
+    },
+    {
+      "destination": "tests/experiments/test_pilot_handedness.py",
+      "source": "tests/experiments/test_pilot_handedness.py"
+    },
+    {
+      "destination": "tests/experiments/test_research_example.py",
+      "source": "tests/experiments/test_research_example.py"
+    },
+    {
+      "destination": "tests/experiments/test_reservoir.py",
+      "source": "tests/experiments/test_reservoir.py"
+    },
+    {
+      "destination": "tests/experiments/test_trm_demo_training.py",
+      "source": "tests/experiments/test_trm_demo_training.py"
+    },
+    {
+      "destination": "tests/experiments/test_trm_e1.py",
+      "source": "tests/experiments/test_trm_e1.py"
+    },
+    {
+      "destination": "tests/experiments/test_trm_tasks.py",
+      "source": "tests/experiments/test_trm_tasks.py"
+    },
+    {
+      "destination": "tests/experiments/test_verify_fixture_pilot_snapshot.py",
+      "source": "tests/experiments/test_verify_fixture_pilot_snapshot.py"
+    },
+    {
+      "destination": "tests/full_backend/__init__.py",
+      "source": "tests/full_backend/__init__.py"
+    },
+    {
+      "destination": "tests/full_backend/helpers.py",
+      "source": "tests/full_backend/helpers.py"
+    },
+    {
+      "source": "tests/full_backend/test_build_spmv_kernel.py",
+      "destination": "tests/full_backend/test_build_spmv_kernel.py"
+    },
+    {
+      "destination": "tests/full_backend/test_full_controls.py",
+      "source": "tests/full_backend/test_full_controls.py"
+    },
+    {
+      "destination": "tests/full_backend/test_full_engine.py",
+      "source": "tests/full_backend/test_full_engine.py"
+    },
+    {
+      "destination": "tests/full_backend/test_full_engine_transactions.py",
+      "source": "tests/full_backend/test_full_engine_transactions.py"
+    },
+    {
+      "destination": "tests/full_backend/test_full_view.py",
+      "source": "tests/full_backend/test_full_view.py"
+    },
+    {
+      "destination": "tests/full_backend/test_index_containment.py",
+      "source": "tests/full_backend/test_index_containment.py"
+    },
+    {
+      "destination": "tests/full_backend/test_real_artifact.py",
+      "source": "tests/full_backend/test_real_artifact.py"
+    },
+    {
+      "destination": "tests/full_backend/test_spmv_kernel.py",
+      "source": "tests/full_backend/test_spmv_kernel.py"
+    },
+    {
+      "destination": "tests/full_backend/test_view_verification.py",
+      "source": "tests/full_backend/test_view_verification.py"
+    },
+    {
+      "destination": "tests/governance/test_ab11_boundary.py",
+      "source": "tests/governance/test_ab11_boundary.py"
+    },
+    {
+      "destination": "tests/governance/test_audit_repository.py",
+      "source": "tests/governance/test_audit_repository.py"
+    },
+    {
+      "destination": "tests/governance/test_renderer_observation_marker.py",
+      "source": "tests/governance/test_renderer_observation_marker.py"
+    },
+    {
+      "destination": "tests/integration/__init__.py",
+      "source": "tests/integration/__init__.py"
+    },
+    {
+      "destination": "tests/integration/test_brain_viewer.py",
+      "source": "tests/integration/test_brain_viewer.py"
+    },
+    {
+      "source": "tests/integration/test_build_companion.py",
+      "destination": "tests/integration/test_build_companion.py"
+    },
+    {
+      "destination": "tests/integration/test_capture_video.py",
+      "source": "tests/integration/test_capture_video.py"
+    },
+    {
+      "source": "tests/integration/test_circuit_playground.py",
+      "destination": "tests/integration/test_circuit_playground.py"
+    },
+    {
+      "source": "tests/integration/test_circuit_playground_masks.py",
+      "destination": "tests/integration/test_circuit_playground_masks.py"
+    },
+    {
+      "source": "tests/integration/test_companion_app.py",
+      "destination": "tests/integration/test_companion_app.py"
+    },
+    {
+      "source": "tests/integration/test_companion_downloads.py",
+      "destination": "tests/integration/test_companion_downloads.py"
+    },
+    {
+      "destination": "tests/integration/test_comparison_summary.py",
+      "source": "tests/integration/test_comparison_summary.py"
+    },
+    {
+      "destination": "tests/integration/test_diagnostic_console.py",
+      "source": "tests/integration/test_diagnostic_console.py"
+    },
+    {
+      "destination": "tests/integration/test_event_contexts.py",
+      "source": "tests/integration/test_event_contexts.py"
+    },
+    {
+      "destination": "tests/integration/test_event_populations.py",
+      "source": "tests/integration/test_event_populations.py"
+    },
+    {
+      "destination": "tests/integration/test_fixture_service_loop.py",
+      "source": "tests/integration/test_fixture_service_loop.py"
+    },
+    {
+      "destination": "tests/integration/test_fixture_trace_replay.py",
+      "source": "tests/integration/test_fixture_trace_replay.py"
+    },
+    {
+      "destination": "tests/integration/test_gauntlet_demo.py",
+      "source": "tests/integration/test_gauntlet_demo.py"
+    },
+    {
+      "destination": "tests/integration/test_installed_mod.py",
+      "source": "tests/integration/test_installed_mod.py"
+    },
+    {
+      "destination": "tests/integration/test_interaction_input_probe.py",
+      "source": "tests/integration/test_interaction_input_probe.py"
+    },
+    {
+      "destination": "tests/integration/test_interaction_policy_benchmark.py",
+      "source": "tests/integration/test_interaction_policy_benchmark.py"
+    },
+    {
+      "destination": "tests/integration/test_interaction_trials.py",
+      "source": "tests/integration/test_interaction_trials.py"
+    },
+    {
+      "destination": "tests/integration/test_interactive_demo.py",
+      "source": "tests/integration/test_interactive_demo.py"
+    },
+    {
+      "destination": "tests/integration/test_interactive_lifecycle.py",
+      "source": "tests/integration/test_interactive_lifecycle.py"
+    },
+    {
+      "destination": "tests/integration/test_light_response_probe.py",
+      "source": "tests/integration/test_light_response_probe.py"
+    },
+    {
+      "destination": "tests/integration/test_matched_summary.py",
+      "source": "tests/integration/test_matched_summary.py"
+    },
+    {
+      "destination": "tests/integration/test_prepare_gametest_demo.py",
+      "source": "tests/integration/test_prepare_gametest_demo.py"
+    },
+    {
+      "source": "tests/integration/test_process_lifecycle.py",
+      "destination": "tests/integration/test_process_lifecycle.py"
+    },
+    {
+      "destination": "tests/integration/test_program_authority_gametest.py",
+      "source": "tests/integration/test_program_authority_gametest.py"
+    },
+    {
+      "destination": "tests/integration/test_public_alpha.py",
+      "source": "tests/integration/test_public_alpha.py"
+    },
+    {
+      "destination": "tests/integration/test_release_comparisons.py",
+      "source": "tests/integration/test_release_comparisons.py"
+    },
+    {
+      "source": "tests/integration/test_render_circuit_playground.py",
+      "destination": "tests/integration/test_render_circuit_playground.py"
+    },
+    {
+      "destination": "tests/integration/test_replay_minecraft_trace.py",
+      "source": "tests/integration/test_replay_minecraft_trace.py"
+    },
+    {
+      "destination": "tests/integration/test_run_external_gametest.py",
+      "source": "tests/integration/test_run_external_gametest.py"
+    },
+    {
+      "destination": "tests/integration/test_session_summary.py",
+      "source": "tests/integration/test_session_summary.py"
+    },
+    {
+      "destination": "tests/integration/test_showcase_world.py",
+      "source": "tests/integration/test_showcase_world.py"
+    },
+    {
+      "source": "tests/integration/test_verify_circuit_playground.py",
+      "destination": "tests/integration/test_verify_circuit_playground.py"
+    },
+    {
+      "destination": "tests/neural/conftest.py",
+      "source": "tests/neural/conftest.py"
+    },
+    {
+      "destination": "tests/neural/test_adapters_and_bypass.py",
+      "source": "tests/neural/test_adapters_and_bypass.py"
+    },
+    {
+      "destination": "tests/neural/test_equations.py",
+      "source": "tests/neural/test_equations.py"
+    },
+    {
+      "destination": "tests/neural/test_full_signs.py",
+      "source": "tests/neural/test_full_signs.py"
+    },
+    {
+      "destination": "tests/neural/test_runtime_controls.py",
+      "source": "tests/neural/test_runtime_controls.py"
+    },
+    {
+      "destination": "tests/neural/test_state_replay_and_provenance.py",
+      "source": "tests/neural/test_state_replay_and_provenance.py"
+    },
+    {
+      "destination": "tests/protocol/__init__.py",
+      "source": "tests/protocol/__init__.py"
+    },
+    {
+      "destination": "tests/protocol/helpers.py",
+      "source": "tests/protocol/helpers.py"
+    },
+    {
+      "destination": "tests/protocol/test_actor_sensor_contract.py",
+      "source": "tests/protocol/test_actor_sensor_contract.py"
+    },
+    {
+      "destination": "tests/protocol/test_event_sensor_contract.py",
+      "source": "tests/protocol/test_event_sensor_contract.py"
+    },
+    {
+      "destination": "tests/protocol/test_messages.py",
+      "source": "tests/protocol/test_messages.py"
+    },
+    {
+      "destination": "tests/protocol/test_module_boundaries.py",
+      "source": "tests/protocol/test_module_boundaries.py"
+    },
+    {
+      "destination": "tests/protocol/test_program_messages.py",
+      "source": "tests/protocol/test_program_messages.py"
+    },
+    {
+      "destination": "tests/protocol/test_program_vocabulary.py",
+      "source": "tests/protocol/test_program_vocabulary.py"
+    },
+    {
+      "destination": "tests/protocol/test_sensor_contract_v2.py",
+      "source": "tests/protocol/test_sensor_contract_v2.py"
+    },
+    {
+      "destination": "tests/protocol/test_sequence.py",
+      "source": "tests/protocol/test_sequence.py"
+    },
+    {
+      "destination": "tests/protocol/test_trace.py",
+      "source": "tests/protocol/test_trace.py"
+    },
+    {
+      "destination": "tests/release/test_public_export.py",
+      "source": "tests/release/test_public_export.py"
+    },
+    {
+      "destination": "tests/research/test_notebook_runner.py",
+      "source": "tests/research/test_notebook_runner.py"
+    },
+    {
+      "destination": "tests/security/test_scan_jvm_advisories.py",
+      "source": "tests/security/test_scan_jvm_advisories.py"
+    },
+    {
+      "destination": "tests/service/__init__.py",
+      "source": "tests/service/__init__.py"
+    },
+    {
+      "destination": "tests/service/test_comparison_cli.py",
+      "source": "tests/service/test_comparison_cli.py"
+    },
+    {
+      "destination": "tests/service/test_dashboard.py",
+      "source": "tests/service/test_dashboard.py"
+    },
+    {
+      "destination": "tests/service/test_deblinding.py",
+      "source": "tests/service/test_deblinding.py"
+    },
+    {
+      "destination": "tests/service/test_display_observer.py",
+      "source": "tests/service/test_display_observer.py"
+    },
+    {
+      "destination": "tests/service/test_event_display.py",
+      "source": "tests/service/test_event_display.py"
+    },
+    {
+      "destination": "tests/service/test_interaction_profile.py",
+      "source": "tests/service/test_interaction_profile.py"
+    },
+    {
+      "destination": "tests/service/test_lane_sessions.py",
+      "source": "tests/service/test_lane_sessions.py"
+    },
+    {
+      "destination": "tests/service/test_paused_window_telemetry.py",
+      "source": "tests/service/test_paused_window_telemetry.py"
+    },
+    {
+      "destination": "tests/service/test_sensor_contract_v2.py",
+      "source": "tests/service/test_sensor_contract_v2.py"
+    },
+    {
+      "destination": "tests/service/test_service.py",
+      "source": "tests/service/test_service.py"
+    },
+    {
+      "destination": "tests/service/test_session_telemetry.py",
+      "source": "tests/service/test_session_telemetry.py"
+    },
+    {
+      "destination": "tests/service/test_verify_paused_window.py",
+      "source": "tests/service/test_verify_paused_window.py"
+    },
+    {
+      "destination": "uv.lock",
+      "source": "uv.lock"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/PYTHON.json",
+      "destination": "release/runtime-legal/linux-x86_64/PYTHON.json"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.bdb.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.bdb.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.bzip2.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.bzip2.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.cpython.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.cpython.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.expat.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.expat.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libX11.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libX11.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libXau.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libXau.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libedit.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libedit.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libffi.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libffi.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.liblzma.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.liblzma.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libuuid.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libuuid.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libxcb.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.libxcb.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.mpdecimal.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.mpdecimal.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.ncurses.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.ncurses.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.openssl-3.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.openssl-3.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.sqlite.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.sqlite.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.tcl.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.tcl.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.zlib-ng.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.zlib-ng.txt"
+    },
+    {
+      "source": "release/runtime-legal/linux-x86_64/licenses/LICENSE.zlib.txt",
+      "destination": "release/runtime-legal/linux-x86_64/licenses/LICENSE.zlib.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/PYTHON.json",
+      "destination": "release/runtime-legal/macos-arm64/PYTHON.json"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.bzip2.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.bzip2.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.cpython.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.cpython.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.expat.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.expat.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.libedit.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.libedit.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.libffi.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.libffi.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.liblzma.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.liblzma.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.libuuid.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.libuuid.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.mpdecimal.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.mpdecimal.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.ncurses.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.ncurses.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.openssl-3.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.openssl-3.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.sqlite.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.sqlite.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.tcl.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.tcl.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.zlib-ng.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.zlib-ng.txt"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/licenses/LICENSE.zlib.txt",
+      "destination": "release/runtime-legal/macos-arm64/licenses/LICENSE.zlib.txt"
+    },
+    {
+      "source": "release/runtime-legal/manifest.json",
+      "destination": "release/runtime-legal/manifest.json"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/PYTHON.json",
+      "destination": "release/runtime-legal/windows-x86_64/PYTHON.json"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.bzip2.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.bzip2.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.cpython.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.cpython.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.libffi.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.libffi.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.liblzma.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.liblzma.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.libuuid.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.libuuid.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.openssl-3.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.openssl-3.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.sqlite.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.sqlite.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.tcl.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.tcl.txt"
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/licenses/LICENSE.tix.txt",
+      "destination": "release/runtime-legal/windows-x86_64/licenses/LICENSE.tix.txt"
+    },
+    {
+      "source": "docs/security/JVM_TRIAGE_2026-10-24.md",
+      "destination": "docs/security/JVM_TRIAGE_2026-10-24.md"
+    },
+    {
+      "source": "tests/integration/companion_ui.test.cjs",
+      "destination": "tests/integration/companion_ui.test.cjs"
+    },
+    {
+      "source": "docs/security/RUNTIME_ASSESSMENT_2026-10-30.md",
+      "destination": "docs/security/RUNTIME_ASSESSMENT_2026-10-30.md"
+    },
+    {
+      "source": "docs/security/JVM_TRIAGE_2026-10-30.md",
+      "destination": "docs/security/JVM_TRIAGE_2026-10-30.md"
+    },
+    {
+      "source": "docs/adr/0037-patched-companion-dependencies.md",
+      "destination": "docs/adr/0037-patched-companion-dependencies.md"
+    },
+    {
+      "destination": "docs/adr/0038-trained-readout-result-scope.md",
+      "source": "docs/adr/0038-trained-readout-result-scope.md"
+    },
+    {
+      "source": "docs/compliance/SQLITE_RUNTIME.md",
+      "destination": "docs/compliance/SQLITE_RUNTIME.md"
+    },
+    {
+      "source": "mod/src/main/java/dev/neurocraft/fly/RuntimeLibraries.java",
+      "destination": "mod/src/main/java/dev/neurocraft/fly/RuntimeLibraries.java"
+    },
+    {
+      "source": "mod/src/test/java/dev/neurocraft/fly/RuntimeLibrariesTest.java",
+      "destination": "mod/src/test/java/dev/neurocraft/fly/RuntimeLibrariesTest.java"
+    },
+    {
+      "source": "release/java-runtime-pins.json",
+      "destination": "release/java-runtime-pins.json"
+    },
+    {
+      "source": "release/sqlite-runtime.json",
+      "destination": "release/sqlite-runtime.json"
+    },
+    {
+      "source": "scripts/build_sqlite_runtime.py",
+      "destination": "scripts/build_sqlite_runtime.py"
+    },
+    {
+      "source": "scripts/java_runtime.py",
+      "destination": "scripts/java_runtime.py"
+    },
+    {
+      "source": "tests/integration/test_java_runtime.py",
+      "destination": "tests/integration/test_java_runtime.py"
+    },
+    {
+      "source": "tests/integration/test_sqlite_runtime.py",
+      "destination": "tests/integration/test_sqlite_runtime.py"
+    }
+  ],
+  "historical_link_exceptions": [
+    {
+      "missing_destinations": [
+        "docs/receipts/EXTERNAL-BRIDGE-01.md",
+        "docs/receipts/EXTERNAL-BRIDGE-02.md",
+        "docs/research/connectome_dataset_decision.md",
+        "docs/research/minecraft_architecture_decision.md",
+        "docs/research/neural_model_decision.md",
+        "docs/research/original_project_forensics.md",
+        "docs/research/performance_plan.md",
+        "docs/research/public_code_audit.md",
+        "docs/research/reuse_matrix.md",
+        "docs/research/scientific_red_team.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "83393df4e8f6ab84e535fdf8efea2feff882c41546c6cca2530723f94cc04138",
+      "source": "docs/ARCHITECTURE_2026-08-18.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/receipts/OPTIC-CENSUS-01.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "a1ca7c2fc4343227a8e37ce1c41fb34c871478bfc13a8c7b6dd82a1c269e214d",
+      "source": "docs/SCIENTIFIC_CLAIMS_2026-08-18.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/research/connectome_dataset_decision.md",
+        "docs/research/scientific_red_team.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "27bb1d1a9a23ff9b3923fa85c393d6fe0e1197fc54bfcc4f54391edf9b2f3912",
+      "source": "docs/adr/0001-connectome-data.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/research/neural_model_decision.md",
+        "docs/research/performance_plan.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "590453e415498094a92b058dd0737e510465cba588bbbde9d4706794d9ff454b",
+      "source": "docs/adr/0002-neural-dynamics.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/SOURCE_LOG.md",
+        "docs/research/minecraft_architecture_decision.md",
+        "docs/research/performance_plan.md",
+        "docs/research/scientific_red_team.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "06d5009e6b129321013879017429b62fb24dae1285615698381bcba1d2b3d977",
+      "source": "docs/adr/0003-minecraft-and-transport.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/research/performance_plan.md",
+        "docs/research/scientific_red_team.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "52c1df8ee7d371cc30761c6592081ef4ed2e4e31fc471f7ada5d5734b7450580",
+      "source": "docs/adr/0004-causal-trace-and-replay.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/research/scientific_red_team.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "fffb0af0e5630c5ac2d588cf8f8fe3082c5f12a756cb5354862b29e555f1815e",
+      "source": "docs/adr/0005-fixture-and-claim-gates.md"
+    },
+    {
+      "missing_destinations": [
+        "docs/MATCHED_TRIALS.md"
+      ],
+      "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md.",
+      "sha256": "fa3347b458f1481fee2e29cbe7dc9b4ba669a52a310956d9b0465de3fb10bfde",
+      "source": "docs/adr/0027-controlled-live-diagnostics.md"
+    }
+  ],
+  "reviewed_text_exceptions": [
+    {
+      "reason": "The absolute path is a deliberately fictional example input testing rejection of private machine identifiers.",
+      "sha256": "b8172a4e8b455c61c47480a9fd0585678b01d08fc8745dc9c4ba6a9bf554bcfd",
+      "source": "tests/protocol/test_trace.py"
+    },
+    {
+      "source": "release/runtime-legal/macos-arm64/PYTHON.json",
+      "sha256": "b0d2ca68c07e18debcc59df0d6ffc5227e04f90739d717903d38bd3725284236",
+      "reason": "Byte-exact public upstream PBS 20261026 metadata from the verified full archive; its macOS build-worker userbase is public upstream metadata, not a developer or player path. Component notice review retained the original bytes."
+    },
+    {
+      "source": "release/runtime-legal/windows-x86_64/PYTHON.json",
+      "sha256": "5c61f988ff937897f33c0151024e080c6e3588ddda3d61ae4ef877469e7c8f30",
+      "reason": "Byte-exact public upstream PBS 20261026 metadata from the verified full archive; its public Windows build-worker userbase is upstream metadata, not a developer or player path. Component notice review retained the original bytes."
+    }
+  ],
+  "schema_version": 1,
+  "verification_scope": {
+    "excluded_tests": [
+      "tests/protocol/test_sensor_contract_v2.py::test_all_seven_historical_sensor_payloads_round_trip_exactly",
+      "tests/governance/test_audit_repository.py::test_repository_hygiene_and_g0_identities"
+    ],
+    "installation": "Fresh-machine playtesting is a separate release gate.",
+    "private_git_history_audit": "The standalone private Git audit and its governance wrapper are excluded. Public source hashes are checked against RELEASE_MANIFEST.json; the audit helper tests remain selected.",
+    "public_entry": "make verify",
+    "python": "Complete application and test source; omit only the historical seven-trace audit and the private-Git governance wrapper. All runtime tests remain selected.",
+    "source_integrity": "make verify-source"
+  }
+}

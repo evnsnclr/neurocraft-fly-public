@@ -1,0 +1,102 @@
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-fly"
+version = "0.1.0"
+description = "Auditable connectome-to-Minecraft research controller"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "neurocraft-connectome",
+  "neurocraft-controller",
+  "neurocraft-embodiment",
+  "neurocraft-experiments",
+  "neurocraft-neural",
+  "neurocraft-protocol",
+  "neurocraft-service",
+]
+
+[dependency-groups]
+research = [
+  "ipykernel==6.30.1",
+  "matplotlib==3.10.8",
+  "nbclient==0.10.4",
+  "nbformat==5.10.4",
+]
+dev = [
+  "cyclonedx-bom==7.3.1",
+  "mypy==2.3.0",
+  "pip-audit==2.10.1",
+  "pip-licenses==5.5.5",
+  "pytest==9.1.1",
+  "pytest-cov==7.1.0",
+  "ruff==0.16.0",
+]
+
+[tool.uv]
+package = false
+required-version = "==0.13.6"
+
+[tool.uv.workspace]
+members = ["packages/*", "services/*"]
+
+[tool.uv.sources]
+neurocraft-connectome = { workspace = true }
+neurocraft-controller = { workspace = true }
+neurocraft-embodiment = { workspace = true }
+neurocraft-experiments = { workspace = true }
+neurocraft-neural = { workspace = true }
+neurocraft-protocol = { workspace = true }
+neurocraft-service = { workspace = true }
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers"
+pythonpath = ["."]
+testpaths = ["tests"]
+xfail_strict = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# These G0/G1 evidence files are byte-bound by committed acquisition,
+# extraction, and full-runtime receipts. They retain their independently
+# tested milestone bytes; changing formatting alone would invalidate the
+# reproduced artifact identity.
+extend-exclude = [
+  # Archives have no Git metadata. Keep generated dependencies and runtime
+  # outputs out of source linting without relying on .gitignore discovery.
+  ".uv-cache",
+  "artifacts",
+  "data/raw",
+  "data/cache",
+  "data/processed",
+  "recordings",
+  "mod/run",
+  "scripts/acquire_malecns.py",
+  "scripts/build_malecns_runtime.py",
+  "scripts/extract_malecns_fixture.py",
+  "tests/data/test_acquire_malecns.py",
+  "tests/data/test_extract_malecns_fixture.py",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_unreachable = true
+
+# The FlyGym embodiment is an opt-in lane: `flygym` and `mujoco` are deliberately
+# absent from uv.lock and from the synced environment, so `make typecheck` has no
+# stubs for them. They are imported lazily inside
+# `neurocraft_embodiment.flygym_body.require_flygym` and immediately narrowed to a
+# typed `FlyGymModules` handle, so nothing outside that function sees an untyped
+# value. FlyGym also annotates with jaxtyping (e.g. `Float[np.ndarray, "2 h w 3"]`),
+# which would not satisfy --strict cleanly even when installed; the adapter converts
+# to plain tuples/floats at the package boundary for that reason.
+[[tool.mypy.overrides]]
+module = ["flygym", "flygym.*", "mujoco"]
+ignore_missing_imports = true

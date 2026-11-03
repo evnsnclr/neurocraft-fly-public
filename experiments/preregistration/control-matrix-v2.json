@@ -1,0 +1,69 @@
+{
+  "protocol_id": "neurocraft-control-matrix-v2",
+  "status": "preregistered_no_trials_run",
+  "amendment": {
+    "supersedes": "neurocraft-control-matrix-v1",
+    "prior_sha256": "1584a474b394995fc2701c996c404cae15955726beb08cc788f6de2d17631d6e",
+    "timing": "before_any_minecraft_control_matrix_trial",
+    "reason": "Add a held-out seed split, one directional primary endpoint, matched lesion controls, passive-physics and sign controls, adapter and decoder permutations, explicit multiplicity, precision, and exclusion rules."
+  },
+  "hypothesis": "With identical arena, reset, sensor, actuator, seed, and tick budgets, source-derived recurrent topology contributes to at least one declared closed-loop metric relative to matched topology controls.",
+  "arenas": ["light-corridor-v1", "crosswind-gap-v1"],
+  "seeds": [101, 211, 307, 401, 503, 601, 701, 809, 907, 1009],
+  "seed_split": {
+    "development": [101, 211, 307, 401],
+    "held_out_confirmation": [503, 601, 701, 809, 907, 1009],
+    "freeze_rule": "No controller, adapter, endpoint, threshold, exclusion, or analysis change after viewing a held-out trial."
+  },
+  "replicates": 2,
+  "conditions": [
+    {"condition_id": "faithful", "mode": "faithful", "intervention": "none", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "shuffled-weight", "mode": "shuffled_weight", "intervention": "weight_permutation", "graph_changes": true, "receives_sensors": true},
+    {"condition_id": "degree-preserving", "mode": "degree_preserving_random", "intervention": "directed_double_edge_swap", "graph_changes": true, "receives_sensors": true},
+    {"condition_id": "dng07-lesion", "mode": "lesion", "intervention": "bilateral_DNg07_zero_and_history_clear", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "dng07-sham", "mode": "lesion", "intervention": "matched_sham_registry_round_trip", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "dng07-contralateral", "mode": "lesion", "intervention": "matched_contralateral_non_DNg07_body_count", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "dng07-half-dose", "mode": "lesion", "intervention": "one_of_two_DNg07_targets_zero_and_history_clear", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "scripted", "mode": "scripted_baseline", "intervention": "declared_low_capacity_direct_control", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "passive-physics", "mode": "passive_physics", "intervention": "all_motor_axes_zero", "graph_changes": false, "receives_sensors": false},
+    {"condition_id": "no-input", "mode": "faithful", "intervention": "all_sensory_channels_zero", "graph_changes": false, "receives_sensors": false},
+    {"condition_id": "null-graph", "mode": "null_graph", "intervention": "all_recurrent_weights_zero", "graph_changes": true, "receives_sensors": true},
+    {"condition_id": "frozen-state", "mode": "frozen_state", "intervention": "no_state_advance", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "sign-zero", "mode": "sign_sensitivity", "intervention": "unknown_zero_sign_overlay", "graph_changes": true, "receives_sensors": true},
+    {"condition_id": "sensor-permutation", "mode": "adapter_permutation", "intervention": "seeded_sensor_channel_permutation", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "motor-permutation", "mode": "decoder_permutation", "intervention": "seeded_motor_pool_permutation", "graph_changes": false, "receives_sensors": true},
+    {"condition_id": "synthetic", "mode": "synthetic", "intervention": "separately_labelled_synthetic_graph", "graph_changes": true, "receives_sensors": true}
+  ],
+  "primary_metrics": ["completion_rate", "ticks_to_exit", "collision_or_fall_count", "response_latency_ticks", "path_efficiency"],
+  "primary_endpoint": {
+    "metric": "completion_rate",
+    "comparison": "faithful_vs_degree-preserving",
+    "population": "held_out_confirmation seeds pooled across the two declared arenas after within-arena-seed reproducibility aggregation; paired by arena and seed",
+    "direction": "faithful greater than degree-preserving",
+    "minimum_effect": "absolute completion-rate increase of 0.10",
+    "decision_rule": "The paired 95 percent bootstrap interval must exclude 0 in the declared direction and the point estimate must be at least 0.10."
+  },
+  "fixed_budgets": {
+    "tick_limit": 2400,
+    "minecraft_tick_ms": 50,
+    "neural_substeps_per_tick": 5,
+    "neural_step_ms": 10,
+    "primitive_motor_axes": ["forward_thrust", "lateral_thrust", "vertical_thrust", "yaw_torque", "pitch_torque"],
+    "sensor_schema": "physical-sensors-v1",
+    "reset_policy": "arena-fixed-spawn-and-yaw-v1"
+  },
+  "analysis": {
+    "pairing": "arena_seed_replicate",
+    "primary_comparisons": ["faithful_vs_shuffled-weight", "faithful_vs_degree-preserving", "faithful_vs_no-input"],
+    "interval": "paired bootstrap 95 percent interval with analysis seed 20260817",
+    "multiplicity": "Holm correction across the 15 confirmatory comparison-by-metric tests; the single primary endpoint is evaluated first and reported separately.",
+    "trial_count": 640,
+    "replicate_role": "The two executions per arena-seed-condition are reproducibility repeats, not independent statistical units.",
+    "replicate_aggregation": "Require both repeats to complete; report disagreement, then aggregate them within arena-seed-condition before any paired comparison. Effective confirmatory units are arena-seed pairs.",
+    "precision_rule": "Report paired effect, 95 percent interval, adjusted p value, completed pair count, and missing pair count for every confirmatory test.",
+    "missing_trial": "report and fail the paired cell; never silently replace",
+    "exclusions": "Only a predeclared infrastructure failure with no Action applied may be rerun once under the same identity. Every other failure remains an outcome; no post-outcome exclusions.",
+    "exploratory_labels": ["activity_sparsity", "motor_entropy", "lesion_effect", "trace_divergence_tick"]
+  },
+  "claim_boundary": "This preregistration contains no trial result. A difference from a control is evidence about this implementation under these arenas, not proof of natural Drosophila behavior or recovered physiology."
+}

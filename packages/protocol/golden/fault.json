@@ -1,0 +1,19 @@
+{
+  "type": "fault",
+  "protocol": "neurocraft.protocol.v2",
+  "identity": {
+    "run_id": "demo-001",
+    "session_epoch": 1,
+    "entity_id": "fly-01",
+    "graph_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "adapter_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+    "dynamics_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+    "decoder_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+    "observation_schema_hash": "5555555555555555555555555555555555555555555555555555555555555555"
+  },
+  "code": "STALE",
+  "message": "stale frame rejected",
+  "game_tick": 103,
+  "related_observation_seq": 0,
+  "neutral_applied": true
+}

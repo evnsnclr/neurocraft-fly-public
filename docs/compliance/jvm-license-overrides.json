@@ -1,0 +1,251 @@
+{
+  "description": "Curated license conclusions for JVM build-graph components whose Maven metadata cannot supply an unambiguous SPDX identifier. scripts/build_jvm_inventory.py requires an entry here for every component with no POM, no <licenses> anywhere in its parent chain, an unrecognised license name, or more than one declared license, and fails if an entry no longer matches a resolved component. Conclusions recorded here are marked acknowledgement=\"concluded\" in artifacts/sbom/jvm.cdx.json; POM-derived identifiers are marked \"declared\".",
+  "overrides": {
+    "ca.weblite:java-objc-bridge:1.1": {
+      "evidence_url": "https://github.com/shannah/Java-Objective-C-Bridge/blob/master/LICENSE",
+      "reason": "OS-conditional macOS-only native (dependencyLocking ignoredDependencies); normalized platform-independently from verification-metadata and this override so macOS and Linux builds emit identical inventories. Upstream LICENSE is the Apache-2.0 text; its POM declares the same on platforms where it resolves.",
+      "spdx": "Apache-2.0"
+    },
+    "com.google.guava:guava:33.7.2-jre": {
+      "evidence_url": "https://github.com/google/guava/blob/v33.7.2/LICENSE",
+      "reason": "The shared patched build-plugin and game-runtime version resolves using Gradle module metadata without a verification-pinned POM. Its exact verified JAR embeds META-INF/LICENSE containing Apache License Version 2.0; the owning version-tagged source LICENSE agrees.",
+      "spdx": "Apache-2.0"
+    },
+    "com.mojang:authlib:6.0.58": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "POM on libraries.minecraft.net declares no <licenses> and the JAR carries no LICENSE/NOTICE entry; Mojang publishes it only as part of the Minecraft distribution, so the Minecraft EULA and Usage Guidelines govern. Build/run-time only, never redistributed by this repository.",
+      "spdx": "LicenseRef-Mojang-Proprietary"
+    },
+    "com.mojang:blocklist:1.0.10": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "POM on libraries.minecraft.net declares no <licenses> and the JAR carries no LICENSE/NOTICE entry; Mojang publishes it only as part of the Minecraft distribution, so the Minecraft EULA and Usage Guidelines govern. Build/run-time only, never redistributed by this repository.",
+      "spdx": "LicenseRef-Mojang-Proprietary"
+    },
+    "com.mojang:brigadier:1.3.10": {
+      "evidence_url": "https://github.com/Mojang/brigadier/blob/master/LICENSE",
+      "reason": "Mojang's Maven POM declares no <licenses>, but the upstream source repository ships an MIT LICENSE (Copyright (c) Microsoft Corporation). MIT is the narrower, verifiable grant, so it is recorded instead of the Mojang proprietary default.",
+      "spdx": "MIT"
+    },
+    "com.mojang:datafixerupper:8.0.16": {
+      "evidence_url": "https://github.com/Mojang/DataFixerUpper/blob/master/LICENSE",
+      "reason": "Mojang's Maven POM declares no <licenses>, but the upstream source repository ships an MIT LICENSE (Copyright (c) Microsoft Corporation).",
+      "spdx": "MIT"
+    },
+    "com.mojang:jtracy:1.0.29": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "POM on libraries.minecraft.net declares no <licenses> and the JAR carries no LICENSE/NOTICE entry; Mojang publishes it only as part of the Minecraft distribution, so the Minecraft EULA and Usage Guidelines govern. Build/run-time only, never redistributed by this repository.",
+      "spdx": "LicenseRef-Mojang-Proprietary"
+    },
+    "com.mojang:logging:1.5.10": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "POM on libraries.minecraft.net declares no <licenses> and the JAR carries no LICENSE/NOTICE entry; Mojang publishes it only as part of the Minecraft distribution, so the Minecraft EULA and Usage Guidelines govern. Build/run-time only, never redistributed by this repository.",
+      "spdx": "LicenseRef-Mojang-Proprietary"
+    },
+    "com.mojang:patchy:2.2.10": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "POM on libraries.minecraft.net declares no <licenses> and the JAR carries no LICENSE/NOTICE entry; Mojang publishes it only as part of the Minecraft distribution, so the Minecraft EULA and Usage Guidelines govern. Build/run-time only, never redistributed by this repository.",
+      "spdx": "LicenseRef-Mojang-Proprietary"
+    },
+    "com.mojang:text2speech:1.18.11": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "POM on libraries.minecraft.net declares no <licenses> and the JAR carries no LICENSE/NOTICE entry; Mojang publishes it only as part of the Minecraft distribution, so the Minecraft EULA and Usage Guidelines govern. Build/run-time only, never redistributed by this repository.",
+      "spdx": "LicenseRef-Mojang-Proprietary"
+    },
+    "fabric-loom:fabric-loom.gradle.plugin:1.10.5": {
+      "evidence_url": "https://github.com/FabricMC/fabric-loom/blob/dev/1.10/LICENSE",
+      "reason": "Gradle plugin marker POM; it declares no <licenses> and only redirects to net.fabricmc:fabric-loom:1.10.5, whose license is MIT.",
+      "spdx": "MIT"
+    },
+    "io.netty:netty-transport-native-epoll:4.1.118.Final": {
+      "evidence_url": "https://github.com/netty/netty/blob/4.1/LICENSE.txt",
+      "reason": "OS-conditional Linux-only native (dependencyLocking ignoredDependencies); normalized platform-independently from verification-metadata and this override so macOS and Linux builds emit identical inventories. Netty is Apache-2.0 via netty-parent, matching the other seven netty modules.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc.fabric-api:fabric-api-deprecated:0.128.2+1.21.5": {
+      "evidence_url": "https://github.com/FabricMC/fabric-api/blob/26.2/LICENSE",
+      "reason": "The aggregate 'deprecated' module is the only Fabric API artifact whose POM omits <licenses>; the other 50 modules declare Apache-2.0 in their own POMs.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:cfr:0.2.2": {
+      "evidence_url": "https://github.com/FabricMC/cfr/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "MIT"
+    },
+    "net.fabricmc:dev-launch-injector:0.2.1+build.8": {
+      "evidence_url": "https://github.com/FabricMC/dev-launch-injector/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries a stub POM with no <licenses>, so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:fabric-fernflower:2.0.0": {
+      "evidence_url": "https://github.com/FabricMC/intellij-fernflower/blob/master/README.md",
+      "reason": "Fabric's fork of the IntelliJ Fernflower decompiler; the POM omits <licenses> and the upstream README states 'Fernflower is licenced under the Apache Licence Version 2.0'. Source headers repeat the Apache-2.0 grant.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:fabric-loader-junit:0.16.10": {
+      "evidence_url": "https://github.com/FabricMC/fabric-loader/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file. fabric-loader-junit is the 'junit' subproject of the fabric-loader repository.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:fabric-loader:0.16.10": {
+      "evidence_url": "https://github.com/FabricMC/fabric-loader/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries a stub POM with no <licenses>, so the license is concluded from the upstream source repository's LICENSE file. The published JAR also embeds LICENSE_fabric-loader with the Apache-2.0 text.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:fabric-loom-native:0.2.0": {
+      "evidence_url": "https://github.com/FabricMC/fabric-loom-native/blob/main/LICENSE",
+      "reason": "Fabric's Maven publication carries a stub POM with no <licenses>, so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "MIT"
+    },
+    "net.fabricmc:fabric-loom:1.10.5": {
+      "evidence_url": "https://github.com/FabricMC/fabric-loom/blob/dev/1.10/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file. Branch dev/1.10 is the release line of the pinned 1.10.5 plugin.",
+      "spdx": "MIT"
+    },
+    "net.fabricmc:fabric-mixin-compile-extensions:0.6.0": {
+      "evidence_url": "https://github.com/FabricMC/fabric-mixin-compile-extensions/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "MIT"
+    },
+    "net.fabricmc:lorenz-tiny:4.0.2": {
+      "evidence_url": "https://github.com/FabricMC/lorenz-tiny/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "MIT"
+    },
+    "net.fabricmc:mapping-io:0.2.1": {
+      "evidence_url": "https://github.com/FabricMC/mapping-io/blob/dev/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file. The 0.7.1 release on the plugin classpath declares Apache-2.0 in its own POM.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:stitch:0.6.2": {
+      "evidence_url": "https://github.com/FabricMC/stitch/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:tiny-mappings-parser:0.3.0+build.17": {
+      "evidence_url": "https://github.com/FabricMC/tiny-mappings-parser/blob/master/LICENSE",
+      "reason": "Fabric's Maven publication carries Gradle module metadata only (no POM is verification-pinned), so the license is concluded from the upstream source repository's LICENSE file.",
+      "spdx": "Apache-2.0"
+    },
+    "net.fabricmc:tiny-remapper:0.11.1": {
+      "evidence_url": "https://github.com/FabricMC/tiny-remapper/blob/master/LICENSE",
+      "reason": "Weak copyleft. The repository LICENSE is the LGPL v3 text and every source file header reads 'either version 3 of the License, or (at your option) any later version'. It runs only inside the Gradle plugin classpath (build-plugin scope) as a separate build-time remapping tool; nothing links it into, or distributes it with, any project artifact.",
+      "spdx": "LGPL-3.0-or-later"
+    },
+    "net.java.dev.jna:jna-platform:5.15.0": {
+      "evidence_url": "https://github.com/java-native-access/jna/blob/master/LICENSE",
+      "reason": "Dual-licensed. The POM declares both LGPL-2.1-or-later and Apache-2.0, and the verified JAR's META-INF/LICENSE states 'SPDX-License-Identifier: Apache-2.0 OR LGPL-2.1 ... You can freely decide which license you want to apply'. This project elects Apache-2.0, which carries no copyleft obligation.",
+      "spdx": "Apache-2.0"
+    },
+    "net.java.dev.jna:jna:5.15.0": {
+      "evidence_url": "https://github.com/java-native-access/jna/blob/master/LICENSE",
+      "reason": "Dual-licensed. The POM declares both LGPL-2.1-or-later and Apache-2.0, and the verified JAR's META-INF/LICENSE states 'SPDX-License-Identifier: Apache-2.0 OR LGPL-2.1 ... You can freely decide which license you want to apply'. This project elects Apache-2.0, which carries no copyleft obligation.",
+      "spdx": "Apache-2.0"
+    },
+    "net.minecraft:minecraft:1.21.5": {
+      "evidence_url": "https://www.minecraft.net/en-us/eula",
+      "reason": "Logical fold of the two Loom-generated split JARs net.minecraft:minecraft-{common,clientOnly}-0cc057f080. Minecraft is proprietary; the game is fetched into the user's own ignored Gradle/launcher cache under the Minecraft EULA and Usage Guidelines and is never redistributed by this repository.",
+      "spdx": "LicenseRef-Minecraft-EULA"
+    },
+    "net.minecraft:mojang-mappings:1.21.5": {
+      "evidence_url": "https://www.minecraft.net/en-us/usage-guidelines",
+      "reason": "Logical name for loom:mappings:layered+hash.2198, the local layered mapping archive Loom derives from loom.officialMojangMappings(). Mojang's official obfuscation maps are licensed separately from open-source terms and are not redistributable; the archive exists only in the ignored build cache.",
+      "spdx": "LicenseRef-Mojang-Mappings"
+    },
+    "net.minecrell:terminalconsoleappender:1.3.0": {
+      "evidence_url": "https://github.com/Minecrell/TerminalConsoleAppender/blob/master/LICENSE",
+      "reason": "Gradle module metadata only (no POM is verification-pinned).",
+      "spdx": "MIT"
+    },
+    "org.apache.logging.log4j:log4j-api:2.25.5": {
+      "evidence_url": "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.25.5/log4j-api-2.25.5.jar",
+      "reason": "The exact verification-pinned JAR embeds META-INF/LICENSE with Apache License Version 2.0. The resolved artifact metadata supplies no verification-pinned POM license chain; this conclusion is scoped to these bytes.",
+      "spdx": "Apache-2.0"
+    },
+    "org.apache.logging.log4j:log4j-core:2.25.5": {
+      "evidence_url": "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.25.5/log4j-core-2.25.5.jar",
+      "reason": "The exact verification-pinned JAR embeds META-INF/LICENSE with Apache License Version 2.0. The resolved artifact metadata supplies no verification-pinned POM license chain; this conclusion is scoped to these bytes.",
+      "spdx": "Apache-2.0"
+    },
+    "org.apache.logging.log4j:log4j-slf4j2-impl:2.25.5": {
+      "evidence_url": "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j2-impl/2.25.5/log4j-slf4j2-impl-2.25.5.jar",
+      "reason": "The exact verification-pinned JAR embeds META-INF/LICENSE with Apache License Version 2.0. The resolved artifact metadata supplies no verification-pinned POM license chain; this conclusion is scoped to these bytes.",
+      "spdx": "Apache-2.0"
+    },
+    "org.apiguardian:apiguardian-api:1.1.2": {
+      "evidence_url": "https://github.com/apiguardian-team/apiguardian/blob/main/LICENSE",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE with the Apache-2.0 text.",
+      "spdx": "Apache-2.0"
+    },
+    "org.cadixdev:lorenz:0.5.7": {
+      "evidence_url": "https://github.com/CadixDev/Lorenz/blob/develop/LICENSE.txt",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds LICENSE.txt with the MIT text.",
+      "spdx": "MIT"
+    },
+    "org.jcraft:jorbis:0.0.17": {
+      "evidence_url": "https://github.com/ymnk/jorbis/blob/master/com/jcraft/jorbis/VorbisFile.java",
+      "reason": "Weak copyleft. The POM declares the unversioned name 'GNU Lesser General Public License'; JCraft's site says only 'JOrbis is under LGPL'. Every upstream source header reads 'the GNU Library General Public License ... either version 2 of the License, or (at your option) any later version', which is SPDX LGPL-2.0-or-later. Minecraft loads it unmodified at game runtime from the user's own cache; this repository distributes no copy and no derivative.",
+      "spdx": "LGPL-2.0-or-later"
+    },
+    "org.jetbrains:annotations:25.0.0": {
+      "evidence_url": "https://github.com/JetBrains/java-annotations/blob/master/LICENSE.txt",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The 20.1.0 copy on the decompiler classpath declares 'The Apache Software License, Version 2.0' in its POM.",
+      "spdx": "Apache-2.0"
+    },
+    "org.jline:jline-reader:3.20.0": {
+      "evidence_url": "https://github.com/jline/jline3/blob/master/LICENSE.txt",
+      "reason": "The POM inherits the ambiguous name 'The BSD License' from jline-parent, but its URL and the JAR manifest header 'Bundle-License: https://opensource.org/licenses/BSD-3-Clause' both identify the 3-clause variant, as does the upstream LICENSE.txt.",
+      "spdx": "BSD-3-Clause"
+    },
+    "org.jline:jline-terminal:3.20.0": {
+      "evidence_url": "https://github.com/jline/jline3/blob/master/LICENSE.txt",
+      "reason": "The POM inherits the ambiguous name 'The BSD License' from jline-parent, but its URL and the JAR manifest header 'Bundle-License: https://opensource.org/licenses/BSD-3-Clause' both identify the 3-clause variant, as does the upstream LICENSE.txt.",
+      "spdx": "BSD-3-Clause"
+    },
+    "org.jspecify:jspecify:1.0.1": {
+      "evidence_url": "https://github.com/jspecify/jspecify/blob/v1.0.1/LICENSE",
+      "reason": "The exact resolved JSpecify annotation JAR has no embedded license file or verification-pinned POM license chain. Its owning v1.0.1 source release LICENSE is Apache License Version 2.0. This is a compile-time annotation dependency of patched Guava.",
+      "spdx": "Apache-2.0"
+    },
+    "org.junit.jupiter:junit-jupiter-api:5.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.junit.jupiter:junit-jupiter-engine:5.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.junit.jupiter:junit-jupiter-params:5.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.junit.jupiter:junit-jupiter:5.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.junit.platform:junit-platform-commons:1.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.junit.platform:junit-platform-engine:1.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.junit.platform:junit-platform-launcher:1.11.4": {
+      "evidence_url": "https://github.com/junit-team/junit-framework/blob/main/LICENSE.md",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE.md with the Eclipse Public License v2.0 text. Test scope only.",
+      "spdx": "EPL-2.0"
+    },
+    "org.opentest4j:opentest4j:1.3.0": {
+      "evidence_url": "https://github.com/ota4j-team/opentest4j/blob/main/LICENSE",
+      "reason": "Gradle module metadata only (no POM is verification-pinned). The verified JAR embeds META-INF/LICENSE with the Apache-2.0 text.",
+      "spdx": "Apache-2.0"
+    }
+  },
+  "schema": "neurocraft.jvm-license-overrides.v1"
+}

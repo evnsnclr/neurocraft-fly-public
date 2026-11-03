@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta
+      name="description"
+      content="Read-only observatory for NeuroCraft Fly causal trace files"
+    />
+    <title>NeuroCraft Fly Observatory</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#trace-overview">Skip to trace overview</a>
+    <header class="masthead">
+      <div class="brand-lockup" aria-label="NeuroCraft Fly Observatory">
+        <div class="fly-mark" aria-hidden="true">
+          <span class="wing wing-left"></span>
+          <span class="wing wing-right"></span>
+          <span class="body"></span>
+        </div>
+        <div>
+          <p class="eyebrow">Causal systems instrument</p>
+          <h1>NeuroCraft Fly <span>Observatory</span></h1>
+        </div>
+      </div>
+      <div class="authority-label">
+        <span class="status-light" aria-hidden="true"></span>
+        Trace-only · no control channel
+      </div>
+    </header>
+
+    <main>
+      <section class="intake" aria-labelledby="intake-title">
+        <div>
+          <p class="section-number">00 / SOURCE</p>
+          <h2 id="intake-title">Inspect a local causal trace</h2>
+          <p>
+            Files stay in this browser tab. This page has no socket, upload, command,
+            or Minecraft mutation path.
+          </p>
+        </div>
+        <label class="file-picker">
+          <span>Choose NDJSON or event JSON</span>
+          <input id="trace-file" type="file" accept=".ndjson,.json,application/json" />
+        </label>
+      </section>
+
+      <section id="trace-overview" class="overview" aria-live="polite">
+        <article class="metric primary">
+          <p>Trace state</p>
+          <strong id="trace-state">No file loaded</strong>
+          <small id="trace-detail">Awaiting local evidence</small>
+        </article>
+        <article class="metric">
+          <p>Mode</p>
+          <strong id="mode-label">UNDECLARED</strong>
+          <small>Read from manifest</small>
+        </article>
+        <article class="metric">
+          <p>Data tier</p>
+          <strong id="tier-label">UNDECLARED</strong>
+          <small>Never inferred from activity</small>
+        </article>
+        <article class="metric">
+          <p>Maximum claim</p>
+          <strong id="claim-label">UNDECLARED</strong>
+          <small>Manifest label, not dashboard promotion</small>
+        </article>
+      </section>
+
+      <section class="instrument-grid">
+        <article class="panel activity-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-number">01 / MODEL</p>
+              <h2>Dimensionless model activity</h2>
+            </div>
+            <span id="tick-label" class="mono-chip">tick —</span>
+          </div>
+          <p class="scientific-note">
+            Model state summaries are not voltage, calcium, spikes, or firing rate.
+          </p>
+          <canvas id="activity-chart" width="960" height="300" aria-label="Recorded motor-pool model activity over time"></canvas>
+          <div id="activity-legend" class="legend" aria-label="Activity series legend"></div>
+        </article>
+
+        <article class="panel motors-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-number">02 / APPLICATION</p>
+              <h2>Applied primitive motors</h2>
+            </div>
+            <span id="validation-label" class="mono-chip">NO RECORD</span>
+          </div>
+          <div id="motor-bars" class="bar-bank"></div>
+          <p class="scientific-note">
+            Bounded thrust and torque only; semantic actions are not represented.
+          </p>
+        </article>
+
+        <article class="panel identity-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-number">03 / IDENTITY</p>
+              <h2>Executed artifact binding</h2>
+            </div>
+          </div>
+          <dl id="identity-list" class="identity-list">
+            <div><dt>Run</dt><dd>—</dd></div>
+            <div><dt>Graph</dt><dd>—</dd></div>
+            <div><dt>Adapter</dt><dd>—</dd></div>
+            <div><dt>Dynamics</dt><dd>—</dd></div>
+            <div><dt>Decoder</dt><dd>—</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel fault-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-number">04 / SAFETY</p>
+              <h2>Fault and neutral ledger</h2>
+            </div>
+            <span id="fault-count" class="mono-chip alert">0 FAULTS</span>
+          </div>
+          <ol id="fault-list" class="fault-list">
+            <li class="empty-row">No records loaded.</li>
+          </ol>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Presentation is non-authoritative. Verify the source trace with the project verifier.</p>
+      <p id="file-label" class="mono-chip">LOCAL FILE · NONE</p>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>

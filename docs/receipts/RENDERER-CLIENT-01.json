@@ -1,0 +1,17 @@
+{
+  "schema": "neurocraft.renderer_observation.v1",
+  "automated": true,
+  "manual_gameplay_observation": false,
+  "frame_width": 854,
+  "frame_height": 480,
+  "changed_central_pixels": 11563,
+  "difference_bounds": [213, 96, 486, 252],
+  "difference_width": 274,
+  "difference_height": 157,
+  "unique_rendered_colors": 121,
+  "warm_fly_pixels": 156,
+  "warm_fly_bounds": [454, 229, 479, 252],
+  "warm_fly_width": 26,
+  "warm_fly_height": 24,
+  "unique_warm_fly_colors": 17
+}

@@ -1,0 +1,8 @@
+.gradle/
+.gradle-bootstrap/
+build/
+run/
+run-*/
+out/
+*.log
+hs_err_pid*

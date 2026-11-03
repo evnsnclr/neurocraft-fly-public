@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.playwright-cli/
+.venv/
+.uv-cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Java / Gradle
+.gradle/
+**/build/
+
+# Node
+node_modules/
+apps/observatory-dashboard/dist/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+
+# Credentials and local config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Data and generated artifacts
+data/raw/
+data/cache/
+data/processed/
+recordings/
+artifacts/
+*.mcworld
+*.jar
+!mod/gradle/wrapper/gradle-wrapper.jar
+
+# Minecraft runtime
+run/
+logs/
+world/
+world_nether/
+world_the_end/
+
+# Local companion browser QA output
+output/playwright/

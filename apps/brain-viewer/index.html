@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeuroCraft — Live Circuit</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>NeuroCraft — live circuit</h1>
+    <p id="identity-line">waiting for telemetry…</p>
+  </div>
+  <div class="badges">
+    <span class="badge badge-live" id="live-badge">OFFLINE</span>
+    <span class="badge badge-note">PRESENTATION VIEW — NOT EVIDENCE</span>
+  </div>
+</header>
+<main>
+  <canvas id="brain"></canvas>
+  <aside id="motors-panel">
+    <h2>motor readout</h2>
+    <div id="motor-bars"></div>
+    <div id="tick-line">tick — · cmd —</div>
+  </aside>
+  <div class="column-labels">
+    <span style="left:6%">sensory</span>
+    <span style="left:40%">interneurons</span>
+    <span style="left:70%">descending</span>
+    <span style="left:93%">wing motors</span>
+  </div>
+</main>
+<footer>
+  <p>Every neuron and connection drawn here is the real
+  <span id="fixture-id">circuit</span> topology; glow is live dimensionless model
+  activity. Rendering is a presentation aid — causal evidence lives in the
+  hash-linked traces, not in this view.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "arena_id": "external-bridge-gametest-v1",
+  "schema": "neurocraft.minecraft_gametest_arena.v1",
+  "version": 1,
+  "coordinate_frame": "GameTestHelper-relative block coordinates",
+  "minecraft": {
+    "dimension": "minecraft:overworld",
+    "game_test_max_ticks": 600,
+    "test_class": "dev.neurocraft.fly.gametest.ExternalBridgeGameTest",
+    "test_method": "liveServiceCausallyDrivesConfiguredFlyAndReceivesReceipt"
+  },
+  "initial_state": {
+    "custom_fly_count": 0,
+    "fly_spawn": [1.5, 3.0, 1.5],
+    "pitch_degrees": 0.0,
+    "yaw_degrees": 0.0,
+    "no_gravity": true,
+    "forward_ray_expected_blocks": 6.0
+  },
+  "perturbation": {
+    "trigger": "first accepted action after RECORD_START",
+    "block": "minecraft:stone",
+    "placement": "BlockPos.containing(fly bounding-box center + normalized look vector * 2.0)",
+    "required_observation": "forward body-relative ray becomes shorter than its open-arena value"
+  },
+  "declared_forces": {
+    "passive_force_vector": [0.0, 0.0, 0.0],
+    "external_force_vector": [0.0, 0.0, 0.0],
+    "vector_scope": "explicit additive arena forces only",
+    "intrinsic_entity_dynamics": {
+      "air_horizontal_drag_multiplier": 0.91,
+      "air_vertical_drag_multiplier": 0.98,
+      "collision_and_contact": "authoritative Minecraft state",
+      "implementation": "dev.neurocraft.fly.entity.FlyEntity"
+    },
+    "provenance": "The arena adds no force and the test fly has no gravity. Project-owned drag plus Minecraft collision/contact remain active intrinsic dynamics and are bound by the execution-source bundle."
+  },
+  "control_sequence": [
+    "RECORD_START",
+    "open observation and action",
+    "stone perturbation",
+    "blocked observation and action",
+    "STIMULATION_APPLY sensor-pulse-v1",
+    "stimulated action",
+    "STIMULATION_CLEAR sensor-pulse-v1",
+    "cleared action",
+    "RECORD_STOP",
+    "post-stop receipt flush"
+  ]
+}

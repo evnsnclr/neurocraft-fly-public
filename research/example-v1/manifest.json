@@ -1,0 +1,373 @@
+{
+  "conditions": {
+    "no_input": {
+      "applied_input": "zero",
+      "control_identity_sha256": "48973fcb342fd10f9cb333aca4ad542774f0dbc2eafad26d037ae6aa954fcc1f",
+      "delay_overlay_sha256": "ebe16ef74daa730648e7284a50db907dad511825e56eb7443cf7579c6ff1a5e0",
+      "shuffle_seed": null,
+      "topology_overlay_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "weight_kind": "canonical_source_raw_counts",
+      "weight_overlay_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "weight_provenance": "canonical_source_raw_counts"
+    },
+    "original": {
+      "applied_input": "prescribed_direct_pulses",
+      "control_identity_sha256": "48973fcb342fd10f9cb333aca4ad542774f0dbc2eafad26d037ae6aa954fcc1f",
+      "delay_overlay_sha256": "ebe16ef74daa730648e7284a50db907dad511825e56eb7443cf7579c6ff1a5e0",
+      "shuffle_seed": null,
+      "topology_overlay_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "weight_kind": "canonical_source_raw_counts",
+      "weight_overlay_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "weight_provenance": "canonical_source_raw_counts"
+    },
+    "shuffled_weights": {
+      "applied_input": "prescribed_direct_pulses",
+      "control_identity_sha256": "45964decbcbdf148d9b3cb2c5e16f669d3cc805f3e87e2ff374f220da3efefee",
+      "delay_overlay_sha256": "ebe16ef74daa730648e7284a50db907dad511825e56eb7443cf7579c6ff1a5e0",
+      "shuffle_seed": 7,
+      "topology_overlay_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "weight_kind": "shuffled_weight",
+      "weight_overlay_sha256": "2504015872a271b27e11c2a6c2d68a1c401035c8d176bebf46ef11118a885d65",
+      "weight_provenance": "research_example_v1"
+    }
+  },
+  "dynamics": {
+    "activation": "tanh",
+    "backend": "python_single_thread_reference",
+    "baseline": 0.0,
+    "default_delay_steps": 1,
+    "neural_step_ms": 10.0,
+    "noise": "none",
+    "normalization": "incoming_raw_count_l1",
+    "precision": "float64",
+    "recurrent_gain": 0.9,
+    "sensory_gain": 1.0,
+    "tau_ms": 50.0
+  },
+  "dynamics_identity_sha256": "ac7a3ee7cf13516f2d3bb3cb99bbdbe56fffb5325e65325b1dff1a548ba7d2c1",
+  "example_data_rights": {
+    "copied_source_structure_and_annotations": "CC-BY-4.0",
+    "mixed_files_retain_separate_source_terms": [
+      "edges.csv",
+      "manifest.json"
+    ],
+    "project_generated_simulation_outputs": "MIT"
+  },
+  "example_id": "malecns-flight-power-synthetic-pulses-v1",
+  "files": {
+    "README.md": {
+      "bytes": 6981,
+      "sha256": "abfc09bbd41000871e851b672ffed772b3594fc49564a8cee21431096ff99b2e"
+    },
+    "activity.csv": {
+      "bytes": 154671,
+      "sha256": "569ce6f78a845d37d628112cbb04fff236e1e470af59c2cf0e75dc9a2d14aca9"
+    },
+    "edges.csv": {
+      "bytes": 8215,
+      "sha256": "a6a0194d5761fb1f206baba825fff9119573e61c37e152dc414c04dfd2a4bb3c"
+    },
+    "inputs.csv": {
+      "bytes": 21042,
+      "sha256": "b9f4a9a23d6d9886d847a997ec21343d50f91f93a949182754c626e89ac1a21f"
+    },
+    "nodes.csv": {
+      "bytes": 1303,
+      "sha256": "c7ad3c9f69aaf237fb81f4a181246c9f696c785a54fe9c55a8b264a2a2739915"
+    },
+    "readouts.csv": {
+      "bytes": 73512,
+      "sha256": "26e7d08b4f6c378fda8e38df162ce117a7ac1b23072ae7fe0a975e032959ed11"
+    },
+    "summary.json": {
+      "bytes": 5455,
+      "sha256": "77ef3562bcc22bdc4644637a1b6a31f12ccb302b58847d149d92914b7e0365a5"
+    }
+  },
+  "initialization": {
+    "activity": 0.0,
+    "delayed_history": 0.0,
+    "lesions": [],
+    "reset_before_each_condition": true
+  },
+  "input_schedule": {
+    "all_other_direct_drive": 0.0,
+    "kind": "synthetic_direct_stimulation_p_not_sensory_adapter",
+    "pulses": [
+      {
+        "amplitude": 0.8,
+        "body_id": 805722,
+        "end_step_exclusive": 30,
+        "start_step_inclusive": 10
+      },
+      {
+        "amplitude": 0.8,
+        "body_id": 77185,
+        "end_step_exclusive": 70,
+        "start_step_inclusive": 50
+      }
+    ],
+    "steps": 100
+  },
+  "project_code_and_documentation_license": "MIT",
+  "readout_policy": {
+    "aggregation": "signed_arithmetic_mean_no_gain_or_clipping",
+    "pools": {
+      "DNg07_L": [
+        27143
+      ],
+      "DNg07_R": [
+        28949
+      ],
+      "hg1_motor_L": [
+        800241
+      ],
+      "hg1_motor_R": [
+        800917
+      ],
+      "sensory_L": [
+        805722
+      ],
+      "sensory_R": [
+        77185
+      ]
+    },
+    "selection": "engineered_inspection_only_no_motor_command"
+  },
+  "schema_version": 1,
+  "schemas": {
+    "activity.csv": {
+      "columns": [
+        "condition",
+        "step",
+        "time_ms",
+        "body_id",
+        "activity"
+      ],
+      "numeric_tolerance_columns": [
+        "activity"
+      ],
+      "row_count": 4242
+    },
+    "edges.csv": {
+      "columns": [
+        "condition",
+        "edge_index",
+        "body_pre",
+        "body_post",
+        "source_row",
+        "raw_count",
+        "canonical_sign_status",
+        "assigned_sign",
+        "sign_provenance",
+        "overlay_count",
+        "overlay_source_edge_index",
+        "effective_weight",
+        "delay_steps"
+      ],
+      "numeric_tolerance_columns": [
+        "effective_weight"
+      ],
+      "row_count": 66
+    },
+    "inputs.csv": {
+      "columns": [
+        "condition",
+        "step_before",
+        "time_ms",
+        "body_id",
+        "requested_drive",
+        "applied_drive"
+      ],
+      "numeric_tolerance_columns": [
+        "applied_drive",
+        "requested_drive"
+      ],
+      "row_count": 600
+    },
+    "nodes.csv": {
+      "columns": [
+        "dense_index",
+        "body_id",
+        "type_name",
+        "instance",
+        "side",
+        "roles",
+        "superclass",
+        "consensus_nt",
+        "annotation_source_row",
+        "transmitter_source_row",
+        "canonical_sign_status"
+      ],
+      "numeric_tolerance_columns": [],
+      "row_count": 14
+    },
+    "readouts.csv": {
+      "columns": [
+        "condition",
+        "step",
+        "time_ms",
+        "pool",
+        "mean_activity"
+      ],
+      "numeric_tolerance_columns": [
+        "mean_activity"
+      ],
+      "row_count": 1818
+    }
+  },
+  "scope": "synthetic_direct_stimulation_of_selected_fixture_no_behavior_measurement",
+  "sign_policy": {
+    "canonical_status": "unknown",
+    "identity_sha256": "5bca421d7a289dc5c7929a0cc66664d3bafdc157de2726639d216bc57a970d6c",
+    "name": "coarse_presynaptic_consensus",
+    "provenance": "engineered_presynaptic_consensus_not_receptor_resolved"
+  },
+  "software": {
+    "backend": "python_single_thread_reference",
+    "engine": "neurocraft_neural.NeuralEngine",
+    "python_requires": ">=3.11,<3.14",
+    "source_sha256": {
+      "packages/connectome-data/src/neurocraft_connectome/loader.py": "91f4283f1ff2011714ba93b8804d87d660a3e43bbddf1a93ba260f02e675b18c",
+      "packages/connectome-data/src/neurocraft_connectome/model.py": "f912a93a547e43cdebafbf92e11d5df930b86fcc77785dfcce108999426d526f",
+      "packages/neural-runtime/src/neurocraft_neural/adapters.py": "1f05375d6e178aca622c0bb4b18cd7a1e35d22501213e7982d81763f4c896c71",
+      "packages/neural-runtime/src/neurocraft_neural/engine.py": "87b8619957c751b1123fe7f6dab2f06446334dac093eb7263a8a504c8cf706a1",
+      "packages/neural-runtime/src/neurocraft_neural/model.py": "a82b425447ca65a359a2e5cca485664e2c7f95a6e1821e0ac193006c223f2c66",
+      "scripts/research_example.py": "ea6bc202f646c0938e7fd2303643daab490b87a447d07011de6fa251920e154f"
+    }
+  },
+  "source_graph": {
+    "body_ids_sha256": "61eb9a95e5b1998d3ca2c6509455a864d29de96fc40b1b19273dde68532343f1",
+    "canonical_graph_sha256": "7b8dd723eb2a9e5245869dd4459115030aa5a7fb62e70668257029a28ab6d0d1",
+    "dataset_id": "male-cns:v1.0",
+    "edge_count": 22,
+    "edge_support_sha256": "cc2f5cee1186d052b28665e8572ea23b60314e328bf534ad0a260f9fdef7ea66",
+    "extraction_code_sha256": "2eb9fc3c4cdd813131835f9c477140e81d4e2f13d6bf31e0164f353f4d7266c4",
+    "extraction_configuration_sha256": "9926d8b3e7bb0266b9b6ff02486b00b00b798e87554e6f00a64ab7724a195b11",
+    "fixture_file_sha256": "3076c22fd0c87041c601b865c9fc8e913466200491f80775060e28412a087ff8",
+    "fixture_id": "mcns-v1.0-flight-power-v1",
+    "fixture_payload_sha256": "69b9a929edd84fa02584de2c18d4bc1cacd1e3fe20ff64be6fe0ca8657bd9888",
+    "fixture_semantic_sha256": "8360e414a3df4004fe7bfcf03bdfba8d2fb4d188c6cdd93ef30b7760055f9232",
+    "fixture_tier": "MALECNS_FIXTURE",
+    "lineage_sha256": "5c4949f5a0a590190b05ff236ef8bd2d98a696d58cae87a1383af823cad81221",
+    "loader_configuration_sha256": "01106da5b320913da6f6dbbaca9e395d258700162ca01d1c7757d5dac313a1c5",
+    "loader_implementation_sha256": "1909ff88521e11d9af1857c3486f748217e2d7a045dd7546e9b3326583827368",
+    "loader_name": "neurocraft-connectome",
+    "loader_version": "1",
+    "node_count": 14,
+    "raw_count_sum": 1516,
+    "raw_counts_sha256": "e313628eaea98223e83652507cf732988579685cff827d2505fffae51c4a49fb",
+    "runtime_identity_sha256": "49001caafff67ab5dfc303b169155136482b7574fd42e93736bdbbfa6f66fc07",
+    "schema_version": 1,
+    "source_artifacts": [
+      {
+        "byte_length": 14483314,
+        "filename": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+        "generation": "1780494878811468",
+        "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+        "source_id": "annotations",
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather?generation=1780494878811468"
+      },
+      {
+        "byte_length": 43282834,
+        "filename": "body-neurotransmitters-male-cns-v1.0.feather",
+        "generation": "1780894899156750",
+        "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621",
+        "source_id": "neurotransmitters",
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-neurotransmitters-male-cns-v1.0.feather?generation=1780894899156750"
+      },
+      {
+        "byte_length": 1051241946,
+        "filename": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+        "generation": "1780494887545976",
+        "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1",
+        "source_id": "weights",
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather?generation=1780494887545976"
+      }
+    ],
+    "source_manifest_sha256": "9412105f54884a57521bbdf7fe46659caab559ef7877e6a62af95f50e1ee3768",
+    "source_rows_sha256": "685c7183ef4024fb907a6a7c7c3021ee7246bc6771f40c46bf6fba1ae4dbff3f"
+  },
+  "source_rights": {
+    "attribution": "MaleCNS v1.0 connectome data by FlyEM (HHMI Janelia), the University of Cambridge Department of Zoology, the MRC Laboratory of Molecular Biology, and Google Research.",
+    "changes": "Deterministically selected 14 source neurons and all 22 directed source edges with weight >= 5 among the bilateral maximum-bottleneck flight-power paths; copied selected annotation and aggregate transmitter evidence; retained every edge sign as unknown; did not modify source values.",
+    "citation": {
+      "authors": "Berg et al.",
+      "doi": "10.1101/2025.10.09.680999",
+      "status": "preprint",
+      "title": "Sexual dimorphism in the complete connectome of the Drosophila male central nervous system",
+      "url": "https://doi.org/10.1101/2025.10.09.680999",
+      "version": "bioRxiv v2, 2025-10-30"
+    },
+    "license": "CC BY 4.0",
+    "license_spdx": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+    "redistribution_decision": "permitted_with_attribution_and_change_notice",
+    "redistribution_scope": "This small derived JSON fixture may be committed and redistributed with this attribution, license link, citation, provenance, and change notice. The three bulk source objects remain excluded from Git.",
+    "source": "https://male-cns.janelia.org/download/",
+    "source_dataset_remains_third_party": true
+  },
+  "source_selection_policy": {
+    "candidate_resolution": {
+      "ambiguous_role_policy": "fail",
+      "motor": {
+        "subclass_exact": "wm",
+        "superclass_exact": "vnc_motor"
+      },
+      "named_types_exact": [
+        "AN27X008",
+        "DNg07"
+      ],
+      "sensory_union": [
+        {
+          "type_prefix": "JO-E"
+        },
+        {
+          "entryNerve_exact_any": [
+            "ADMN",
+            "DMetaN"
+          ],
+          "subclass_exact": "campaniform sensilla"
+        }
+      ],
+      "string_matching": "case-sensitive exact except the declared JO-E prefix"
+    },
+    "complete_selected_path_criterion": {
+      "definition": "For each side independently, concatenate one simple directed sensory-to-named segment and one simple directed named-to-motor segment, omitting the repeated named join node. Each segment has 1..3 source edges. Role endpoints must have that exact derived side; intermediate nodes are not side-filtered.",
+      "direction": "body_pre -> body_post",
+      "duplicate_directed_pair_policy": "fail across every source weight row",
+      "maximum_edges_per_segment": 3,
+      "objective": "maximize the minimum raw source weight over both segments",
+      "path_edge_minimum_weight_inclusive": 10,
+      "path_vertex_eligibility": "every path body must have a source annotation row",
+      "segment_vertex_repetition": "forbidden within each segment",
+      "tie_break": "lexicographically smallest complete ordered source body-ID tuple among all maximum-bottleneck complete paths"
+    },
+    "fixture_closure": {
+      "definition": "all source edges whose endpoints are both selected path nodes",
+      "minimum_weight_inclusive": 5,
+      "self_edges": "included when present"
+    },
+    "side_derivation": {
+      "allowed_evidence": [
+        "rootSide exact L/R",
+        "somaSide exact L/R",
+        "instance _L/_R suffix"
+      ],
+      "conflict": "fail",
+      "missing_required_role_side": "fail",
+      "unresolved_intermediate_side": "retain as null"
+    },
+    "transmitter_and_sign": {
+      "mapping": "none",
+      "policy": "copy the exact aggregate transmitter row when present; retain unknown edge signs"
+    }
+  },
+  "verification": {
+    "absolute_tolerance": 1e-12,
+    "default": "byte_exact_replay",
+    "hash_integrity_required_in_both_modes": true,
+    "optional": "numerical_replay",
+    "relative_tolerance": 1e-10
+  }
+}

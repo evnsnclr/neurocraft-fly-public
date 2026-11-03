@@ -1,0 +1,45 @@
+{
+  "type": "actuation_receipt",
+  "protocol": "neurocraft.protocol.v2",
+  "identity": {
+    "run_id": "demo-001",
+    "session_epoch": 1,
+    "entity_id": "fly-01",
+    "graph_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "adapter_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+    "dynamics_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+    "decoder_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+    "observation_schema_hash": "5555555555555555555555555555555555555555555555555555555555555555"
+  },
+  "command_seq": 0,
+  "observation_seq": 0,
+  "target_tick": 102,
+  "applied_tick": 105,
+  "world_before": {
+    "position_m": [1.0, 64.0, -2.0],
+    "velocity_m_s": [0.1, 0.0, -0.2],
+    "yaw_rad": 0.25,
+    "pitch_rad": -0.1,
+    "on_ground": false,
+    "horizontal_collision": false,
+    "vertical_collision": false,
+    "in_fluid": false
+  },
+  "requested_motors": {
+    "forward_thrust": 0.25,
+    "lateral_thrust": -0.1,
+    "vertical_thrust": 0.0,
+    "yaw_torque": 0.05,
+    "pitch_torque": 0.0
+  },
+  "applied_motors": {
+    "forward_thrust": 0.0,
+    "lateral_thrust": 0.0,
+    "vertical_thrust": 0.0,
+    "yaw_torque": 0.0,
+    "pitch_torque": 0.0
+  },
+  "validation": "REJECTED",
+  "clamp_fields": [],
+  "fault_code": "STALE"
+}

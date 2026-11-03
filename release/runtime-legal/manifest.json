@@ -1,0 +1,257 @@
+{
+  "schema": "neurocraft.runtime-legal.v1",
+  "python_version": "3.13.18",
+  "build": "20261026",
+  "platforms": {
+    "macos-arm64": {
+      "full_archive": {
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.13.18%2B20261026-aarch64-apple-darwin-pgo%2Blto-full.tar.zst",
+        "sha256": "5706f1fdf82f7ea10b56a9b9cbadfa5f372010568a9794f19e0af4c48d975f34",
+        "size_bytes": 61179160
+      },
+      "target_triple": "aarch64-apple-darwin",
+      "files": [
+        {
+          "path": "PYTHON.json",
+          "bytes": 125471,
+          "sha256": "b0d2ca68c07e18debcc59df0d6ffc5227e04f90739d717903d38bd3725284236"
+        },
+        {
+          "path": "licenses/LICENSE.bzip2.txt",
+          "bytes": 1743,
+          "sha256": "1f38bbc7caacafd65169276d759c0d88c991b753b643ce35d0e45ea1971dd441"
+        },
+        {
+          "path": "licenses/LICENSE.cpython.txt",
+          "bytes": 36164,
+          "sha256": "86e61415828a8b5b06ec8d024e6f086ce155a8b85fd0c419c0ba4dc004e74fdd"
+        },
+        {
+          "path": "licenses/LICENSE.expat.txt",
+          "bytes": 1144,
+          "sha256": "122f2c27000472a201d337b9b31f7eb2b52d091b02857061a8880371612d9534"
+        },
+        {
+          "path": "licenses/LICENSE.libedit.txt",
+          "bytes": 1614,
+          "sha256": "29cea33c32bbc9785142386377915612a2fa786482c46843383384aded2e09b1"
+        },
+        {
+          "path": "licenses/LICENSE.libffi.txt",
+          "bytes": 1132,
+          "sha256": "deaf3a42effb551a5b140fa9afefed183a27f1341c6d1bf430d106a5e6931fc0"
+        },
+        {
+          "path": "licenses/LICENSE.liblzma.txt",
+          "bytes": 660,
+          "sha256": "9a4062de0a2c388a98cf35a35d348b62fa97c838a71c3c28ee1a2d7d0a565b02"
+        },
+        {
+          "path": "licenses/LICENSE.libuuid.txt",
+          "bytes": 1432,
+          "sha256": "122ee1f7e258f2c3c0e538a75c037684f420454bf3850ddc74ce750bbf5fe86b"
+        },
+        {
+          "path": "licenses/LICENSE.mpdecimal.txt",
+          "bytes": 1284,
+          "sha256": "669512af7219f58be03a398766d7c9da11a3b3df9d3f05cb74c5ceca25c8da3b"
+        },
+        {
+          "path": "licenses/LICENSE.ncurses.txt",
+          "bytes": 1447,
+          "sha256": "87a4c4442337b8968ef956031c406b74f9cb7149b7ba87311bdaba534816201c"
+        },
+        {
+          "path": "licenses/LICENSE.openssl-3.txt",
+          "bytes": 10175,
+          "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+        },
+        {
+          "path": "licenses/LICENSE.sqlite.txt",
+          "bytes": 1481,
+          "sha256": "38bef3d28b24f145ea293bd3b6eb4b20396982abc8303128fb493986ea5bc719"
+        },
+        {
+          "path": "licenses/LICENSE.tcl.txt",
+          "bytes": 2255,
+          "sha256": "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16"
+        },
+        {
+          "path": "licenses/LICENSE.zlib-ng.txt",
+          "bytes": 867,
+          "sha256": "6c9f0d975b41afaa34d22f55bb8986ce69e5cb7ad327cb2b28820cd425edf5ee"
+        },
+        {
+          "path": "licenses/LICENSE.zlib.txt",
+          "bytes": 995,
+          "sha256": "818922b2620f12801a12bf78e399644a30990e66824abd8ca8ec24d451d6f92c"
+        }
+      ]
+    },
+    "windows-x86_64": {
+      "full_archive": {
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.13.18%2B20261026-x86_64-pc-windows-msvc-pgo-full.tar.zst",
+        "sha256": "cc35b06b48ae8f854a49c7be3b0cbebf6f822d965ffe0662ccff4713d20f3157",
+        "size_bytes": 45869198
+      },
+      "target_triple": "x86_64-pc-windows-msvc",
+      "files": [
+        {
+          "path": "PYTHON.json",
+          "bytes": 63915,
+          "sha256": "5c61f988ff937897f33c0151024e080c6e3588ddda3d61ae4ef877469e7c8f30"
+        },
+        {
+          "path": "licenses/LICENSE.bzip2.txt",
+          "bytes": 1780,
+          "sha256": "bd5628cc76fb0ebf9c657d1dd4d1a240a1a7b216c31663e7bbf1131c0b70a910"
+        },
+        {
+          "path": "licenses/LICENSE.cpython.txt",
+          "bytes": 36935,
+          "sha256": "8fe98bf9822926d854f56ffd8d97877d8b942617aa44eb7ea77fd99e22f2537e"
+        },
+        {
+          "path": "licenses/LICENSE.libffi.txt",
+          "bytes": 1153,
+          "sha256": "9afb8970cd29fc1031fa647278e4bef613399e2e3468a1e3a397f4d158c6101c"
+        },
+        {
+          "path": "licenses/LICENSE.liblzma.txt",
+          "bytes": 673,
+          "sha256": "d87d218dd908b3243ec4cbc72af400e5b7437513ea9d9229291d0812b8464fec"
+        },
+        {
+          "path": "licenses/LICENSE.libuuid.txt",
+          "bytes": 1459,
+          "sha256": "cbccaa3efe07a9a602751375085be572d4410a250b996716fbe8c5255c7ec6f2"
+        },
+        {
+          "path": "licenses/LICENSE.openssl-3.txt",
+          "bytes": 10352,
+          "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96"
+        },
+        {
+          "path": "licenses/LICENSE.sqlite.txt",
+          "bytes": 1504,
+          "sha256": "d8eb9aba7ef6b5ed06cb3ec19a7242316af2e5933c638eb67fb781c13884e01d"
+        },
+        {
+          "path": "licenses/LICENSE.tcl.txt",
+          "bytes": 2295,
+          "sha256": "41613eabfc08921a7da9c4bfd7f3ce5d5406f55214b253d89f392ed86eebeb8f"
+        },
+        {
+          "path": "licenses/LICENSE.tix.txt",
+          "bytes": 2880,
+          "sha256": "8cdff3addb9e9eb108c78e2cf5e05f26b216c098304945733bbec382b2eaef66"
+        }
+      ]
+    },
+    "linux-x86_64": {
+      "full_archive": {
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.13.18%2B20261026-x86_64-unknown-linux-gnu-pgo%2Blto-full.tar.zst",
+        "sha256": "f003449a05408c2e4b184f2a7abd1ea277081ff1a9100289075243ab5ed81207",
+        "size_bytes": 113051719
+      },
+      "target_triple": "x86_64-unknown-linux-gnu",
+      "files": [
+        {
+          "path": "PYTHON.json",
+          "bytes": 127836,
+          "sha256": "53304e0a7215bbe05a08780b6d491e965e02814bf38820819ba26ac15fc54e40"
+        },
+        {
+          "path": "licenses/LICENSE.bdb.txt",
+          "bytes": 7293,
+          "sha256": "3bdff06e69991c94664f2ef5c5f8096f60b7dbec071756ea6cc26b445e06ec5b"
+        },
+        {
+          "path": "licenses/LICENSE.bzip2.txt",
+          "bytes": 1743,
+          "sha256": "1f38bbc7caacafd65169276d759c0d88c991b753b643ce35d0e45ea1971dd441"
+        },
+        {
+          "path": "licenses/LICENSE.cpython.txt",
+          "bytes": 36164,
+          "sha256": "86e61415828a8b5b06ec8d024e6f086ce155a8b85fd0c419c0ba4dc004e74fdd"
+        },
+        {
+          "path": "licenses/LICENSE.expat.txt",
+          "bytes": 1144,
+          "sha256": "122f2c27000472a201d337b9b31f7eb2b52d091b02857061a8880371612d9534"
+        },
+        {
+          "path": "licenses/LICENSE.libX11.txt",
+          "bytes": 47018,
+          "sha256": "2daec087a88e7c9b8082557cdeebad5bbb8155a4137472f0b22e269cd99d0c1e"
+        },
+        {
+          "path": "licenses/LICENSE.libXau.txt",
+          "bytes": 1148,
+          "sha256": "56abe29bb1d9806a9e04fa9f80fed2c0f18027594df3f098148d814aef6bddfa"
+        },
+        {
+          "path": "licenses/LICENSE.libedit.txt",
+          "bytes": 1614,
+          "sha256": "29cea33c32bbc9785142386377915612a2fa786482c46843383384aded2e09b1"
+        },
+        {
+          "path": "licenses/LICENSE.libffi.txt",
+          "bytes": 1132,
+          "sha256": "deaf3a42effb551a5b140fa9afefed183a27f1341c6d1bf430d106a5e6931fc0"
+        },
+        {
+          "path": "licenses/LICENSE.liblzma.txt",
+          "bytes": 660,
+          "sha256": "9a4062de0a2c388a98cf35a35d348b62fa97c838a71c3c28ee1a2d7d0a565b02"
+        },
+        {
+          "path": "licenses/LICENSE.libuuid.txt",
+          "bytes": 1432,
+          "sha256": "122ee1f7e258f2c3c0e538a75c037684f420454bf3850ddc74ce750bbf5fe86b"
+        },
+        {
+          "path": "licenses/LICENSE.libxcb.txt",
+          "bytes": 1337,
+          "sha256": "c5ffbfeaa501071ceeb97b7de2c0d703fdaa35de01c0fb6cbac1c28453a3e9fd"
+        },
+        {
+          "path": "licenses/LICENSE.mpdecimal.txt",
+          "bytes": 1284,
+          "sha256": "669512af7219f58be03a398766d7c9da11a3b3df9d3f05cb74c5ceca25c8da3b"
+        },
+        {
+          "path": "licenses/LICENSE.ncurses.txt",
+          "bytes": 1447,
+          "sha256": "87a4c4442337b8968ef956031c406b74f9cb7149b7ba87311bdaba534816201c"
+        },
+        {
+          "path": "licenses/LICENSE.openssl-3.txt",
+          "bytes": 10175,
+          "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+        },
+        {
+          "path": "licenses/LICENSE.sqlite.txt",
+          "bytes": 1481,
+          "sha256": "38bef3d28b24f145ea293bd3b6eb4b20396982abc8303128fb493986ea5bc719"
+        },
+        {
+          "path": "licenses/LICENSE.tcl.txt",
+          "bytes": 2255,
+          "sha256": "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16"
+        },
+        {
+          "path": "licenses/LICENSE.zlib-ng.txt",
+          "bytes": 867,
+          "sha256": "6c9f0d975b41afaa34d22f55bb8986ce69e5cb7ad327cb2b28820cd425edf5ee"
+        },
+        {
+          "path": "licenses/LICENSE.zlib.txt",
+          "bytes": 995,
+          "sha256": "818922b2620f12801a12bf78e399644a30990e66824abd8ca8ec24d451d6f92c"
+        }
+      ]
+    }
+  }
+}

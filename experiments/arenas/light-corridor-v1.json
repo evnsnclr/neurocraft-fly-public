@@ -1,0 +1,15 @@
+{
+  "arena_id": "light-corridor-v1",
+  "version": 1,
+  "description": "A bounded straight corridor with physical side walls and a static light gradient; no target coordinate is exposed to the controller.",
+  "bounds": {"min": [0.0, 0.0, 0.0], "max": [32.0, 8.0, 8.0]},
+  "spawn": [2.5, 2.0, 4.0],
+  "yaw_degrees": 0.0,
+  "required_sensors": ["pose", "velocity", "contact", "body_rays", "local_light"],
+  "metrics": ["completion_rate", "ticks_to_exit", "wall_contacts", "path_length"],
+  "geometry": {
+    "corridor_axis": "x",
+    "exit_plane_x": 30.0,
+    "light_blocks": [{"position": [30.0, 3.0, 4.0], "level": 15}]
+  }
+}

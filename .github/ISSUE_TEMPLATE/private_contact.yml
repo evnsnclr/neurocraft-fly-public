@@ -1,0 +1,20 @@
+name: Private contact request
+description: Request a private security or conduct channel without disclosing details.
+title: "Private contact requested"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is not confidential. Do not include vulnerabilities, exploit details,
+        credentials, names of involved people or screenshots. If GitHub Security → Report a
+        vulnerability is available, use that private route for technical vulnerabilities.
+        Private reporting is planned but is not claimed enabled by these templates.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Requested private channel
+      options:
+        - Security report
+        - Community conduct concern
+    validations:
+      required: true

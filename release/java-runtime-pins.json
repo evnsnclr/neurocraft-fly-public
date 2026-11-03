@@ -1,0 +1,122 @@
+{
+  "schema": "neurocraft.java-runtime-pins.v1",
+  "libraries": [
+    {
+      "name": "com.google.guava:guava:33.7.2-jre",
+      "path": "com/google/guava/guava/33.7.2-jre/guava-33.7.2-jre.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/guava/33.7.2-jre/guava-33.7.2-jre.jar",
+      "sha256": "b530942257fb935f8b2cfaa5f8eb5bd59c555fd8e8d01b8ce98912e077ea606c",
+      "sha1": "e70def5b06cfb109ea050de99870e79c8ce80dbc",
+      "bytes": 3057659,
+      "anchor": "com.google.common.collect.ImmutableList"
+    },
+    {
+      "name": "com.google.guava:failureaccess:1.0.3",
+      "path": "com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3.jar",
+      "sha256": "cbfc3906b19b8f55dd7cfd6dfe0aa4532e834250d7f080bd8d211a3e246b59cb",
+      "sha1": "aeaffd00d57023a2c947393ed251f0354f0985fc",
+      "bytes": 10763,
+      "anchor": "com.google.common.util.concurrent.internal.InternalFutureFailureAccess"
+    },
+    {
+      "name": "org.apache.logging.log4j:log4j-api:2.25.5",
+      "path": "org/apache/logging/log4j/log4j-api/2.25.5/log4j-api-2.25.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.25.5/log4j-api-2.25.5.jar",
+      "sha256": "64777f73ea0b3104c04eb82befbdccc30a425a19e83ad06cb2f93aa303511863",
+      "sha1": "6c80ea65e41f7858f7e15cb390c98c36167c7b3a",
+      "bytes": 351427,
+      "anchor": "org.apache.logging.log4j.LogManager"
+    },
+    {
+      "name": "org.apache.logging.log4j:log4j-core:2.25.5",
+      "path": "org/apache/logging/log4j/log4j-core/2.25.5/log4j-core-2.25.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.25.5/log4j-core-2.25.5.jar",
+      "sha256": "050c4f85deb48b055e9c041ac39043fbb79ce477841a11a1eb2969c86c6a0072",
+      "sha1": "c194a13e18b0a36014e867d2d323b989bf212151",
+      "bytes": 2020932,
+      "anchor": "org.apache.logging.log4j.core.LoggerContext"
+    },
+    {
+      "name": "org.apache.logging.log4j:log4j-slf4j2-impl:2.25.5",
+      "path": "org/apache/logging/log4j/log4j-slf4j2-impl/2.25.5/log4j-slf4j2-impl-2.25.5.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j2-impl/2.25.5/log4j-slf4j2-impl-2.25.5.jar",
+      "sha256": "8cab16dd6fc4c8f14c1c473022cb217512f2bbb2d59a70f8ec90a268d64d8831",
+      "sha1": "3b675c42c5e9de05ed363e3bfddcbd7d71e8c5b0",
+      "bytes": 30212,
+      "anchor": "org.apache.logging.slf4j.Log4jLoggerFactory"
+    }
+  ],
+  "loader_libraries": [
+    {
+      "name": "org.ow2.asm:asm:9.7.1",
+      "path": "org/ow2/asm/asm/9.7.1/asm-9.7.1.jar",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar",
+      "sha256": "8cadd43ac5eb6d09de05faecca38b917a040bb9139c7edeb4cc81c740b713281",
+      "sha1": "f0ed132a49244b042cd0e15702ab9f2ce3cc8436",
+      "bytes": 126093
+    },
+    {
+      "name": "org.ow2.asm:asm-analysis:9.7.1",
+      "path": "org/ow2/asm/asm-analysis/9.7.1/asm-analysis-9.7.1.jar",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.7.1/asm-analysis-9.7.1.jar",
+      "sha256": "85b29371884ba31bb76edf22323c2c24e172c3267a67152eba3d1ccc2e041ef2",
+      "sha1": "f97a3b319f0ed6a8cd944dc79060d3912a28985f",
+      "bytes": 35126
+    },
+    {
+      "name": "org.ow2.asm:asm-commons:9.7.1",
+      "path": "org/ow2/asm/asm-commons/9.7.1/asm-commons-9.7.1.jar",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.7.1/asm-commons-9.7.1.jar",
+      "sha256": "9a579b54d292ad9be171d4313fd4739c635592c2b5ac3a459bbd1049cddec6a0",
+      "sha1": "406c6a2225cfe1819f102a161e54cc16a5c24f75",
+      "bytes": 73459
+    },
+    {
+      "name": "org.ow2.asm:asm-tree:9.7.1",
+      "path": "org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar",
+      "sha256": "9929881f59eb6b840e86d54570c77b59ce721d104e6dfd7a40978991c2d3b41f",
+      "sha1": "3a53139787663b139de76b627fca0084ab60d32c",
+      "bytes": 51939
+    },
+    {
+      "name": "org.ow2.asm:asm-util:9.7.1",
+      "path": "org/ow2/asm/asm-util/9.7.1/asm-util-9.7.1.jar",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.7.1/asm-util-9.7.1.jar",
+      "sha256": "f885be71b5c90556f5f1ad1c4f9276b29b96057c497d46666fe4ddbec3cb43c6",
+      "sha1": "9e23359b598ec6b74b23e53110dd5c577adf2243",
+      "bytes": 94519
+    },
+    {
+      "name": "net.fabricmc:sponge-mixin:0.15.4+mixin.0.8.7",
+      "path": "net/fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/sponge-mixin-0.15.4+mixin.0.8.7.jar",
+      "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/sponge-mixin-0.15.4+mixin.0.8.7.jar",
+      "sha256": "4631f67da980ae2ac9e6e285a7df4680645e2f37a6a14acc775f97982162c2a2",
+      "sha1": "6a12aacc794f1078458433116e9ed42c1cc98096",
+      "bytes": 1494834
+    },
+    {
+      "name": "net.fabricmc:intermediary:1.21.5",
+      "path": "net/fabricmc/intermediary/1.21.5/intermediary-1.21.5.jar",
+      "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.5/intermediary-1.21.5.jar",
+      "sha256": "391a92396f2a3f8abbd6e8c67121cec374e5253189228370885939691812ec84",
+      "sha1": "481b0f50af1325ec9d2cbcb076ae462f8c1668b9",
+      "bytes": 724686
+    },
+    {
+      "name": "net.fabricmc:fabric-loader:0.16.10",
+      "path": "net/fabricmc/fabric-loader/0.16.10/fabric-loader-0.16.10.jar",
+      "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.10/fabric-loader-0.16.10.jar",
+      "sha256": "23557a7d6da3db971a6f9620cb62e7b6e6d1509f5138ebb87529877d2400e568",
+      "sha1": "dbd932c2a3641d2c41cf9abfe47e140a5753fa86",
+      "bytes": 1387408
+    }
+  ],
+  "minecraft_server": {
+    "url": "https://piston-data.mojang.com/v1/objects/e6ec2f64e6080b9b5d9b471b291c33cc7f509733/server.jar",
+    "sha1": "e6ec2f64e6080b9b5d9b471b291c33cc7f509733",
+    "sha256": "ae7681dadce21b6b4017d28e7eb567d86b6c100a6969994f540b9e54f812dc29",
+    "bytes": 57269758
+  }
+}

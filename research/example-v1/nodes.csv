@@ -1,0 +1,15 @@
+dense_index,body_id,type_name,instance,side,roles,superclass,consensus_nt,annotation_source_row,transmitter_source_row,canonical_sign_status
+0,10026,DNp18,DNp18_R,R,intermediate,descending_neuron,acetylcholine,19,19,unknown
+1,10069,AN07B004,AN07B004(PS299)_R,R,intermediate,ascending_neuron,acetylcholine,58,59,unknown
+2,10180,AN02A002,AN02A002_R,R,intermediate,ascending_neuron,glutamate,165,166,unknown
+3,10236,DNg99,DNg99_R,R,intermediate,descending_neuron,gaba,218,219,unknown
+4,10691,WED203,WED203_R,R,intermediate,cb_intrinsic,gaba,650,649,unknown
+5,27143,DNg07,DNg07_L,L,named:DNg07,descending_neuron,acetylcholine,15756,15679,unknown
+6,28949,DNg07,DNg07_R,R,named:DNg07,descending_neuron,acetylcholine,17393,17309,unknown
+7,29142,AMMC008,AMMC008_L,L,intermediate,cb_intrinsic,glutamate,17573,17488,unknown
+8,73753,AN07B003,AN07B003_R,R,intermediate,ascending_neuron,acetylcholine,56433,55918,unknown
+9,77185,JO-EV3,JO-EV3_R,R,sensory,cb_sensory,acetylcholine,59342,58754,unknown
+10,536501,AMMC008,AMMC008_R,R,intermediate,cb_intrinsic,glutamate,161167,166692,unknown
+11,800241,hg1 MN,hg1 MN_L,L,motor,vnc_motor,glutamate,169326,177144,unknown
+12,800917,hg1 MN,hg1 MN_R,R,motor,vnc_motor,glutamate,169829,177647,unknown
+13,805722,SNpp10,,L,sensory,vnc_sensory,acetylcholine,173573,181391,unknown

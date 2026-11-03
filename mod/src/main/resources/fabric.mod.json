@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "neurocraft_fly",
+  "version": "${version}",
+  "name": "NeuroCraft Fly",
+  "authors": ["Evan Smith"],
+  "license": "MIT",
+  "description": "Interact with modeled fruit-fly neural activity in Minecraft. Requires the local NeuroCraft Fly companion service.",
+  "environment": "*",
+  "entrypoints": {
+    "preLaunch": ["dev.neurocraft.fly.RuntimeLibraries"],
+    "main": [
+      "dev.neurocraft.fly.NeuroCraftFly"
+    ],
+    "client": [
+      "dev.neurocraft.fly.client.NeuroCraftFlyClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": "=0.16.10",
+    "minecraft": "=1.21.5",
+    "java": ">=21",
+    "fabric-api": "=0.128.2+1.21.5"
+  },
+  "custom": {
+    "neurocraft_fly:controller": {
+      "action_path": "raw_physical_sensors -> external_neural_service -> primitive_actuator",
+      "fallback": "neutral_only",
+      "server_authoritative": true
+    }
+  }
+}

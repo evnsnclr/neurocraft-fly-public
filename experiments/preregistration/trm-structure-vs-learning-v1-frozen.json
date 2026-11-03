@@ -1,0 +1,75 @@
+{
+ "adr": "docs/adr/0008-engineering-frame-and-mode-taxonomy.md",
+ "bound_decisions": {
+  "accepted_swaps_note": "accepted_swaps is reported per rewire row for the record, but the pinned TopologyOverlay.degree_preserving_random refuses any shortfall, so it structurally equals requested_swaps=887; the freeze review probed all 199 condition seeds building successfully",
+  "analysis": "per task and null condition: per-instance mean test MSE across the 10 shared drive seeds; empirical p = (1 + #nulls <= connectome mean)/(N+1) with N=199, lower MSE better; Holm-Bonferroni across the 6 comparisons at alpha 0.05",
+  "biological_readout_regime": "dropped from v1 with reason: the 2-pool wing-motor regime requires binding the flight-controller pool projection into the offline harness; deferred to an openly recorded amendment so v1's scope stays the full-hidden-state readout",
+  "blas_warning_note": "macOS/Accelerate emits spurious floating-point-flag RuntimeWarnings in the ridge matmul; the freeze review probed the gram matrices as exactly finite, and the fail-closed non-finite guards remain the real protection. Accepted as noise",
+  "drive": "continuous SHA-256-derived unit streams on bodies 77185/805722, amplitude 0.5",
+  "drive_seed_count": 10,
+  "dropped_task": "FOM-trace distillation (trace-binding complexity; amendable in a later version)",
+  "intercept": "one constant 1.0 column appended to the hidden state",
+  "l2_grid": [
+   1e-06,
+   0.0001,
+   0.01,
+   1.0
+  ],
+  "l2_selection": "per run on the validation slice; test MSE reported once",
+  "null_sample_count": 199,
+  "power_rationale": "N=199 puts the minimum achievable empirical p at 1/200 = 0.005, strictly below the first Holm-Bonferroni threshold 0.05/6 ~= 0.00833 across the 6 confirmatory comparisons. The freeze review demonstrated that the draft's N=100 (min p 1/101 ~= 0.0099) could never reject any hypothesis under that correction; this is the recorded fix, made before any result existed.",
+  "readout_weight_hashing": "solver output is never hashed into any identity; metrics are reported floats, same-build scoped",
+  "recurrence_axis_note": "the connectome-vs-sign_ablated_zero comparison is descriptive only: a deterministic condition has no null distribution, so it receives no inferential treatment",
+  "rewire_requested_swaps": 887,
+  "rl_arm": "out of scope for this freeze; requires its own protocol (E3)",
+  "run_identity_hardening": "engine and identity built atomically pre-step from one call (trm_e1.built_run); fresh-engine guard enforced; drives validated by construction before hashing",
+  "seed_derivation": "null seeds: SHA-256 over the canonical JSON of {protocol_id, role='null', condition, null_index} (trm_e1.condition_seed, first 16 hex chars as an integer); drive/input streams: SHA-256 counters over the pipe-joined prefix protocol_id|role|seed_index|channel (trm_tasks.unit_stream). The two derivation domains are disjoint by construction; binding is by the code hashes above",
+  "signs_under_rewire": "signs travel with edge slots (the harness's declared default)",
+  "smoke_limit_guard": "--limit refuses the canonical result path so a partial document can never occupy the immutable output",
+  "steps": {
+   "test": 200,
+   "train": 400,
+   "validation": 100,
+   "washout": 100
+  },
+  "strength_matched_null": "dropped: not implementable without amending a pilot-pinned file",
+  "tasks": [
+   "delayed_reconstruction (delays 1,2,4,8,16, both channels)",
+   "narma10 (lower-body-id channel)"
+  ]
+ },
+ "conditions": {
+  "deterministic": [
+   "connectome",
+   "sign_ablated_zero"
+  ],
+  "stochastic_with_199_nulls": [
+   "sign_permuted",
+   "weight_shuffled",
+   "degree_preserving_rewire"
+  ]
+ },
+ "draft": "experiments/preregistration/trm-structure-vs-learning-v1.md",
+ "engine_note": "The reference NeuralEngine and its overlay classes are consumed byte-identically as pinned by fixture-physics pilot v3 (packages/neural-runtime engine.py/model.py).",
+ "evidence_scope": "NON_MINECRAFT_OFFLINE_TRM_RESERVOIR_ONLY",
+ "fixture": {
+  "file_sha256": "71d9a56c81914d02af8286745a23f320e37531d040b8249ff50719a26871b05b",
+  "path": "data/fixtures/mcns-v1.0-flight-steering-v1.json",
+  "runtime_identity_sha256": "ebc50c0db92f7ec0e0eeb737af3d6d446cd569a488564a5682a0f255af401c26",
+  "sign_coverage_receipt": "docs/receipts/SIGN-OVERLAY-01.md"
+ },
+ "implementation_hashes": {
+  "packages/experiment-sdk/src/neurocraft_experiments/nulls.py": "171a5fa39445c81a3a6911538dbe7b511fc70da87e90500812947fb037f1f406",
+  "packages/experiment-sdk/src/neurocraft_experiments/reservoir.py": "f2c55724851761e8c02923ca8ae1c5ae559c6616e0a8f9585f8af27a83e49229",
+  "packages/experiment-sdk/src/neurocraft_experiments/trm_e1.py": "5c7cbaa60d4f5b8f4384a940a3bdd010bc1c392a560b67f3027e89ba907575a7",
+  "packages/experiment-sdk/src/neurocraft_experiments/trm_tasks.py": "4f0d49e8dbca305250437662d4c2f9937a41e1b53f021eacc98bd2b4babc5c3c",
+  "scripts/run_trm_e1.py": "dc6858e42d26a38ebb8eea5908ef8248d2822d664347e6da5cd11322de95ba39"
+ },
+ "mode": "trained_readout_mode",
+ "non_claims": "No behavioral, biological, participation, or Faithful-mode claim. No Minecraft execution. Results describe this fixture, this engine, and these declared tasks.",
+ "protocol_id": "trm-structure-vs-learning-v1",
+ "question": "Does the measured connectome circuit's structure (topology, weights, transmitter-derived sign placement) contribute to closed-form readout performance on the declared tasks, relative to matched nulls, when the recurrent core is frozen and only the readout is trained? Any outcome, including the null, is reportable.",
+ "result_output": "experiments/results/trm-e1-v1.json (written exactly once; immutable)",
+ "schema": "neurocraft.trm.preregistration.v1",
+ "status": "frozen_before_trm_execution"
+}

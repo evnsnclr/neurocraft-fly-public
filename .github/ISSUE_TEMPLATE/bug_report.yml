@@ -1,0 +1,45 @@
+name: Setup help or bug
+description: Report a setup problem or reproducible behavior in the local alpha.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please share only what is needed. Logs are optional. Remove tokens, account information,
+        private addresses, usernames and personal paths. Replace the workspace prefix with
+        <workspace>. Do not upload full run folders or environment dumps. For vulnerabilities,
+        follow SECURITY.md instead of posting exploit details here.
+  - type: input
+    id: revision
+    attributes:
+      label: Source revision
+      description: Commit or release identifier; write unknown if unavailable.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS/version, CPU architecture, RAM, Python/uv/Java versions and profile/lane. No machine name or account details.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps and expected behavior
+      description: Include preparation, resets, open menus and whether an input actually reached the fly.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: First relevant error or observed program. Keep unavailable evidence explicit.
+    validations:
+      required: true
+  - type: textarea
+    id: excerpt
+    attributes:
+      label: Optional sanitized excerpt
+      description: A short manually reviewed excerpt only; attaching logs is not required.
+      render: text

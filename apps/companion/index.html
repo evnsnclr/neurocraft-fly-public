@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NeuroCraft Fly Companion</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<main>
+  <header><div class="brand">NEUROCRAFT <span>FLY</span></div><span class="badge">Private test candidate</span></header>
+  <section class="intro"><div class="eyebrow">A SMALL FLY. A FULL NETWORK.</div><h1>Your playground,<br>ready to explore.</h1><p>Set up the local neural companion, open Minecraft, and meet the fly.</p><div class="status"><span id="dot"></span><strong id="phase">Connecting to Companion…</strong></div></section>
+  <div id="error" role="alert" hidden></div>
+  <div class="columns">
+    <section class="card"><span class="step">01 · PREPARE</span><h2>Set up this computer</h2><p>Python and the neural kernel are included in the player bundle. Setup downloads about 1.1 GB of model inputs, builds the network, and prepares a private Fabric server. Leave additional disk space and memory for Minecraft.</p>
+      <label>Java 21 home <span>optional — leave blank to find or download it</span><input id="java" type="text" placeholder="Folder containing bin/java" autocomplete="off"></label>
+      <label class="check"><input id="downloads" type="checkbox">Allow verified model, Java and Fabric/Minecraft downloads into this installation.</label>
+      <label class="check"><input id="eula" type="checkbox">I have read and accept the <a href="https://www.minecraft.net/eula" target="_blank" rel="noreferrer noopener">Minecraft EULA</a> for this local server.</label>
+      <button id="setup">Prepare companion</button><p class="hint">You supply your own Minecraft launcher and account. Setup never changes account files or launcher profiles.</p>
+    </section>
+    <section class="card"><span class="step">02 · PLAY</span><h2>Open the playground</h2><p>Companion installs a patched Minecraft <b>1.21.5</b> / Fabric <b>0.16.10</b> version for your normal launcher. Use an isolated game folder for this test.</p>
+      <label>Your Java player name<input id="player" type="text" placeholder="YourMinecraftName" maxlength="16" autocomplete="off"></label>
+      <label>Your Fabric profile’s mods folder<input id="mods" type="text" placeholder="Paste the full folder path" autocomplete="off"></label>
+      <label>Minecraft launcher folder<input id="launcher" type="text" placeholder="Folder containing versions and libraries" autocomplete="off"></label>
+      <button id="install" class="secondary">Install client files</button><p class="hint">Creates a new NeuroCraft version and copies the two matching mods. Select that version in your launcher's installation settings. Your account and existing launcher profiles are untouched.</p>
+      <button id="start">Start playground</button>
+      <div id="join" hidden><span>In Minecraft → Multiplayer → Direct Connection</span><strong id="address"></strong><button id="copy" class="secondary">Copy address</button></div>
+    </section>
+  </div>
+  <section class="card controls"><div><span class="step">03 · EXPLORE</span><h2>Change and compare</h2><p>Try a brush first. Press <b>H</b> for model details and <b>R</b> for recent display samples. Confirm the active condition on the Minecraft HUD after each request.</p></div><div class="buttons"><button data-condition="original" class="secondary">Original weights</button><button data-condition="shuffled_weight" class="secondary">Shuffled weights</button><button data-condition="no_input" class="secondary">No input</button><button id="stop" class="stop">Stop session</button></div></section>
+  <details class="card"><summary>Setup and session progress</summary><pre id="log" aria-live="polite"></pre></details>
+  <footer><p>Simulated neural activity · engineered sensory inputs · hand-chosen readouts selecting scripted movement.<br>Testing is incomplete. This candidate does not establish Windows playability or biological validation.</p><div><button id="report" class="quiet">Save sanitized support report</button><button id="close" class="quiet">Stop and close companion</button></div><p class="small">Closing this browser tab alone leaves the companion running. Use the close button above.</p></footer>
+</main></body></html>

@@ -1,0 +1,23 @@
+name: Feature or documentation proposal
+description: Suggest one concrete improvement or correct a claim.
+title: "[Proposal] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is difficult or inaccurate?
+      description: Describe the user task or exact document section, without private information.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain the smallest useful change and who it helps.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and boundaries
+      description: Optional source revision, public references, tested environment, or how success could be checked. Do not claim unrun experiments.

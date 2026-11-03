@@ -1,0 +1,19 @@
+NeuroCraft Fly
+Copyright (c) 2026 Evan Smith.
+
+Project-owned software and its associated documentation are licensed under
+the MIT License in the accompanying LICENSE file.
+This notice does not grant rights to third-party software or data.
+
+Minecraft is developed by Mojang Studios. This is an independent project and
+is not an official Minecraft product, approved by or associated with Mojang
+Studios or Microsoft. Minecraft is not included in this mod JAR.
+
+Fabric Loader and Fabric API are separate dependencies from FabricMC.
+MaleCNS v1.0 data is credited to its originating research teams and Janelia;
+bulk connectome data is downloaded separately under its source terms.
+See THIRD_PARTY.md and docs/DATA_PROVENANCE.md in the source distribution.
+
+The model uses event-gated sensory inputs and labeled neural readouts to
+select and modulate scripted body programs. It does not establish natural
+fly behavior, cognition, or biological validation.

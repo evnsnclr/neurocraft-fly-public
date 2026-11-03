@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.jar binary
+*.png binary
+*.gif binary
+*.mp4 binary
+*.feather binary
+*.zip binary
+
+# Keep upstream legal metadata/notices byte-exact for their recorded hashes.
+release/runtime-legal/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,15 @@
+{
+  "arena_id": "crosswind-gap-v1",
+  "version": 1,
+  "description": "A physical gap traversal with a logged deterministic lateral force zone; the controller receives only local physical sensors.",
+  "bounds": {"min": [0.0, 0.0, 0.0], "max": [24.0, 12.0, 12.0]},
+  "spawn": [2.0, 4.0, 6.0],
+  "yaw_degrees": 0.0,
+  "required_sensors": ["pose", "velocity", "contact", "body_rays", "local_airflow"],
+  "metrics": ["completion_rate", "ticks_to_exit", "falls", "lateral_error"],
+  "geometry": {
+    "gap_x": [9.0, 15.0],
+    "exit_plane_x": 22.0,
+    "force_zone": {"min": [9.0, 2.0, 2.0], "max": [15.0, 10.0, 10.0], "force": [0.0, 0.0, 0.015]}
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "neurocraft.companion-runtime-pins.v1",
+  "platforms": {
+    "windows-x86_64": {
+      "java": {
+        "version": "21.0.13+9.0.LTS",
+        "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_x64_windows_hotspot_21.0.13_9.zip",
+        "sha256": "2332c0b4cff6bed722da3567c91d5e47568bcba863fa4945d0a8d6fc76158628",
+        "bytes": 49106397,
+        "license": "GPL-2.0-with-classpath-exception",
+        "metadata_url": "https://api.adoptium.net/v3/assets/latest/21/hotspot?architecture=x64&image_type=jre&os=windows&vendor=eclipse"
+      },
+      "python": {
+        "version": "3.13.18",
+        "build": "20261026",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.13.18%2B20261026-x86_64-pc-windows-msvc-install_only.tar.gz",
+        "sha256": "ebe90cc1dce2dd2d7afa1f0aa9b6c269c7c0174aeabdc6a801381602b7283424",
+        "bytes": 48077770,
+        "license": "PSF-2.0 and included component licenses",
+        "metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261026"
+      }
+    },
+    "macos-arm64": {
+      "java": {
+        "version": "21.0.13+9.0.LTS",
+        "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+        "sha256": "225bab0a09491ef06835488cd942f5d2befa9a0410a2484f0c8bbcf7506ec09a",
+        "bytes": 47935740,
+        "license": "GPL-2.0-with-classpath-exception",
+        "metadata_url": "https://api.adoptium.net/v3/assets/latest/21/hotspot?architecture=aarch64&image_type=jre&os=mac&vendor=eclipse"
+      },
+      "python": {
+        "version": "3.13.18",
+        "build": "20261026",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.13.18%2B20261026-aarch64-apple-darwin-install_only.tar.gz",
+        "sha256": "e5af2fde6a937a0e0c795a0c595c4efb70578d57463a2657c819992b9b9acbac",
+        "bytes": 25394044,
+        "license": "PSF-2.0 and included component licenses",
+        "metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261026"
+      }
+    },
+    "linux-x86_64": {
+      "java": {
+        "version": "21.0.13+9.0.LTS",
+        "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_x64_linux_hotspot_21.0.13_9.tar.gz",
+        "sha256": "a535a1df9c6284d9618872984e026ae0352d1f7e9e0605425c0e6114f47351dd",
+        "bytes": 52181297,
+        "license": "GPL-2.0-with-classpath-exception",
+        "metadata_url": "https://api.adoptium.net/v3/assets/latest/21/hotspot?architecture=x64&image_type=jre&os=linux&vendor=eclipse"
+      },
+      "python": {
+        "version": "3.13.18",
+        "build": "20261026",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261026/cpython-3.13.18%2B20261026-x86_64-unknown-linux-gnu-install_only.tar.gz",
+        "sha256": "126343c54daff4068efc1ac269518d0cc202d57857794948103dd1454e8881be",
+        "bytes": 76935188,
+        "license": "PSF-2.0 and included component licenses",
+        "metadata_url": "https://api.github.com/repos/astral-sh/python-build-standalone/releases/tags/20261026"
+      }
+    }
+  }
+}

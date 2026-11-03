@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-protocol"
+version = "0.1.0"
+description = "Strict, transport-neutral protocol and causal trace primitives for NeuroCraft Fly"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neurocraft_protocol"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/neurocraft_protocol/py.typed" = "neurocraft_protocol/py.typed"

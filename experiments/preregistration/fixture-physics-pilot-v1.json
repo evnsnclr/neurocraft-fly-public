@@ -1,0 +1,108 @@
+{
+  "schema": "neurocraft.fixture_physics_pilot.v1",
+  "protocol_id": "fixture-physics-pilot-v1",
+  "status": "frozen_before_fixture_pilot_execution",
+  "evidence_scope": "NON_MINECRAFT_LOCAL_FIXTURE_PHYSICS_ONLY",
+  "claim_boundary": "This small deterministic Python physics pilot exercises controller and control identities on the tracked 14-node MaleCNS-derived fixture. It is not Minecraft execution, not G4 evidence, not a model of natural flight, and not biological validation.",
+  "fixture": {
+    "path": "data/fixtures/mcns-v1.0-flight-power-v1.json",
+    "file_sha256": "3076c22fd0c87041c601b865c9fc8e913466200491f80775060e28412a087ff8",
+    "data_tier": "MALECNS_FIXTURE"
+  },
+  "arenas": [
+    "experiments/arenas/light-corridor-v1.json",
+    "experiments/arenas/crosswind-gap-v1.json"
+  ],
+  "seeds": [101, 211, 307, 401, 503],
+  "replicates": 1,
+  "conditions": [
+    {
+      "condition_id": "faithful",
+      "mode": "faithful",
+      "policy": "connectome_controller",
+      "intervention": "none",
+      "receives_adapter_inputs": true,
+      "lesion_body_ids": [],
+      "overlay": "canonical"
+    },
+    {
+      "condition_id": "shuffled-weight",
+      "mode": "shuffled_weight",
+      "policy": "connectome_controller",
+      "intervention": "seeded_fixed_support_weight_permutation",
+      "receives_adapter_inputs": true,
+      "lesion_body_ids": [],
+      "overlay": "shuffled_weight"
+    },
+    {
+      "condition_id": "degree-preserving",
+      "mode": "degree_preserving_random",
+      "policy": "connectome_controller",
+      "intervention": "one_seeded_directed_double_edge_swap",
+      "receives_adapter_inputs": true,
+      "lesion_body_ids": [],
+      "overlay": "degree_preserving_random"
+    },
+    {
+      "condition_id": "dng07-lesion",
+      "mode": "lesion",
+      "policy": "connectome_controller",
+      "intervention": "bilateral-dng07-fixture-ablation-v1",
+      "receives_adapter_inputs": true,
+      "lesion_body_ids": [27143, 28949],
+      "overlay": "canonical"
+    },
+    {
+      "condition_id": "scripted",
+      "mode": "scripted_baseline",
+      "policy": "scripted_baseline",
+      "intervention": "declared_non_neural_low_capacity_ray_controller",
+      "receives_adapter_inputs": true,
+      "lesion_body_ids": [],
+      "overlay": "canonical"
+    },
+    {
+      "condition_id": "no-input",
+      "mode": "no_input",
+      "policy": "connectome_controller",
+      "intervention": "zero_all_four_adapter_channels",
+      "receives_adapter_inputs": false,
+      "lesion_body_ids": [],
+      "overlay": "canonical"
+    }
+  ],
+  "physics": {
+    "tick_seconds": 0.05,
+    "tick_limit": 120,
+    "ray_max_distance_m": 6.0,
+    "horizontal_acceleration_m_s2": 5.0,
+    "vertical_acceleration_m_s2": 4.0,
+    "gravity_m_s2": 0.8,
+    "velocity_retention": 0.94,
+    "yaw_radians_per_tick": 0.08,
+    "body_radius_m": 0.15
+  },
+  "analysis": {
+    "primary_metric": "normalized_forward_progress",
+    "paired_comparisons": [
+      "faithful_vs_shuffled-weight",
+      "faithful_vs_degree-preserving",
+      "faithful_vs_no-input"
+    ],
+    "bootstrap_samples": 5000,
+    "analysis_seed": 20260817
+  },
+  "implementation_hashes": {
+    "packages/connectome-data/src/neurocraft_connectome/loader.py": "31287be80aa19d22663cbc14f6264d3b0a2681dfaf3665c317fae883b6311ced",
+    "packages/connectome-data/src/neurocraft_connectome/model.py": "f912a93a547e43cdebafbf92e11d5df930b86fcc77785dfcce108999426d526f",
+    "packages/controller-runtime/src/neurocraft_controller/config.py": "9f94c4a2a0c7c5aa54943fd1beeb87de4497bac5be012f83b0c582a0d0fa2209",
+    "packages/controller-runtime/src/neurocraft_controller/controller.py": "012c5f4a3d1b1a92c7a1508c14bfdc72fbcf32db775abd6953e9ee16bc17f95d",
+    "packages/controller-runtime/src/neurocraft_controller/features.py": "a9a0f953a9badbe402aa613d6255b5843f39423e83fdb24e8280e507a03bd37a",
+    "packages/experiment-sdk/src/neurocraft_experiments/baseline.py": "77b27d9320f318c574e9ab66431140ddb9da389b923291bdcaf038951014a933",
+    "packages/experiment-sdk/src/neurocraft_experiments/pilot.py": "b9575825f9d22129ebef0edf59aa4a00bfc508571c4e402e5c8a4a2ffb13b527",
+    "packages/neural-runtime/src/neurocraft_neural/engine.py": "87b8619957c751b1123fe7f6dab2f06446334dac093eb7263a8a504c8cf706a1",
+    "packages/neural-runtime/src/neurocraft_neural/model.py": "a82b425447ca65a359a2e5cca485664e2c7f95a6e1821e0ac193006c223f2c66",
+    "packages/protocol/src/neurocraft_protocol/messages.py": "5a1c4b3ac0cc04c737f52235baf080e940e6ab478b3d1a095f3456f148a6c145",
+    "scripts/run_fixture_experiment.py": "cd1a3635561c9ef460a079c02e4819460928f713ccdbda2ff0ef0d2249e8e1e5"
+  }
+}

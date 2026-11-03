@@ -1,0 +1,20 @@
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-controller"
+version = "0.1.0"
+description = "Explicit connectome-to-primitive-action controller for NeuroCraft Fly"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy==2.2.5",
+  "neurocraft-connectome==0.1.0",
+  "neurocraft-neural==0.1.0",
+  "neurocraft-protocol==0.1.0",
+]
+
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neurocraft_controller"]

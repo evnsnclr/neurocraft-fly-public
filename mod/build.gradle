@@ -1,0 +1,655 @@
+import java.nio.file.Files
+
+buildscript {
+    def pins = new groovy.json.JsonSlurper().parse(file('../release/java-runtime-pins.json'))
+    def versions = pins.libraries.collectEntries { row ->
+        def coordinate = row.name.split(':')
+        [(coordinate[0] + ':' + coordinate[1]): coordinate[2]]
+    }
+    configurations.classpath.resolutionStrategy.eachDependency { details ->
+        def patched = versions[details.requested.group + ':' + details.requested.name]
+        if (patched != null) details.useVersion(patched)
+    }
+}
+
+plugins {
+    id "fabric-loom" version "${loom_version}"
+    id "java"
+}
+
+def javaSecurityPins = new groovy.json.JsonSlurper().parse(file('../release/java-runtime-pins.json'))
+def patchedJavaVersions = javaSecurityPins.libraries.collectEntries { row ->
+    def coordinate = row.name.split(':')
+    [(coordinate[0] + ':' + coordinate[1]): coordinate[2]]
+}
+configurations.configureEach {
+    resolutionStrategy.eachDependency { details ->
+        def patched = patchedJavaVersions[details.requested.group + ':' + details.requested.name]
+        if (patched != null) {
+            details.useVersion(patched)
+            details.because('Reviewed patched libraries shared with packaged player runtime')
+        }
+    }
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+def bridgeSystemPropertyNames = [
+    "neurocraft.fly.bridgeUri",
+    "neurocraft.fly.runId",
+    "neurocraft.fly.sessionEpoch",
+    "neurocraft.fly.entityId",
+    "neurocraft.fly.graphHash",
+    "neurocraft.fly.adapterHash",
+    "neurocraft.fly.dynamicsHash",
+    "neurocraft.fly.decoderHash",
+    "neurocraft.fly.observationSchemaHash"
+]
+// Optional presentation-only local snapshot, kept off the motor protocol.
+bridgeSystemPropertyNames.add("neurocraft.fly.brainDisplayPath")
+bridgeSystemPropertyNames.add("neurocraft.fly.eventDisplayPath")
+bridgeSystemPropertyNames.addAll([
+    "neurocraft.fly.laneCatalogPath",
+    "neurocraft.fly.laneCatalogSha256",
+    "neurocraft.fly.epochDiagnosticsDirectory"
+])
+def externalGameTestPropertyNames = [
+    "neurocraft.fly.arenaMaterialHash",
+    "neurocraft.fly.stimulationId",
+    "neurocraft.fly.stimulationHash"
+]
+def externalBridgeTestEnabled =
+    System.getProperty("neurocraft.fly.externalBridgeTest", "false") == "true"
+// Which opt-in live scenario the external lane registers. Each is one entrypoint class, and
+// exactly one is registered per run because both drive the single configured bridge and the
+// single configured fly UUID. `causal` is the evidence lane scripts/run_external_gametest.py
+// orchestrates; `program_authority` is the ADR 0020 operator-lane probe
+// scripts/run_program_authority_gametest.py launches.
+def externalBridgeScenario =
+    System.getProperty("neurocraft.fly.externalBridgeScenario", "causal")
+def externalBridgeEntrypoints = [
+    causal: "dev.neurocraft.fly.gametest.ExternalBridgeGameTest",
+    program_authority: "dev.neurocraft.fly.gametest.ExternalBridgeProgramAuthorityGameTest"
+]
+if (externalBridgeTestEnabled && !externalBridgeEntrypoints.containsKey(externalBridgeScenario)) {
+    throw new GradleException(
+        "unknown neurocraft.fly.externalBridgeScenario '${externalBridgeScenario}'; "
+            + "expected one of ${externalBridgeEntrypoints.keySet()}"
+    )
+}
+def externalBridgeReceipt =
+    layout.buildDirectory.file("receipts/external-bridge-gametest.json").get().asFile
+def clientRendererScreenshot =
+    layout.buildDirectory.file("receipts/fly-renderer-observation.png").get().asFile
+def clientRendererReceipt =
+    layout.buildDirectory.file("receipts/fly-renderer-observation.json").get().asFile
+// Every fragment `neurocraft.renderer_observation.v2` must carry, checked against the freshly
+// written receipt after `runClientGameTest` so a banked-fly screenshot can never leave this
+// build without its declared visual gain beside it (ADR 0016, D-074).
+def clientRendererReceiptMarkers = [
+    '"schema": "neurocraft.renderer_observation.v2"',
+    '"bank_is_display_scaled": true',
+    '"presentation_visual_gain": {',
+    '"reference_amplitude":',
+    '"max_bank_degrees":',
+    '"gain":'
+]
+def interactiveRunRoot = rootProject.file("../artifacts/live-interactive").canonicalFile
+def interactiveRunDirectory = System.getProperty("neurocraft.fly.runDirectory")
+def interactiveQuickPlayServer = System.getProperty("neurocraft.fly.quickPlayServer")
+def interactiveUsername = System.getProperty("neurocraft.fly.username")
+
+def requireInteractiveRunDirectory = { String value ->
+    def candidate = file(value).canonicalFile
+    if (!candidate.toPath().startsWith(interactiveRunRoot.toPath())) {
+        throw new GradleException(
+            "interactive run directory must be inside ${interactiveRunRoot}"
+        )
+    }
+    candidate
+}
+def interactiveRelativeRunDirectory = { String value ->
+    rootProject.projectDir.toPath()
+        .relativize(requireInteractiveRunDirectory(value).toPath())
+        .toString()
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    runs {
+        configureEach {
+            if (interactiveRunDirectory != null && (name == "server" || name == "client")) {
+                runDir interactiveRelativeRunDirectory(interactiveRunDirectory)
+                // The launcher creates this fresh directory with owner-only permissions
+                // (CPython 3.13 user/admin ACL on Windows). Propagate explicitly to
+                // the game JVM; Gradle's own java.io.tmpdir does not propagate itself.
+                def privateTmp = new File(
+                    requireInteractiveRunDirectory(interactiveRunDirectory).parentFile, "jvm-tmp")
+                if (!privateTmp.isDirectory()
+                        || Files.isSymbolicLink(privateTmp.toPath())) {
+                    throw new GradleException("launcher private JVM temp directory is missing or redirected")
+                }
+                property "java.io.tmpdir", privateTmp.absolutePath
+            }
+            if (name == "server" || name == "gameTest") {
+                bridgeSystemPropertyNames.each { propertyName ->
+                    def configuredValue = System.getProperty(propertyName)
+                    if (configuredValue != null) {
+                        property propertyName, configuredValue
+                    }
+                }
+            }
+            if (name == "gameTest" && externalBridgeTestEnabled) {
+                property "neurocraft.fly.externalBridgeTest", "true"
+                property "neurocraft.fly.externalBridgeReceipt", externalBridgeReceipt.absolutePath
+                externalGameTestPropertyNames.each { propertyName ->
+                    def configuredValue = System.getProperty(propertyName)
+                    if (configuredValue != null) {
+                        property propertyName, configuredValue
+                    }
+                }
+            }
+            if (name == "clientGameTest") {
+                property "neurocraft.fly.clientRendererScreenshot", clientRendererScreenshot.absolutePath
+                property "neurocraft.fly.clientRendererReceipt", clientRendererReceipt.absolutePath
+            }
+            if (name == "client") {
+                ["neurocraft.fly.captureDirectory", "neurocraft.fly.captureFps",
+                 "neurocraft.fly.captureSeconds", "neurocraft.fly.capturePngCompression",
+                 "neurocraft.fly.clientActionsPath"].each { propertyName ->
+                    def configuredValue = System.getProperty(propertyName)
+                    if (configuredValue != null) {
+                        property propertyName, configuredValue
+                    }
+                }
+            }
+            if (name == "client" && interactiveQuickPlayServer != null) {
+                if (!(interactiveQuickPlayServer ==~ /127\.0\.0\.1:[1-9][0-9]{0,4}/)) {
+                    throw new GradleException("interactive Quick Play server must be loopback")
+                }
+                programArgs "--quickPlayMultiplayer", interactiveQuickPlayServer
+            }
+            if (name == "client" && interactiveUsername != null) {
+                if (!(interactiveUsername ==~ /[A-Za-z0-9_]{3,16}/)) {
+                    throw new GradleException("interactive username is invalid")
+                }
+                programArgs "--username", interactiveUsername
+            }
+        }
+    }
+
+    mods {
+        "neurocraft_fly" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+fabricApi {
+    configureTests {
+        createSourceSet = true
+        modId = "neurocraft_fly_gametest"
+        enableGameTests = true
+        enableClientGameTests = true
+        eula = true
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    testImplementation "net.fabricmc:fabric-loader-junit:${project.loader_version}"
+    testImplementation platform("org.junit:junit-bom:5.11.4")
+    testImplementation "org.junit.jupiter:junit-jupiter"
+}
+
+dependencyLocking {
+    lockAllConfigurations()
+    // Minecraft selects different native support modules on macOS and Linux.
+    // Their bytes remain dependency-verified; only their OS-dependent presence
+    // is excluded from the otherwise exact cross-platform lock state.
+    ignoredDependencies.add("ca.weblite:java-objc-bridge")
+    ignoredDependencies.add("io.netty:netty-transport-native-epoll")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = "UTF-8"
+    // Loom's Minecraft/Guava classpath omits optional Error Prone annotations; suppress only
+    // third-party classfile metadata warnings while keeping project-source warnings fatal.
+    options.compilerArgs.addAll(["-Xlint:all,-processing,-classfile", "-Werror"])
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+    failFast = false
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+// The two substituted entrypoint strings, declared once so they can be BOTH the expand values
+// and the task inputs that decide whether processResources is up to date. Naming only
+// externalBridgeTestEnabled as an input was not enough: editing an entrypoint literal left
+// processGametestResources UP-TO-DATE and shipped the previous fabric.mod.json.
+def gameTestEntrypoint = externalBridgeTestEnabled
+    ? externalBridgeEntrypoints[externalBridgeScenario]
+    : "dev.neurocraft.fly.gametest.FlyEntityGameTests"
+def defaultGameTestEntrypointClasses = [
+    "dev.neurocraft.fly.gametest.BodyProgramGameTests",
+    "dev.neurocraft.fly.gametest.EscapeJumpProgramGameTests",
+    "dev.neurocraft.fly.gametest.ReadoutProgramGameTests",
+    "dev.neurocraft.fly.gametest.CruiseFloorBandGameTests",
+    "dev.neurocraft.fly.gametest.TargetFlightProgramGameTests",
+    "dev.neurocraft.fly.gametest.GroomFeedProgramGameTests",
+    "dev.neurocraft.fly.gametest.EventV3GameTests",
+    "dev.neurocraft.fly.gametest.ActorSensorGameTests",
+    "dev.neurocraft.fly.gametest.LandFeedPhysicsGameTests",
+    "dev.neurocraft.fly.gametest.MatchedTrialGameTests"
+]
+def additionalGameTestEntrypoints = externalBridgeTestEnabled
+    ? ""
+    : defaultGameTestEntrypointClasses.collect { ",\n      \"${it}\"" }.join("")
+
+tasks.withType(ProcessResources).configureEach {
+    inputs.property "version", project.version
+    inputs.property "externalBridgeTest", externalBridgeTestEnabled
+    inputs.property "gameTestEntrypoint", gameTestEntrypoint
+    inputs.property "additionalGameTestEntrypoints", additionalGameTestEntrypoints
+    filesMatching("fabric.mod.json") {
+        expand(
+            "version": project.version,
+            "gametest_entrypoint": gameTestEntrypoint,
+            // Additional default-lane entrypoints (ADR 0020 lanes B and D, stage 4b's readout
+            // lane, stage 5's CRUISE floor band). The per-program and per-authority pins
+            // live in their own classes rather than growing FlyEntityGameTests past 2,300 lines.
+            // The external-bridge lane registers ExternalBridgeGameTest alone, exactly as before:
+            // those pins drive the body-program runtime and spawn their own flies, and a live
+            // bridge would be a second writer on the same motor vector.
+            "additional_gametest_entrypoints": additionalGameTestEntrypoints
+        )
+    }
+}
+
+tasks.named('processResources') {
+    from('../release/java-runtime-pins.json') { rename { 'neurocraft-java-runtime-pins.json' } }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+tasks.withType(Jar).configureEach {
+    from(rootProject.file("../LICENSE"))
+    from(rootProject.file("../NOTICE"))
+}
+
+tasks.register("verifyPinnedVersions") {
+    group = "verification"
+    description = "Fails unless the resolved build tuple matches ADR 0003."
+    doLast {
+        def expected = [
+            minecraft_version: "1.21.5",
+            loader_version: "0.16.10",
+            fabric_api_version: "0.128.2+1.21.5",
+            loom_version: "1.10.5"
+        ]
+        expected.each { key, value ->
+            if (project.property(key) != value) {
+                throw new GradleException("${key} must be ${value}, got ${project.property(key)}")
+            }
+        }
+        if (JavaVersion.current() != JavaVersion.VERSION_21) {
+            throw new GradleException("Gradle must run on Java 21, got ${JavaVersion.current()}")
+        }
+        println "Verified Minecraft 1.21.5 / Java 21 / Loader 0.16.10 / Fabric API 0.128.2+1.21.5 / Loom 1.10.5"
+    }
+}
+
+def verifyExternalBridgeOptIn = tasks.register("verifyExternalBridgeOptIn") {
+    group = "verification"
+    description = "Fails unless the external bridge GameTest was explicitly enabled."
+    doLast {
+        if (!externalBridgeTestEnabled) {
+            throw new GradleException(
+                "runExternalBridgeGameTest requires -Dneurocraft.fly.externalBridgeTest=true"
+            )
+        }
+    }
+}
+
+tasks.named("runGameTest") {
+    mustRunAfter verifyExternalBridgeOptIn
+    if (externalBridgeTestEnabled) {
+        doFirst {
+            delete externalBridgeReceipt
+        }
+    }
+}
+
+tasks.named("runClientGameTest") {
+    doFirst {
+        project.delete(clientRendererScreenshot, clientRendererReceipt)
+        if (clientRendererScreenshot.exists() || clientRendererReceipt.exists()) {
+            throw new GradleException("could not remove stale renderer evidence")
+        }
+    }
+    doLast {
+        if (
+            !clientRendererScreenshot.isFile()
+                || clientRendererScreenshot.length() == 0L
+                || !clientRendererReceipt.isFile()
+                || clientRendererReceipt.length() == 0L
+        ) {
+            throw new GradleException(
+                "client GameTest did not write fresh renderer evidence"
+            )
+        }
+        // ADR 0016 / D-074: the screenshot beside this receipt is drawn through a declared
+        // display scaling of the yaw channel, so the receipt must carry the presentation-gain
+        // marker that keeps the caveat attached to the artifact. Fail closed if it does not.
+        def receiptText = clientRendererReceipt.getText("UTF-8")
+        def missingMarkers = clientRendererReceiptMarkers.findAll { !receiptText.contains(it) }
+        if (!missingMarkers.isEmpty()) {
+            throw new GradleException(
+                "renderer-observation receipt is missing its ADR 0016 presentation-gain "
+                    + "marker: ${missingMarkers}"
+            )
+        }
+    }
+}
+
+tasks.register("runExternalBridgeGameTest") {
+    group = "verification"
+    description = "Runs the opt-in live Python-service/Fabric causal bridge GameTest."
+    dependsOn verifyExternalBridgeOptIn
+    dependsOn tasks.named("runGameTest")
+    doLast {
+        if (!externalBridgeReceipt.isFile()) {
+            throw new GradleException(
+                "external bridge GameTest did not write ${externalBridgeReceipt}"
+            )
+        }
+        println "External bridge receipt: ${externalBridgeReceipt}"
+    }
+}
+
+check.dependsOn tasks.named("verifyPinnedVersions")
+
+def jvmDependencyGraphReport = layout.buildDirectory.file("reports/jvm-dependency-graph.json")
+
+tasks.register("emitJvmDependencyGraph") {
+    group = "verification"
+    description = "Emits the locked resolved JVM dependency graph, POM license/organization " +
+        "data, and per-configuration membership as JSON for scripts/build_jvm_inventory.py."
+    outputs.file(jvmDependencyGraphReport)
+    // The resolved graph is not expressible as a declarable file input, so this
+    // compliance report is always regenerated. The emitted bytes are deterministic,
+    // which is what the SBOM pipeline asserts instead of task up-to-dateness.
+    outputs.upToDateWhen { false }
+    doLast {
+        def moduleIdentifierType = org.gradle.api.artifacts.component.ModuleComponentIdentifier
+        def resolvedDependencyType = org.gradle.api.artifacts.result.ResolvedDependencyResult
+        def unresolvedDependencyType = org.gradle.api.artifacts.result.UnresolvedDependencyResult
+        def resolvedArtifactType = org.gradle.api.artifacts.result.ResolvedArtifactResult
+
+        // 1. The lockfile is the authoritative statement of what must appear.
+        def lockfile = project.file("gradle.lockfile")
+        if (!lockfile.isFile()) {
+            throw new GradleException("missing dependency lockfile ${lockfile}")
+        }
+        def lockedCoordinates = [] as TreeSet
+        def lockedConfigurationNames = [] as TreeSet
+        lockfile.readLines().each { line ->
+            if (line.startsWith("#") || !line.contains("=")) {
+                return
+            }
+            def parts = line.split("=", 2)
+            if (parts[0] == "empty") {
+                return
+            }
+            lockedCoordinates << parts[0]
+            parts[1].split(",").each { lockedConfigurationNames << it.trim() }
+        }
+        if (lockedCoordinates.isEmpty()) {
+            throw new GradleException("dependency lockfile ${lockfile} declares no components")
+        }
+
+        // 2. Only POMs already pinned in verification-metadata.xml may be harvested.
+        //    Asking Gradle for any other POM would download an unverified artifact and
+        //    break --dependency-verification strict, so this set is the fail-closed gate.
+        def verificationMetadata = project.file("gradle/verification-metadata.xml")
+        if (!verificationMetadata.isFile()) {
+            throw new GradleException("missing verification metadata ${verificationMetadata}")
+        }
+        def pomVerifiedCoordinates = [] as TreeSet
+        new groovy.xml.XmlSlurper(false, false)
+            .parse(verificationMetadata).components.component.each { component ->
+                def coordinate =
+                    "${component.@group}:${component.@name}:${component.@version}".toString()
+                def hasPom = component.artifact.any { it.@name.toString().endsWith(".pom") }
+                if (hasPom) {
+                    pomVerifiedCoordinates << coordinate
+                }
+            }
+
+        // 3. Walk every locked, resolvable configuration plus the buildscript plugin
+        //    classpath; record configuration membership and resolved dependency edges.
+        def components = [:]
+        def resolvedIdentifiers = [:]
+        def directDependencies = [] as TreeSet
+        def recordResolution = { String configurationName, resolutionResult ->
+            resolutionResult.allDependencies { edge ->
+                if (unresolvedDependencyType.isInstance(edge)) {
+                    throw new GradleException(
+                        "unresolved dependency in ${configurationName}: ${edge.attempted}",
+                        edge.failure
+                    )
+                }
+            }
+            resolutionResult.root.dependencies.each { edge ->
+                if (!resolvedDependencyType.isInstance(edge) || edge.constraint) {
+                    return
+                }
+                def selected = edge.selected.id
+                if (moduleIdentifierType.isInstance(selected)) {
+                    directDependencies <<
+                        "${selected.group}:${selected.module}:${selected.version}".toString()
+                }
+            }
+            resolutionResult.allComponents { component ->
+                def identifier = component.id
+                if (!moduleIdentifierType.isInstance(identifier)) {
+                    return
+                }
+                def coordinate =
+                    "${identifier.group}:${identifier.module}:${identifier.version}".toString()
+                def entry = components[coordinate]
+                if (entry == null) {
+                    entry = [configurations: [] as TreeSet, dependsOn: [] as TreeSet]
+                    components[coordinate] = entry
+                }
+                resolvedIdentifiers[coordinate] = identifier
+                entry.configurations << configurationName
+                component.dependencies.each { edge ->
+                    if (!resolvedDependencyType.isInstance(edge) || edge.constraint) {
+                        return
+                    }
+                    def selected = edge.selected.id
+                    if (moduleIdentifierType.isInstance(selected)) {
+                        entry.dependsOn <<
+                            "${selected.group}:${selected.module}:${selected.version}".toString()
+                    }
+                }
+            }
+        }
+        configurations
+            .matching { it.canBeResolved && lockedConfigurationNames.contains(it.name) }
+            .each { configuration ->
+                recordResolution(configuration.name, configuration.incoming.resolutionResult)
+            }
+        def buildscriptClasspath = project.buildscript.configurations.getByName("classpath")
+        recordResolution(
+            "buildscriptClasspath", buildscriptClasspath.incoming.resolutionResult
+        )
+
+        // 4. Fail closed if the resolved graph does not cover the lock state. The two
+        //    OS-dependent natives are lock-ignored by design (see dependencyLocking).
+        def osIgnoredDependencies =
+            ["ca.weblite:java-objc-bridge", "io.netty:netty-transport-native-epoll"]
+        def missing = lockedCoordinates.findAll { coordinate ->
+            !components.containsKey(coordinate) &&
+                !osIgnoredDependencies.any { coordinate.startsWith("${it}:") }
+        }
+        if (!missing.isEmpty()) {
+            throw new GradleException(
+                "resolved graph is missing locked components: ${missing.sort()}"
+            )
+        }
+
+        // 5. Offline POM harvest from the verified Gradle cache.
+        def harvestedPoms = [:]
+        def collectPoms = { query ->
+            query.withArtifacts(org.gradle.maven.MavenModule, org.gradle.maven.MavenPomArtifact)
+                .execute().resolvedComponents.each { resolved ->
+                    def identifier = resolved.id
+                    if (!moduleIdentifierType.isInstance(identifier)) {
+                        return
+                    }
+                    def coordinate =
+                        "${identifier.group}:${identifier.module}:${identifier.version}".toString()
+                    resolved.getArtifacts(org.gradle.maven.MavenPomArtifact).each { artifact ->
+                        if (resolvedArtifactType.isInstance(artifact)) {
+                            harvestedPoms[coordinate] = artifact.file
+                        }
+                    }
+                }
+        }
+        def queryable = components.keySet().findAll { pomVerifiedCoordinates.contains(it) }
+        if (!queryable.isEmpty()) {
+            collectPoms(
+                dependencies.createArtifactResolutionQuery()
+                    .forComponents(queryable.collect { resolvedIdentifiers[it] })
+            )
+        }
+
+        def parsePom = { java.io.File file ->
+            def pom = new groovy.xml.XmlSlurper(false, false).parse(file)
+            def parentGroup = pom.parent.groupId.text()
+            def parentName = pom.parent.artifactId.text()
+            def parentVersion = pom.parent.version.text()
+            def parent = parentGroup && parentName && parentVersion
+                ? "${parentGroup}:${parentName}:${parentVersion}".toString()
+                : null
+            [
+                name: pom.name.text() ?: null,
+                description: pom.description.text() ?: null,
+                url: pom.url.text() ?: null,
+                organization: pom.organization.name.text() ?: null,
+                organizationUrl: pom.organization.url.text() ?: null,
+                licenses: pom.licenses.license.collect {
+                    [name: it.name.text() ?: null, url: it.url.text() ?: null]
+                },
+                parent: parent,
+            ]
+        }
+
+        def parsedPoms = new TreeMap()
+        harvestedPoms.each { coordinate, file -> parsedPoms[coordinate] = parsePom(file) }
+
+        // 6. Chase the parent chain so inherited <licenses> stay resolvable offline.
+        //    Bounded rounds; only verification-pinned parents are ever requested.
+        def parentPoms = new TreeMap()
+        def unresolvedParents = [] as TreeSet
+        def pending = parsedPoms.values().collect { it.parent }.findAll { it != null } as TreeSet
+        def rounds = 0
+        while (!pending.isEmpty() && rounds < 6) {
+            rounds += 1
+            def nextPending = [] as TreeSet
+            pending.each { coordinate ->
+                if (parsedPoms.containsKey(coordinate) || parentPoms.containsKey(coordinate)) {
+                    return
+                }
+                if (!pomVerifiedCoordinates.contains(coordinate)) {
+                    unresolvedParents << coordinate
+                    return
+                }
+                def parts = coordinate.split(":", 3)
+                harvestedPoms.clear()
+                collectPoms(
+                    dependencies.createArtifactResolutionQuery()
+                        .forModule(parts[0], parts[1], parts[2])
+                )
+                def file = harvestedPoms[coordinate]
+                if (file == null) {
+                    unresolvedParents << coordinate
+                    return
+                }
+                def parsed = parsePom(file)
+                parentPoms[coordinate] = parsed
+                if (parsed.parent != null) {
+                    nextPending << parsed.parent
+                }
+            }
+            pending = nextPending
+        }
+        if (!pending.isEmpty()) {
+            throw new GradleException("parent POM chain exceeded ${rounds} rounds: ${pending}")
+        }
+
+        // 7. Deterministic JSON: sorted maps, sorted lists, no timestamps.
+        def orderedComponents = new TreeMap()
+        components.each { coordinate, entry ->
+            orderedComponents[coordinate] = [
+                configurations: entry.configurations.toList(),
+                dependsOn: entry.dependsOn.toList(),
+                pom: parsedPoms[coordinate],
+            ]
+        }
+        def payload = [
+            schema: "neurocraft.jvm-dependency-graph.v1",
+            project: [
+                group: project.group.toString(),
+                name: project.name.toString(),
+                version: project.version.toString(),
+                minecraft: project.property("minecraft_version").toString(),
+                loader: project.property("loader_version").toString(),
+                fabricApi: project.property("fabric_api_version").toString(),
+                loom: project.property("loom_version").toString(),
+            ],
+            osIgnoredDependencies: osIgnoredDependencies.sort(),
+            lockedComponentCount: lockedCoordinates.size(),
+            directDependencies: directDependencies.toList(),
+            pomUnavailable: (components.keySet() - parsedPoms.keySet()).sort(),
+            unresolvedParents: unresolvedParents.toList(),
+            parentPoms: parentPoms,
+            components: orderedComponents,
+        ]
+        def report = jvmDependencyGraphReport.get().asFile
+        report.parentFile.mkdirs()
+        report.setText(
+            groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(payload)) + "\n",
+            "UTF-8"
+        )
+        println "JVM dependency graph: ${report} (${orderedComponents.size()} components, " +
+            "${lockedCoordinates.size()} locked coordinates)"
+    }
+}

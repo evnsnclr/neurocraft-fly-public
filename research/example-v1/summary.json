@@ -1,0 +1,163 @@
+{
+  "comparison": {
+    "DNg07_L": {
+      "original_shuffled_max_abs_difference": 0.09654895717706621,
+      "shuffled_response_retained": true
+    },
+    "DNg07_R": {
+      "original_shuffled_max_abs_difference": 0.1458285406862732,
+      "shuffled_response_retained": true
+    },
+    "hg1_motor_L": {
+      "original_shuffled_max_abs_difference": 0.10288715510421445,
+      "shuffled_response_retained": true
+    },
+    "hg1_motor_R": {
+      "original_shuffled_max_abs_difference": 0.16421944201297284,
+      "shuffled_response_retained": true
+    },
+    "sensory_L": {
+      "original_shuffled_max_abs_difference": 0.0,
+      "shuffled_response_retained": true
+    },
+    "sensory_R": {
+      "original_shuffled_max_abs_difference": 0.0,
+      "shuffled_response_retained": true
+    }
+  },
+  "conditions": {
+    "no_input": {
+      "DNg07_L": {
+        "absolute_activity_sum_ms": 0.0,
+        "final_activity": 0.0,
+        "first_peak_step": 0,
+        "peak_abs_activity": 0.0,
+        "signed_activity_at_peak": 0.0
+      },
+      "DNg07_R": {
+        "absolute_activity_sum_ms": 0.0,
+        "final_activity": 0.0,
+        "first_peak_step": 0,
+        "peak_abs_activity": 0.0,
+        "signed_activity_at_peak": 0.0
+      },
+      "hg1_motor_L": {
+        "absolute_activity_sum_ms": 0.0,
+        "final_activity": 0.0,
+        "first_peak_step": 0,
+        "peak_abs_activity": 0.0,
+        "signed_activity_at_peak": 0.0
+      },
+      "hg1_motor_R": {
+        "absolute_activity_sum_ms": 0.0,
+        "final_activity": 0.0,
+        "first_peak_step": 0,
+        "peak_abs_activity": 0.0,
+        "signed_activity_at_peak": 0.0
+      },
+      "sensory_L": {
+        "absolute_activity_sum_ms": 0.0,
+        "final_activity": 0.0,
+        "first_peak_step": 0,
+        "peak_abs_activity": 0.0,
+        "signed_activity_at_peak": 0.0
+      },
+      "sensory_R": {
+        "absolute_activity_sum_ms": 0.0,
+        "final_activity": 0.0,
+        "first_peak_step": 0,
+        "peak_abs_activity": 0.0,
+        "signed_activity_at_peak": 0.0
+      }
+    },
+    "original": {
+      "DNg07_L": {
+        "absolute_activity_sum_ms": 62.01197597890565,
+        "final_activity": -0.035707991896887295,
+        "first_peak_step": 42,
+        "peak_abs_activity": 0.1639300730589888,
+        "signed_activity_at_peak": -0.1639300730589888
+      },
+      "DNg07_R": {
+        "absolute_activity_sum_ms": 47.447476267187845,
+        "final_activity": 0.044677515686586275,
+        "first_peak_step": 42,
+        "peak_abs_activity": 0.12612785862855583,
+        "signed_activity_at_peak": -0.12612785862855583
+      },
+      "hg1_motor_L": {
+        "absolute_activity_sum_ms": 10.76933527276349,
+        "final_activity": -0.040049196446289084,
+        "first_peak_step": 100,
+        "peak_abs_activity": 0.040049196446289084,
+        "signed_activity_at_peak": -0.040049196446289084
+      },
+      "hg1_motor_R": {
+        "absolute_activity_sum_ms": 12.982952183872722,
+        "final_activity": -0.06644857396966278,
+        "first_peak_step": 100,
+        "peak_abs_activity": 0.06644857396966278,
+        "signed_activity_at_peak": -0.06644857396966278
+      },
+      "sensory_L": {
+        "absolute_activity_sum_ms": 132.80732957093085,
+        "final_activity": 5.420523784575689e-07,
+        "first_peak_step": 30,
+        "peak_abs_activity": 0.6518745125747817,
+        "signed_activity_at_peak": 0.6518745125747817
+      },
+      "sensory_R": {
+        "absolute_activity_sum_ms": 132.73437233552863,
+        "final_activity": 0.0016158353669580596,
+        "first_peak_step": 70,
+        "peak_abs_activity": 0.6518745125747817,
+        "signed_activity_at_peak": 0.6518745125747817
+      }
+    },
+    "shuffled_weights": {
+      "DNg07_L": {
+        "absolute_activity_sum_ms": 39.802898924877816,
+        "final_activity": -0.02203130107986696,
+        "first_peak_step": 75,
+        "peak_abs_activity": 0.09086565188134191,
+        "signed_activity_at_peak": -0.09086565188134191
+      },
+      "DNg07_R": {
+        "absolute_activity_sum_ms": 60.782494912134865,
+        "final_activity": 0.05947682695740442,
+        "first_peak_step": 82,
+        "peak_abs_activity": 0.1983046275726743,
+        "signed_activity_at_peak": 0.1983046275726743
+      },
+      "hg1_motor_L": {
+        "absolute_activity_sum_ms": 24.325580733595796,
+        "final_activity": -0.009615568252199372,
+        "first_peak_step": 80,
+        "peak_abs_activity": 0.10421784598213732,
+        "signed_activity_at_peak": 0.10421784598213732
+      },
+      "hg1_motor_R": {
+        "absolute_activity_sum_ms": 38.81500019900555,
+        "final_activity": -0.03685030494637205,
+        "first_peak_step": 75,
+        "peak_abs_activity": 0.17062517584707704,
+        "signed_activity_at_peak": 0.17062517584707704
+      },
+      "sensory_L": {
+        "absolute_activity_sum_ms": 132.80732957093085,
+        "final_activity": 5.420523784575689e-07,
+        "first_peak_step": 30,
+        "peak_abs_activity": 0.6518745125747817,
+        "signed_activity_at_peak": 0.6518745125747817
+      },
+      "sensory_R": {
+        "absolute_activity_sum_ms": 132.73437233552863,
+        "final_activity": 0.0016158353669580596,
+        "first_peak_step": 70,
+        "peak_abs_activity": 0.6518745125747817,
+        "signed_activity_at_peak": 0.6518745125747817
+      }
+    }
+  },
+  "scope": "synthetic_direct_stimulation_of_selected_fixture_no_behavior_measurement"
+}

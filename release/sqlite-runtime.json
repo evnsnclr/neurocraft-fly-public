@@ -1,0 +1,25 @@
+{
+  "schema": "neurocraft.sqlite-runtime.v1",
+  "version": "3.54.1",
+  "source_id": "2026-10-16 14:45:20 555e07ef33f69a0957d24d8e555b702464a131d6f1607f4c3c1e4551e8e6ca76",
+  "source": {
+    "url": "https://www.sqlite.org/2026/sqlite-autoconf-3540100.tar.gz",
+    "sha256": "926ef8d3eab93fbf6e06011901273eec076b25594a4e1cdadd50c987f4f6d64e",
+    "sha3_256": "b6ced585c750916b1052667239a12c25a7ff34e7f06e1e6e01ecb0427657d9c4",
+    "bytes": 3332984
+  },
+  "llvm": {
+    "macos-arm64": {
+      "url": "https://github.com/astral-sh/llvm-build/releases/download/20261008/llvm-23.1.3+20261008-aarch64-apple-darwin.tar.zst",
+      "sha256": "33c600c213de9a1f4b360fb0737918bda609c6268e0a46b3ec255ff1a5ebb981",
+      "bytes": 165486444,
+      "version": "23.1.3+20261008"
+    },
+    "linux-x86_64": {
+      "url": "https://github.com/astral-sh/llvm-build/releases/download/20261008/llvm-23.1.3+20261008-gnu_only-x86_64-unknown-linux-gnu.tar.zst",
+      "sha256": "32ea722bc3fb74fd37bbace1463f1dd2d86aeeefcfa6ccac4b74fce89387017e",
+      "bytes": 227968490,
+      "version": "23.1.3+20261008"
+    }
+  }
+}

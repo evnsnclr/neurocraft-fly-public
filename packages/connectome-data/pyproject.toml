@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-connectome"
+version = "0.1.0"
+description = "Deterministic, provenance-preserving NeuroCraft Fly graph loader"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neurocraft_connectome"]

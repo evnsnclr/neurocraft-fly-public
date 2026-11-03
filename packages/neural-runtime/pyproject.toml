@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-neural"
+version = "0.1.0"
+description = "Deterministic sparse leaky-rate reference runtime for NeuroCraft Fly"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "neurocraft-connectome==0.1.0",
+  "numpy==2.2.5",
+  "pyarrow==21.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neurocraft_neural"]

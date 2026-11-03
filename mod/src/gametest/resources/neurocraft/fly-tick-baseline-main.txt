@@ -1,0 +1,41 @@
+# ADR 0020 differential fixture: what FlyEntity.tick() did on main before body programs.
+#
+# Recorded by running an unmodified `main` tree (418d902) in a scratch git worktree with a
+# temporary GameTest that spawned the fly, seeded it, and then did NOTHING for 16 authoritative
+# ticks -- so every line below is the output of main's own FlyEntity.tick(), not of a
+# hand-written actuator call. The scenario covers airborne drag (ticks 0-7), the transition to
+# ground contact, and the grounded vertical-velocity clamp (ticks 8-15).
+#
+# Scenario, reproduced exactly by flyTickBaseline* in FlyEntityGameTests:
+#   3x3 stone platform at y = 1, x and z in [0, 2]
+#   spawn (1.5, 3.5, 1.5), resetForFixture to the absolute spawn with yaw 41.0
+#   setXRot(-17.0), setDeltaMovement(0.05, -0.21, -0.03)
+#   16 ticks, nothing driven
+#
+# One line per tick, sampled before that tick's callback does anything. Thirteen raw bit
+# patterns, space separated, in this order. The three position words are compared to 1e-6
+# rather than bit-for-bit: a GameTest structure lands at a different absolute position every
+# run, Entity.move works in absolute coordinates, and near |x| = 3e6 a double keeps only about
+# 5e-10 of resolution, so the low bits of a relative position are a function of the placement.
+# The other ten words are computed from small numbers and are compared exactly.
+#   relative x, relative y, relative z          (doubleToRawLongBits, relative to the spawn)
+#   velocity x, velocity y, velocity z          (doubleToRawLongBits)
+#   yaw, pitch                                  (floatToRawIntBits)
+#   receipt velocityAfter x, y, z               (doubleToRawLongBits)
+#   receipt yawAfter, pitchAfter                (floatToRawIntBits)
+0000000000000000 0000000000000000 0000000000000000 3fa999999999999a bfcae147ae147ae1 bf9eb851eb851eb8 0000000042240000 ffffffffc1880000 0000000000000000 0000000000000000 0000000000000000 0000000000000000 0000000000000000
+3fa99999a0000000 bfcae147ae147b00 bf9eb851f0000000 3fa74bc6a7ef9db3 bfca57a786c22680 bf9bf487fcb923a3 0000000042240000 ffffffffc1880000 3fa999999999999a bfcae147ae147ae1 bf9eb851eb851eb8 0000000042240000 ffffffffc1880000
+3fb872b020000000 bfda9c779a6b5100 bfad566cf8000000 3fa5330941c8216d bfc9d0c804102ff8 bf99707182235b4f 0000000042240000 ffffffffc1880000 3fa74bc6a7ef9db3 bfca57a786c22680 bf9bf487fcb923a3 0000000042240000 ffffffffc1880000
+3fc1861a60000000 bfe3c26dce39b480 bfb50752dc000000 3fa34a9a58057a94 bfc94c9b0e38d2d9 bf972652d0069317 0000000042240000 ffffffffc1880000 3fa5330941c8216d bfc9d0c804102ff8 bf99707182235b4f 0000000042240000 ffffffffc1880000
+3fc658c0f8000000 bfea159491c7e940 bfbad0e790000000 3fa18e20eed1c926 bfc8cb12d59e164f bf9510f451c88af9 0000000042240000 ffffffffc1880000 3fa34a9a58057a94 bfc94c9b0e38d2d9 bf972652d0069317 0000000042240000 ffffffffc1880000
+3fcabc4934000000 bff0242ca397b760 bfc00a9252000000 3f9ff3506af8b0a7 bfc84c21d1585d8b bf932b96a69536c9 0000000042240000 ffffffffc1880000 3fa18e20eed1c926 bfc8cb12d59e164f bf9510f451c88af9 0000000042240000 ffffffffc1880000
+3fcebab340000000 bff32db0ddc2c320 bfc2700526000000 3f9d132d052f1ba2 bfc7cfbabdcc5bac bf9171e7cfe91093 0000000042240000 ffffffffc1880000 3f9ff3506af8b0a7 bfc84c21d1585d8b bf932b96a69536c9 0000000042240000 ffffffffc1880000
+3fd12e8c70000000 bff627a8357c4ea0 bfc49e4220000000 3f9a754a3f98f2bf bfc755d09b48455c bf8fbff2b2b789b0 0000000042240000 ffffffffc1880000 3f9d132d052f1ba2 bfc7cfbabdcc5bac bf9171e7cfe91093 0000000042240000 ffffffffc1880000
+3fd2d5e114000000 bff8000000000000 bfc69a414c000000 3f9813b1a564c86b 8000000000000000 bf8ce46ec678f07f 0000000042240000 ffffffffc1880000 3f9a754a3f98f2bf bfc755d09b48455c bf8fbff2b2b789b0 0000000042240000 ffffffffc1880000
+3fd4571c2e000000 bff8000000000000 bfc8688838000000 3f95e8f6234ee995 8000000000000000 bf8a4ac0f72b7eb1 0000000042240000 ffffffffc1880000 3f9813b1a564c86b 8000000000000000 bf8ce46ec678f07f 0000000042240000 ffffffffc1880000
+3fd5b5ab90000000 bff8000000000000 bfca0d3448000000 3f93f027aa5ed9ae 8000000000000000 bf87ecfc660b6b9c 0000000042240000 ffffffffc1880000 3f95e8f6234ee995 8000000000000000 bf8a4ac0f72b7eb1 0000000042240000 ffffffffc1880000
+3fd6f4ae0a000000 bff8000000000000 bfcb8c040e000000 3f9224c7ef8464cf 8000000000000000 bf85c5bcb90545c4 0000000042240000 ffffffffc1880000 3f93f027aa5ed9ae 8000000000000000 bf87ecfc660b6b9c 0000000042240000 ffffffffc1880000
+3fd816fa88000000 bff8000000000000 bfcce85fda000000 3f9082c02e70cc60 8000000000000000 bf83d019d1542873 0000000042240000 ffffffffc1880000 3f9224c7ef8464cf 8000000000000000 bf85c5bcb90545c4 0000000042240000 ffffffffc1880000
+3fd91f268a000000 bff8000000000000 bfce256178000000 3f8e0cafb0ae92af 8000000000000000 bf82079c9d358b36 0000000042240000 ffffffffc1880000 3f9082c02e70cc60 8000000000000000 bf83d019d1542873 0000000042240000 ffffffffc1880000
+3fda0f8c08000000 bff8000000000000 bfcf45db42000000 3f8b585832b35767 8000000000000000 bf806834eb3867a4 0000000042240000 ffffffffc1880000 3f8e0cafb0ae92af 8000000000000000 bf82079c9d358b36 0000000042240000 ffffffffc1880000
+3fdaea4eca000000 bff8000000000000 bfd0262f48000000 3f88e250429e14a8 8000000000000000 bf7ddc604ff0e596 0000000042240000 ffffffffc1880000 3f8b585832b35767 8000000000000000 bf806834eb3867a4 0000000042240000 ffffffffc1880000

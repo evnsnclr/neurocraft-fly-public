@@ -1,0 +1,106 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #06080c;
+  --panel: #0c1017;
+  --line: #1b2330;
+  --ink: #dbe4ee;
+  --muted: #6b7789;
+  --excite: #ffb84d;
+  --inhibit: #4dc6ff;
+  --hot: #fff3d6;
+  --live: #46d97a;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "SF Mono", ui-monospace, Menlo, monospace;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; }
+#identity-line { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.badges { display: flex; gap: 8px; }
+.badge {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.badge-live.on { color: var(--live); border-color: var(--live); }
+.badge-note { color: #c9a15a; border-color: #4a3a1c; }
+
+main { position: relative; flex: 1; min-height: 0; }
+#brain { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.column-labels span {
+  position: absolute;
+  bottom: 6px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+#motors-panel {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 190px;
+  background: rgba(12, 16, 23, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+#motors-panel h2 {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.motor-row { margin-bottom: 7px; }
+.motor-row .name { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+.motor-track {
+  position: relative;
+  height: 8px;
+  background: #10161f;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.motor-track .zero {
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--line);
+}
+.motor-fill {
+  position: absolute; top: 0; bottom: 0;
+  background: var(--excite);
+  transition: left 0.08s linear, width 0.08s linear;
+}
+.motor-fill.neg { background: var(--inhibit); }
+#tick-line { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+footer {
+  padding: 8px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+}
+footer p { font-size: 10px; color: var(--muted); line-height: 1.5; }

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "neurocraft_fly_gametest",
+  "version": "${version}",
+  "name": "NeuroCraft Fly GameTests",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": [
+      "${gametest_entrypoint}"${additional_gametest_entrypoints}
+    ],
+    "fabric-client-gametest": [
+      "dev.neurocraft.fly.gametest.FlyClientGameTest",
+      "dev.neurocraft.fly.gametest.FlyAnimationClientGameTest",
+      "dev.neurocraft.fly.gametest.HudHonestyClientGameTest",
+      "dev.neurocraft.fly.gametest.OperatorCommandClientGameTest",
+      "dev.neurocraft.fly.client.LiveFrameCaptureClientGameTest",
+      "dev.neurocraft.fly.gametest.EventHudClientGameTest",
+      "dev.neurocraft.fly.gametest.RecordingHudClientGameTest",
+      "dev.neurocraft.fly.control.DiagnosticClientActionsGameTest"
+    ]
+  },
+  "depends": {
+    "neurocraft_fly": "*",
+    "fabric-gametest-api-v1": "*"
+  }
+}

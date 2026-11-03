@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Original NeuroCraft Fly pixel palette; this SVG is the editable source for fly.png. -->
+  <rect width="64" height="64" fill="#6d351d"/>
+
+  <!-- Abdomen UV field: amber cuticle with dark transverse bands. -->
+  <rect x="0" y="0" width="28" height="16" fill="#b76a22"/>
+  <rect x="0" y="3" width="28" height="2" fill="#3a2018"/>
+  <rect x="0" y="8" width="28" height="2" fill="#3a2018"/>
+  <rect x="0" y="13" width="28" height="2" fill="#3a2018"/>
+  <rect x="2" y="1" width="8" height="1" fill="#e0a43d"/>
+
+  <!-- Wing UV field: translucent ivory-blue membrane and ochre veins. -->
+  <rect x="32" y="0" width="32" height="16" fill="#b7d8d8" fill-opacity="0.72"/>
+  <rect x="32" y="1" width="32" height="1" fill="#dca84b"/>
+  <rect x="35" y="3" width="27" height="1" fill="#dca84b"/>
+  <rect x="39" y="6" width="23" height="1" fill="#dca84b"/>
+  <rect x="43" y="9" width="18" height="1" fill="#dca84b"/>
+  <rect x="47" y="12" width="13" height="1" fill="#dca84b"/>
+
+  <!-- Thorax/head fields: warm umber with a lighter facial plate. -->
+  <rect x="0" y="18" width="24" height="20" fill="#74401f"/>
+  <rect x="4" y="20" width="14" height="10" fill="#8f5528"/>
+  <rect x="24" y="18" width="20" height="20" fill="#9b5b2a"/>
+  <rect x="28" y="21" width="12" height="10" fill="#c48237"/>
+
+  <!-- Compound-eye field: deep carmine with small specular cells. -->
+  <rect x="48" y="0" width="16" height="18" fill="#711e25"/>
+  <rect x="50" y="2" width="12" height="14" fill="#a82d35"/>
+  <rect x="51" y="3" width="3" height="3" fill="#ef7b67"/>
+  <rect x="56" y="7" width="2" height="2" fill="#d95450"/>
+  <rect x="59" y="11" width="2" height="2" fill="#5b1720"/>
+
+  <!-- Legs and antennae: dark articulated chitin. -->
+  <rect x="32" y="18" width="16" height="28" fill="#3b241b"/>
+  <rect x="35" y="18" width="2" height="28" fill="#98602c"/>
+  <rect x="40" y="18" width="2" height="28" fill="#98602c"/>
+  <rect x="45" y="18" width="2" height="28" fill="#98602c"/>
+  <rect x="48" y="18" width="16" height="28" fill="#241914"/>
+  <rect x="52" y="18" width="2" height="24" fill="#a36a32"/>
+
+  <!-- Unused reserve remains opaque brown so future cube UVs fail visibly, not invisibly. -->
+  <rect x="0" y="46" width="64" height="18" fill="#52301e"/>
+  <rect x="0" y="46" width="64" height="2" fill="#c2833c"/>
+</svg>

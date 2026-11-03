@@ -1,0 +1,9 @@
+# Build outputs of `make spmv-build`. The C source is tracked and hash-bound;
+# the compiled library and its build sidecar are machine-specific and are not.
+_spmv.so
+_spmv.dylib
+_spmv.dll
+_spmv.obj
+_spmv.lib
+_spmv.exp
+_spmv.build.json

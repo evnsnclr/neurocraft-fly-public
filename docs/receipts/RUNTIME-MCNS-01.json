@@ -1,0 +1,344 @@
+{
+  "artifact": {
+    "array_bytes": 619324920,
+    "array_mib": 590.6342697143555,
+    "arrays": {
+      "annotation_source_rows": {
+        "bytes": 1333600,
+        "count": 166700,
+        "dtype": "uint64-le",
+        "sha256": "24f3385ffb90ebdddc51f9bdd6847dba0dd2187e0d4f69e168e56aaa1170c7f3"
+      },
+      "body_ids": {
+        "bytes": 1333600,
+        "count": 166700,
+        "dtype": "uint64-le",
+        "sha256": "6b6b40c3bddf84b1281ef0b18db06927c2bf61c5f4cb32a4219ec9b7839dc2e5"
+      },
+      "edge_post_indices": {
+        "bytes": 102331752,
+        "count": 25582938,
+        "dtype": "uint32-le",
+        "sha256": "31a76bc098561b105fc362108271713b8666cec4c24f1ee68d2a9c5bd46da6bd"
+      },
+      "edge_pre_indices": {
+        "bytes": 102331752,
+        "count": 25582938,
+        "dtype": "uint32-le",
+        "sha256": "c0a2d02fbe1ab449a2cdf7377024361a625f201266f7d6415c3c8584dc67a2db"
+      },
+      "edge_raw_counts": {
+        "bytes": 204663504,
+        "count": 25582938,
+        "dtype": "uint64-le",
+        "sha256": "c9860a37c0608f7a5c8624a9efba2e3e961d222e5fb5889c8399768e89cf3fbb"
+      },
+      "edge_source_rows": {
+        "bytes": 204663504,
+        "count": 25582938,
+        "dtype": "uint64-le",
+        "sha256": "22db96b99eebc0ed876fdc684302c3c251b6b14bd359aaf5a014f959274ee999"
+      },
+      "incoming_offsets": {
+        "bytes": 1333608,
+        "count": 166701,
+        "dtype": "uint64-le",
+        "sha256": "6e58b593426b23e4a95ccc0fa9ed97f7944e7f532639f004260b9c520b40b9dc"
+      },
+      "transmitter_source_rows": {
+        "bytes": 1333600,
+        "count": 166700,
+        "dtype": "uint64-le",
+        "sha256": "901427e885d0a3f69a3830d4e0562a2725b37e400c00abb1928cb66a552b880e"
+      }
+    },
+    "artifact_id": "male-cns-v1.0-superclass-v1",
+    "builder_configuration_sha256": "009725389bb72942ce63d7288c3e81b451be70400524bb97e28961c8c0899629",
+    "builder_implementation_sha256": "3ff7163b1e85c4bbb700485da824f38647fc903fd5c97db35ac764a0b76a5764",
+    "git_state": "ignored by data/processed/; derived arrays are not tracked",
+    "manifest_bytes": 6808,
+    "manifest_file_sha256": "b33bdda8b1a9abfc6b23f7346197442546f7a2aec0a03fc7c07fbdfe4f67c98c",
+    "path": "data/processed/male-cns-v1.0-superclass-v1",
+    "payload_sha256": "599d1f1867ff4e9409b718674702ea5e918cdd0770bde92e97b64630b98168ce",
+    "provenance_graph_sha256": "e19d549c2b3c339e82d5faa4f5c1eb96891742284b2ac025fb2ccfff34604968",
+    "structural_graph_sha256": "21e0a82f398263702ebb213b021e2e7355745eccbdfc2d5e21c46ebb51198b25",
+    "total_file_bytes": 619331728
+  },
+  "benchmark": {
+    "cold_build_target_seconds": 1800,
+    "full_graph_real_time_on_this_machine": false,
+    "layout": {
+      "body_id_max": 1471062202,
+      "body_id_min": 10001,
+      "edge_source_row_max": 151856571,
+      "edge_source_row_min": 0,
+      "incoming_degree_max": 11526,
+      "weight_sum": 124177617
+    },
+    "second_build_numpy_layout_verification_seconds": 0.8366155419498682,
+    "second_build_verified_hash_load_seconds": 0.29881704202853143,
+    "warm_load_target_seconds": 10
+  },
+  "boundary_role_overlay": {
+    "authority": {
+      "fixture_file_sha256": "3076c22fd0c87041c601b865c9fc8e913466200491f80775060e28412a087ff8",
+      "fixture_id": "mcns-v1.0-flight-power-v1",
+      "fixture_semantic_sha256": "8360e414a3df4004fe7bfcf03bdfba8d2fb4d188c6cdd93ef30b7760055f9232"
+    },
+    "roles": {
+      "motor": [
+        {
+          "annotation_source_row": 169326,
+          "body_id": 800241,
+          "dense_index": 144496,
+          "superclass": "vnc_motor"
+        },
+        {
+          "annotation_source_row": 169829,
+          "body_id": 800917,
+          "dense_index": 144999,
+          "superclass": "vnc_motor"
+        }
+      ],
+      "sensory": [
+        {
+          "annotation_source_row": 59342,
+          "body_id": 77185,
+          "dense_index": 58119,
+          "superclass": "cb_sensory"
+        },
+        {
+          "annotation_source_row": 173573,
+          "body_id": 805722,
+          "dense_index": 148743,
+          "superclass": "vnc_sensory"
+        }
+      ]
+    },
+    "sha256": "94c9c009516e0cf654df32bc9f54fda17d094e90395d4a14810141042cf960d2"
+  },
+  "build_implementation": {
+    "components": {
+      "packages/connectome-data/src/neurocraft_connectome/full_runtime.py": "e1750a3ba8eaea78fe4ab0c5de1506c6b7f49dd3ca877cf080261cf791ea5a38",
+      "scripts/build_malecns_runtime.py": "ab13f3b18f49b4ce205d4705c6981ae69ccbb43aa240ed3d20e2739dc74b28bf",
+      "scripts/extract_malecns_fixture.py": "2eb9fc3c4cdd813131835f9c477140e81d4e2f13d6bf31e0164f353f4d7266c4"
+    },
+    "composite_algorithm": "SHA-256 over each repository-relative path length/path and content length/content in listed build order",
+    "composite_sha256": "3ff7163b1e85c4bbb700485da824f38647fc903fd5c97db35ac764a0b76a5764"
+  },
+  "claim_boundary": {
+    "g1_recommendation": "pass only for manifest b33bdda8b1a9abfc6b23f7346197442546f7a2aec0a03fc7c07fbdfe4f67c98c",
+    "g2_follows": false,
+    "g3_follows": false,
+    "notes": [
+      "G1 may pass for this named, source-lineaged artifact after coordinator review.",
+      "This receipt does not pass G2 or G3 and does not establish faithful dynamics or Minecraft control.",
+      "The unsigned full-graph engineering smoke is not a Faithful Organism Mode execution.",
+      "The full graph is not real-time on this machine."
+    ]
+  },
+  "commands": {
+    "build_path_sanitized_exact_invocation": "UV_CACHE_DIR=<temporary-uv-cache> PYTHONPATH=packages/connectome-data/src uv run --isolated --no-project --offline --python 3.13.5 --with numpy==2.2.5 --with pyarrow==21.0.0 python scripts/build_malecns_runtime.py --scratch-dir <temporary-scratch> --receipt <temporary-receipt> --smoke-steps 3",
+    "cwd": "<repository-root>",
+    "path_sanitization": "Angle-bracket placeholders replace only repository-root or operating-system temporary paths; repository-relative arguments and every option/value are preserved.",
+    "scoped_test_path_sanitized_exact_invocation": "PYTHONPATH=<uv-cache>/archive-v0/NvBFoTEVAczLtK0XRQMdk:<uv-cache>/archive-v0/ebcUNhsvnQKYenhtX5Aet:.:packages/connectome-data/src:packages/controller-runtime/src:packages/experiment-sdk/src:packages/neural-runtime/src:packages/protocol/src:services/neural-engine/src .venv/bin/python -m pytest -q --import-mode=importlib tests/connectome tests/data/test_build_malecns_runtime.py tests/neural"
+  },
+  "counts": {
+    "annotation_duplicate_body_ids": 0,
+    "annotation_source_rows": 211577,
+    "excluded_edge_rows": 126273746,
+    "excluded_neither_endpoint_rows": 8837406,
+    "excluded_post_only_rows": 4802752,
+    "excluded_pre_only_rows": 112633588,
+    "excluded_self_edge_rows": 22,
+    "excluded_self_edge_weight_sum": 68,
+    "excluded_superclass_empty_rows": 0,
+    "excluded_superclass_null_rows": 44877,
+    "excluded_transmitter_rows": 1668996,
+    "excluded_weight_sum": 187655626,
+    "raw_duplicate_directed_pairs": 0,
+    "raw_edge_rows": 151856684,
+    "raw_self_edge_rows": 123,
+    "raw_self_edge_weight_sum": 542,
+    "raw_weight_max": 2591,
+    "raw_weight_min": 1,
+    "raw_weight_sum": 311833243,
+    "retained_duplicate_directed_pairs": 0,
+    "retained_edge_rows": 25582938,
+    "retained_node_rows": 166700,
+    "retained_nodes_missing_transmitter_row": 178,
+    "retained_nodes_with_transmitter_row": 166522,
+    "retained_self_edge_rows": 101,
+    "retained_self_edge_weight_sum": 474,
+    "retained_weight_max": 2591,
+    "retained_weight_min": 1,
+    "retained_weight_sum": 124177617,
+    "transmitter_duplicate_body_ids": 0,
+    "transmitter_source_rows": 1835518
+  },
+  "dataset_id": "male-cns:v1.0",
+  "environment": {
+    "machine": "arm64",
+    "numpy": "2.2.5",
+    "package_requires_python": ">=3.11,<3.14",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "pyarrow": "21.0.0",
+    "python": "3.13.5"
+  },
+  "evidence_state": "built, independently re-built byte-identically, hash-verified, source-spot-audited, scoped-unit-tested, and engineering-smoked",
+  "neural_smoke": {
+    "activity_max": 0.343623762558333,
+    "activity_min": 0.0,
+    "final_activity_sha256": "ca37d96b23fb4e152e7cce7e7013f72c849b2d94530904a6c45aacc5227e31d1",
+    "mean_step_seconds": 0.22909074975177646,
+    "mode": "unsigned_engineering_smoke_not_faithful",
+    "nonzero_activity_count": 36507,
+    "probe_body_ids": [
+      10001,
+      1471062202
+    ],
+    "step_seconds": [
+      0.23921695817261934,
+      0.22303383308462799,
+      0.22502145799808204
+    ],
+    "steps": 3,
+    "uses_all_retained_edges": true
+  },
+  "observed_date": "2026-08-17",
+  "receipt_id": "RUNTIME-MCNS-01",
+  "repeatability": {
+    "artifact_files_compared": 9,
+    "byte_identical": true,
+    "comparison": "recursive byte comparison of both cold-build artifact directories produced no differences",
+    "first_build": {
+      "build_seconds": 40.93861195794307,
+      "numpy_layout_verification_seconds": 0.9500879999250174,
+      "peak_process_rss_bytes": 6050217984,
+      "verified_hash_load_seconds": 0.28623924986459315
+    },
+    "identities_matched": [
+      "manifest_file_sha256",
+      "payload_sha256",
+      "structural_graph_sha256",
+      "provenance_graph_sha256",
+      "every per-array sha256"
+    ],
+    "second_build": {
+      "build_seconds": 39.85316579090431,
+      "numpy_layout_verification_seconds": 0.8366155419498682,
+      "peak_process_rss_bytes": 6387580928,
+      "verified_hash_load_seconds": 0.29881704202853143
+    }
+  },
+  "retained_by_superclass": {
+    "ENS": 50,
+    "ascending_neuron": 1846,
+    "cb_efferent": 4,
+    "cb_endocrine": 72,
+    "cb_intrinsic": 32164,
+    "cb_motor": 107,
+    "cb_sensory": 4868,
+    "cb_sensory_tbc": 14,
+    "descending_neuron": 1314,
+    "descending_neuron_tbc": 2,
+    "efferent_ascending": 8,
+    "efferent_descending": 4,
+    "ol_intrinsic": 89403,
+    "ol_sensory": 6098,
+    "sensory_ascending": 537,
+    "sensory_ascending_tbc": 2,
+    "sensory_descending": 12,
+    "visual_centrifugal": 563,
+    "visual_projection": 9201,
+    "visual_projection_tbc": 2,
+    "vnc_efferent": 94,
+    "vnc_endocrine": 22,
+    "vnc_intrinsic": 13161,
+    "vnc_motor": 708,
+    "vnc_sensory": 6370,
+    "vnc_sensory_tbc": 36,
+    "vnc_tbc": 38
+  },
+  "schema_version": 1,
+  "source_spot_audit": {
+    "audit_sha256": "586ae8533f3866e735f9181f6211cc56ba411ff5874cf74023ff7c65a0927c70",
+    "edge_samples": 256,
+    "node_samples": 64,
+    "sampling": "SHA-256-derived positions bound to structural graph identity",
+    "status": "matched source annotation, transmitter-when-present, endpoint, weight, and source-row evidence"
+  },
+  "sources": {
+    "manifest_sha256": "9412105f54884a57521bbdf7fe46659caab559ef7877e6a62af95f50e1ee3768",
+    "objects": {
+      "annotations": {
+        "bytes": 14483314,
+        "filename": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+        "generation": "1780494878811468",
+        "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2"
+      },
+      "neurotransmitters": {
+        "bytes": 43282834,
+        "filename": "body-neurotransmitters-male-cns-v1.0.feather",
+        "generation": "1780894899156750",
+        "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621"
+      },
+      "weights": {
+        "bytes": 1051241946,
+        "filename": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+        "generation": "1780494887545976",
+        "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1"
+      }
+    }
+  },
+  "status": "g1_pass_recommended_for_named_artifact",
+  "transformation": {
+    "annotation_retention": "superclass is non-null and UTF-8 length > 0",
+    "directed_pair_policy": "preserve each source row; reject duplicate pairs",
+    "edge_order": [
+      "post_dense_index",
+      "pre_dense_index"
+    ],
+    "edge_retention": "both body_pre and body_post are retained nodes",
+    "node_order": [
+      "body_id ascending"
+    ],
+    "self_edge_policy": "preserve",
+    "threshold": null,
+    "transmitter_missing_source_row_sentinel": 18446744073709551615,
+    "weight_policy": "preserve positive raw source weight as uint64"
+  },
+  "verification": {
+    "downstream_installed_wheel_mypy": {
+      "result": "passed",
+      "strict": true,
+      "typed_packages": [
+        "neurocraft-connectome",
+        "neurocraft-neural"
+      ]
+    },
+    "mypy": {
+      "result": "8 source files passed with strict configuration"
+    },
+    "ruff": {
+      "result": "all owned package, script, and test paths passed"
+    },
+    "scoped_pytest": {
+      "failed": 0,
+      "passed": 48,
+      "seconds": 0.89,
+      "scope": "tests/connectome, tests/data/test_build_malecns_runtime.py, tests/neural"
+    },
+    "whole_repository_suite": "coordinator-owned integration result to be recorded after cross-lane integration freezes",
+    "wheels": {
+      "neurocraft_connectome-0.1.0-py3-none-any.whl": {
+        "includes_py_typed": true,
+        "sha256": "1a9974547f26a6091adfd79d0acc3662349425e9f55e6c920208efc48b80137b"
+      },
+      "neurocraft_neural-0.1.0-py3-none-any.whl": {
+        "includes_py_typed": true,
+        "sha256": "38db1e85d38a75857f827e4ca424d3e707783108ab813e4a65aad9ccf0d634e8"
+      }
+    }
+  }
+}

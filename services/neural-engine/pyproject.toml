@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-service"
+version = "0.1.0"
+description = "Loopback-only bounded neural service bridge for NeuroCraft Fly"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "neurocraft-protocol==0.1.0",
+  "websockets==17.0.1",
+]
+
+[project.scripts]
+neurocraft-neural-service = "neurocraft_service.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neurocraft_service"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/neurocraft_service/py.typed" = "neurocraft_service/py.typed"

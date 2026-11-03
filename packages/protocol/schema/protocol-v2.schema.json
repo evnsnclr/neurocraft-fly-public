@@ -1,0 +1,1111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:neurocraft:protocol:v2",
+  "title": "NeuroCraft Fly protocol v2",
+  "description": "Transport-neutral, strict control-channel messages. Implementations also enforce the 65536-byte UTF-8 frame limit and stateful sequence/tick rules. The handshake is mutual: each side proves possession of the shared run token with an HMAC over a fresh client nonce, and the token itself is never transmitted.",
+  "oneOf": [
+    { "$ref": "#/$defs/hello" },
+    { "$ref": "#/$defs/helloAck" },
+    { "$ref": "#/$defs/observation" },
+    { "$ref": "#/$defs/action" },
+    { "$ref": "#/$defs/programAction" },
+    { "$ref": "#/$defs/actuationReceipt" },
+    { "$ref": "#/$defs/programReceipt" },
+    { "$ref": "#/$defs/controlCommand" },
+    { "$ref": "#/$defs/controlAck" },
+    { "$ref": "#/$defs/fault" }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "handshakeNonce": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$",
+      "description": "32 fresh random bytes in unpadded base64url."
+    },
+    "handshakeProof": {
+      "$ref": "#/$defs/sha256",
+      "description": "HMAC-SHA256 of the length-prefixed handshake transcript, keyed by the run token, as lowercase hex. The transcript concatenates uint32be-length-prefixed UTF-8 elements in the frozen order protocol, message type, run_id, session_epoch, entity_id, graph_hash, adapter_hash, dynamics_hash, decoder_hash, observation_schema_hash, role, client_nonce."
+    },
+    "nonnegativeInteger": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9223372036854775807
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "session_epoch",
+        "entity_id",
+        "graph_hash",
+        "adapter_hash",
+        "dynamics_hash",
+        "decoder_hash",
+        "observation_schema_hash"
+      ],
+      "properties": {
+        "run_id": { "$ref": "#/$defs/identifier" },
+        "session_epoch": { "$ref": "#/$defs/nonnegativeInteger" },
+        "entity_id": { "$ref": "#/$defs/identifier" },
+        "graph_hash": { "$ref": "#/$defs/sha256" },
+        "adapter_hash": { "$ref": "#/$defs/sha256" },
+        "dynamics_hash": { "$ref": "#/$defs/sha256" },
+        "decoder_hash": { "$ref": "#/$defs/sha256" },
+        "observation_schema_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "vec3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number" }
+    },
+    "sensors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "position_m",
+        "velocity_m_s",
+        "yaw_rad",
+        "pitch_rad",
+        "on_ground",
+        "horizontal_collision",
+        "vertical_collision",
+        "in_fluid",
+        "local_light",
+        "ray_max_distance_m",
+        "ray_distances_m"
+      ],
+      "properties": {
+        "position_m": { "$ref": "#/$defs/vec3" },
+        "velocity_m_s": { "$ref": "#/$defs/vec3" },
+        "yaw_rad": { "type": "number", "minimum": -3.141592653589793, "maximum": 3.141592653589793 },
+        "pitch_rad": { "type": "number", "minimum": -1.5707963267948966, "maximum": 1.5707963267948966 },
+        "on_ground": { "type": "boolean" },
+        "horizontal_collision": { "type": "boolean" },
+        "vertical_collision": { "type": "boolean" },
+        "in_fluid": { "type": "boolean" },
+        "local_light": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "ray_max_distance_m": { "type": "number", "exclusiveMinimum": 0, "maximum": 64 },
+        "ray_distances_m": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "type": "number", "minimum": 0, "maximum": 64 }
+        }
+      }
+    },
+    "sensorsV2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "position_m",
+        "velocity_m_s",
+        "yaw_rad",
+        "pitch_rad",
+        "on_ground",
+        "horizontal_collision",
+        "vertical_collision",
+        "in_fluid",
+        "local_light",
+        "ray_max_distance_m",
+        "ray_distances_m",
+        "sensor_schema",
+        "ray_hit_kinds"
+      ],
+      "properties": {
+        "sensor_schema": { "const": "neurocraft.sensors.v2" },
+        "ray_hit_kinds": { "type": "array", "minItems": 6, "maxItems": 6, "items": { "type": "integer", "minimum": 0, "maximum": 2 } },
+        "position_m": { "$ref": "#/$defs/vec3" },
+        "velocity_m_s": { "$ref": "#/$defs/vec3" },
+        "yaw_rad": { "type": "number", "minimum": -3.141592653589793, "maximum": 3.141592653589793 },
+        "pitch_rad": { "type": "number", "minimum": -1.5707963267948966, "maximum": 1.5707963267948966 },
+        "on_ground": { "type": "boolean" },
+        "horizontal_collision": { "type": "boolean" },
+        "vertical_collision": { "type": "boolean" },
+        "in_fluid": { "type": "boolean" },
+        "local_light": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "ray_max_distance_m": { "type": "number", "exclusiveMinimum": 0, "maximum": 64 },
+        "ray_distances_m": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "type": "number", "minimum": 0, "maximum": 64 }
+        }
+      }
+    },
+    "eventCounter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "last_game_tick"
+      ],
+      "properties": {
+        "count": {
+          "$ref": "#/$defs/nonnegativeInteger"
+        },
+        "last_game_tick": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonnegativeInteger"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "count": {
+            "const": 0
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "last_game_tick": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "last_game_tick": {
+            "$ref": "#/$defs/nonnegativeInteger"
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "food_contact",
+        "food_near",
+        "food",
+        "brush",
+        "attack_attempt"
+      ],
+      "if": { "properties": { "food_contact": { "const": true } } },
+      "then": { "properties": { "food_near": { "const": true } } },
+      "properties": {
+        "food_contact": {
+          "type": "boolean"
+        },
+        "food_near": {
+          "type": "boolean"
+        },
+        "food": {
+          "$ref": "#/$defs/eventCounter"
+        },
+        "brush": {
+          "$ref": "#/$defs/eventCounter"
+        },
+        "attack_attempt": {
+          "$ref": "#/$defs/eventCounter"
+        }
+      }
+    },
+    "sensorsV3": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "position_m",
+        "velocity_m_s",
+        "yaw_rad",
+        "pitch_rad",
+        "on_ground",
+        "horizontal_collision",
+        "vertical_collision",
+        "in_fluid",
+        "local_light",
+        "ray_max_distance_m",
+        "ray_distances_m",
+        "sensor_schema",
+        "ray_hit_kinds",
+        "events"
+      ],
+      "properties": {
+        "ray_hit_kinds": {
+          "$ref": "#/$defs/sensorsV2/properties/ray_hit_kinds"
+        },
+        "position_m": {
+          "$ref": "#/$defs/sensorsV2/properties/position_m"
+        },
+        "velocity_m_s": {
+          "$ref": "#/$defs/sensorsV2/properties/velocity_m_s"
+        },
+        "yaw_rad": {
+          "$ref": "#/$defs/sensorsV2/properties/yaw_rad"
+        },
+        "pitch_rad": {
+          "$ref": "#/$defs/sensorsV2/properties/pitch_rad"
+        },
+        "on_ground": {
+          "$ref": "#/$defs/sensorsV2/properties/on_ground"
+        },
+        "horizontal_collision": {
+          "$ref": "#/$defs/sensorsV2/properties/horizontal_collision"
+        },
+        "vertical_collision": {
+          "$ref": "#/$defs/sensorsV2/properties/vertical_collision"
+        },
+        "in_fluid": {
+          "$ref": "#/$defs/sensorsV2/properties/in_fluid"
+        },
+        "local_light": {
+          "$ref": "#/$defs/sensorsV2/properties/local_light"
+        },
+        "ray_max_distance_m": {
+          "$ref": "#/$defs/sensorsV2/properties/ray_max_distance_m"
+        },
+        "ray_distances_m": {
+          "$ref": "#/$defs/sensorsV2/properties/ray_distances_m"
+        },
+        "sensor_schema": {
+          "const": "neurocraft.sensors.v3"
+        },
+        "events": {
+          "$ref": "#/$defs/events"
+        }
+      }
+    },
+    "sensorsV4": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "position_m",
+        "velocity_m_s",
+        "yaw_rad",
+        "pitch_rad",
+        "on_ground",
+        "horizontal_collision",
+        "vertical_collision",
+        "in_fluid",
+        "local_light",
+        "ray_max_distance_m",
+        "ray_distances_m",
+        "sensor_schema",
+        "ray_hit_kinds",
+        "events",
+        "ray_actor_kinds"
+      ],
+      "properties": {
+        "ray_hit_kinds": {
+          "$ref": "#/$defs/sensorsV3/properties/ray_hit_kinds"
+        },
+        "position_m": {
+          "$ref": "#/$defs/sensorsV3/properties/position_m"
+        },
+        "velocity_m_s": {
+          "$ref": "#/$defs/sensorsV3/properties/velocity_m_s"
+        },
+        "yaw_rad": {
+          "$ref": "#/$defs/sensorsV3/properties/yaw_rad"
+        },
+        "pitch_rad": {
+          "$ref": "#/$defs/sensorsV3/properties/pitch_rad"
+        },
+        "on_ground": {
+          "$ref": "#/$defs/sensorsV3/properties/on_ground"
+        },
+        "horizontal_collision": {
+          "$ref": "#/$defs/sensorsV3/properties/horizontal_collision"
+        },
+        "vertical_collision": {
+          "$ref": "#/$defs/sensorsV3/properties/vertical_collision"
+        },
+        "in_fluid": {
+          "$ref": "#/$defs/sensorsV3/properties/in_fluid"
+        },
+        "local_light": {
+          "$ref": "#/$defs/sensorsV3/properties/local_light"
+        },
+        "ray_max_distance_m": {
+          "$ref": "#/$defs/sensorsV3/properties/ray_max_distance_m"
+        },
+        "ray_distances_m": {
+          "$ref": "#/$defs/sensorsV3/properties/ray_distances_m"
+        },
+        "sensor_schema": {
+          "const": "neurocraft.sensors.v4"
+        },
+        "events": {
+          "$ref": "#/$defs/sensorsV3/properties/events"
+        },
+        "ray_actor_kinds": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "ray_hit_kinds": {
+                "prefixItems": [
+                  {
+                    "const": 2
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {
+                    "minimum": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {
+                    "const": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ray_hit_kinds": {
+                "prefixItems": [
+                  {},
+                  {
+                    "const": 2
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {
+                    "minimum": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {
+                    "const": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ray_hit_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {
+                    "const": 2
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {
+                    "minimum": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {
+                    "const": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ray_hit_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {
+                    "const": 2
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {
+                    "minimum": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {
+                    "const": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ray_hit_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "const": 2
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "minimum": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "const": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "ray_hit_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "const": 2
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "minimum": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "ray_actor_kinds": {
+                "prefixItems": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "const": 0
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "motorVector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["forward_thrust", "lateral_thrust", "vertical_thrust", "yaw_torque", "pitch_torque"],
+      "properties": {
+        "forward_thrust": { "type": "number", "minimum": -1, "maximum": 1 },
+        "lateral_thrust": { "type": "number", "minimum": -1, "maximum": 1 },
+        "vertical_thrust": { "type": "number", "minimum": -1, "maximum": 1 },
+        "yaw_torque": { "type": "number", "minimum": -1, "maximum": 1 },
+        "pitch_torque": { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    },
+    "worldFrame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["position_m", "velocity_m_s", "yaw_rad", "pitch_rad", "on_ground", "horizontal_collision", "vertical_collision", "in_fluid"],
+      "properties": {
+        "position_m": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "number", "minimum": -30000000, "maximum": 30000000 }
+        },
+        "velocity_m_s": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "number", "minimum": -1024, "maximum": 1024 }
+        },
+        "yaw_rad": { "type": "number", "minimum": -3.141592653589793, "maximum": 3.141592653589793 },
+        "pitch_rad": { "type": "number", "minimum": -1.5707963267948966, "maximum": 1.5707963267948966 },
+        "on_ground": { "type": "boolean" },
+        "horizontal_collision": { "type": "boolean" },
+        "vertical_collision": { "type": "boolean" },
+        "in_fluid": { "type": "boolean" }
+      }
+    },
+    "base": {
+      "type": "object",
+      "properties": {
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" }
+      }
+    },
+    "hello": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "protocol", "identity", "role", "client_nonce", "auth"],
+      "properties": {
+        "type": { "const": "hello" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "role": { "enum": ["minecraft_server", "neural_service"] },
+        "client_nonce": { "$ref": "#/$defs/handshakeNonce" },
+        "auth": { "$ref": "#/$defs/handshakeProof" }
+      }
+    },
+    "helloAck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "protocol", "identity", "role", "server_auth", "accepted"],
+      "properties": {
+        "type": { "const": "hello_ack" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "role": { "const": "neural_service" },
+        "server_auth": { "$ref": "#/$defs/handshakeProof" },
+        "accepted": { "const": true }
+      }
+    },
+    "observation": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "sensors": {
+                "required": [
+                  "sensor_schema"
+                ],
+                "properties": {
+                  "sensor_schema": {
+                    "const": "neurocraft.sensors.v4"
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "missing_fields": {
+                "maxItems": 13
+              },
+              "clamped_fields": {
+                "maxItems": 13
+              }
+            }
+          }
+        }
+      ],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "protocol",
+        "identity",
+        "observation_seq",
+        "game_tick",
+        "sent_monotonic_ns",
+        "bridge_observations_coalesced",
+        "sensors",
+        "missing_fields",
+        "clamped_fields"
+      ],
+      "properties": {
+        "type": { "const": "observation" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "observation_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "game_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "sent_monotonic_ns": { "$ref": "#/$defs/nonnegativeInteger" },
+        "bridge_observations_coalesced": { "$ref": "#/$defs/nonnegativeInteger" },
+        "sensors": { "oneOf": [{ "$ref": "#/$defs/sensors" }, { "$ref": "#/$defs/sensorsV2" }, { "$ref": "#/$defs/sensorsV3" }, { "$ref": "#/$defs/sensorsV4" }] },
+        "missing_fields": { "type": "array", "uniqueItems": true, "items": { "type": "string" }, "maxItems": 14 },
+        "clamped_fields": { "type": "array", "uniqueItems": true, "items": { "type": "string" }, "maxItems": 14 }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "protocol",
+        "identity",
+        "command_seq",
+        "observation_seq",
+        "observation_tick",
+        "target_tick",
+        "valid_through_tick",
+        "neural_step_start",
+        "neural_step_end",
+        "state_digest",
+        "motors",
+        "neutral"
+      ],
+      "properties": {
+        "type": { "const": "action" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "command_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "observation_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "observation_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "target_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "valid_through_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "neural_step_start": { "$ref": "#/$defs/nonnegativeInteger" },
+        "neural_step_end": { "$ref": "#/$defs/nonnegativeInteger" },
+        "state_digest": { "$ref": "#/$defs/sha256" },
+        "motors": { "$ref": "#/$defs/motorVector" },
+        "neutral": { "type": "boolean" }
+      }
+    },
+    "actuationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "protocol",
+        "identity",
+        "command_seq",
+        "observation_seq",
+        "target_tick",
+        "applied_tick",
+        "world_before",
+        "requested_motors",
+        "applied_motors",
+        "validation",
+        "clamp_fields",
+        "fault_code"
+      ],
+      "properties": {
+        "type": { "const": "actuation_receipt" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "command_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "observation_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "target_tick": {
+          "$ref": "#/$defs/nonnegativeInteger",
+          "description": "Action target tick; APPLIED and CLAMPED receipts are additionally constrained by implementations to target_tick through target_tick + 2."
+        },
+        "applied_tick": {
+          "$ref": "#/$defs/nonnegativeInteger",
+          "description": "Exact authoritative application or validation tick. APPLIED and CLAMPED are within the two-tick action window; REJECTED and NEUTRAL_FAULT retain the actual tick even outside that window."
+        },
+        "world_before": { "$ref": "#/$defs/worldFrame" },
+        "requested_motors": { "$ref": "#/$defs/motorVector" },
+        "applied_motors": { "$ref": "#/$defs/motorVector" },
+        "validation": {
+          "enum": ["APPLIED", "CLAMPED", "NEUTRAL_FAULT", "REJECTED"],
+          "description": "Successful variants obey the action window; fault variants require neutral motors and a fault code."
+        },
+        "clamp_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 5,
+          "items": {
+            "enum": ["forward_thrust", "lateral_thrust", "vertical_thrust", "yaw_torque", "pitch_torque"]
+          }
+        },
+        "fault_code": { "$ref": "#/$defs/nullableFaultCode" }
+      }
+    },
+    "programId": {
+      "enum": ["HOVER", "CRUISE", "BANK", "LAND", "WALK", "GROOM", "FEED", "ESCAPE_JUMP", "FLEE", "APPROACH"],
+      "description": "The ten declared scripted body programs (ADR 0020), verbatim from the Java BodyProgramId enum. Scripted presentation and engineering: nothing in this vocabulary is derived from the connectome or from fly anatomy."
+    },
+    "nullableProgramId": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/programId" }]
+    },
+    "programModulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["speed", "turn_rate", "amplitude", "urgency"],
+      "description": "Four declared presentation attenuators. By declaration a modulation can only attenuate a program's own declared maxima, never widen them.",
+      "properties": {
+        "speed": { "type": "number", "minimum": 0, "maximum": 1 },
+        "turn_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "amplitude": { "type": "number", "minimum": 0, "maximum": 1 },
+        "urgency": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "nullableProgramModulation": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/programModulation" }]
+    },
+    "programParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["turn_bias"],
+      "description": "The signed program inputs of v1. Signed values travel here rather than as a fifth modulation field, so the attenuator declaration stays true.",
+      "properties": {
+        "turn_bias": { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    },
+    "nullableProgramParameters": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/programParameters" }]
+    },
+    "readoutValues": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ttmn_jump", "dna01_turn", "wing_common"],
+      "description": "The exact labeled readout scalars a hand-chosen selection policy consumed on one tick. Readout values, not decisions.",
+      "properties": {
+        "ttmn_jump": { "type": "number", "minimum": 0, "maximum": 1 },
+        "dna01_turn": { "type": "number", "minimum": -1, "maximum": 1 },
+        "wing_common": { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    },
+    "programValidation": {
+      "enum": ["PROGRAM_APPLIED", "PROGRAM_REFUSED", "REJECTED"],
+      "description": "PROGRAM_APPLIED executed the requested program; PROGRAM_REFUSED did not execute the requested program: for reason unregistered or precondition the declared HOVER fallback ran with the requested modulation and parameters, for reason operator the operator-held program ran under its own; REJECTED failed envelope validation and applied neutral motors."
+    },
+    "programRefusalReason": {
+      "oneOf": [
+        { "type": "null" },
+        { "enum": ["unregistered", "precondition", "operator"] }
+      ]
+    },
+    "programAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A body-program selection carried in the same causal envelope as an action. Implementations additionally require neural_step_end > neural_step_start strictly: a program frame is never neutral. It carries no motors; the paused, replaying, and faulted service keeps emitting neutral action frames.",
+      "required": [
+        "type",
+        "protocol",
+        "identity",
+        "command_seq",
+        "observation_seq",
+        "observation_tick",
+        "target_tick",
+        "valid_through_tick",
+        "neural_step_start",
+        "neural_step_end",
+        "state_digest",
+        "program",
+        "modulation",
+        "parameters",
+        "readout",
+        "policy_hash"
+      ],
+      "properties": {
+        "type": { "const": "program_action" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "command_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "observation_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "observation_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "target_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "valid_through_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "neural_step_start": { "$ref": "#/$defs/nonnegativeInteger" },
+        "neural_step_end": { "$ref": "#/$defs/nonnegativeInteger" },
+        "state_digest": { "$ref": "#/$defs/sha256" },
+        "program": { "$ref": "#/$defs/programId" },
+        "modulation": { "$ref": "#/$defs/programModulation" },
+        "parameters": { "$ref": "#/$defs/programParameters" },
+        "readout": { "$ref": "#/$defs/readoutValues" },
+        "policy_hash": {
+          "$ref": "#/$defs/sha256",
+          "description": "Identity of the declared hand-chosen selection policy that produced this frame. Present so no surface can present the selection as the connectome deciding anything."
+        }
+      }
+    },
+    "programReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Authoritative Minecraft report of how one issued program_action was handled. There is no honest actuation_receipt for a program tick, which requests no motors (ADR 0020 section 3). Implementations require the executed_* values to be null exactly when validation is REJECTED; PROGRAM_REFUSED to carry a reason and no fault, executing HOVER when the reason is unregistered or precondition (the declared fallback ran) and whichever program the operator hold was running when the reason is operator (the frame never reached the body); REJECTED to carry a fault and neutral emitted motors; and applied_tick to fall in target_tick through target_tick + 2 for PROGRAM_APPLIED and PROGRAM_REFUSED.",
+      "required": [
+        "type",
+        "protocol",
+        "identity",
+        "command_seq",
+        "observation_seq",
+        "target_tick",
+        "applied_tick",
+        "world_before",
+        "requested_program",
+        "requested_modulation",
+        "requested_parameters",
+        "executed_program",
+        "executed_modulation",
+        "executed_parameters",
+        "emitted_motors",
+        "validation",
+        "reason",
+        "fault_code"
+      ],
+      "properties": {
+        "type": { "const": "program_receipt" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "command_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "observation_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "target_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "applied_tick": {
+          "$ref": "#/$defs/nonnegativeInteger",
+          "description": "Exact authoritative application or validation tick. PROGRAM_APPLIED and PROGRAM_REFUSED are within the two-tick frame window; REJECTED retains the actual tick even outside it."
+        },
+        "world_before": { "$ref": "#/$defs/worldFrame" },
+        "requested_program": { "$ref": "#/$defs/programId" },
+        "requested_modulation": { "$ref": "#/$defs/programModulation" },
+        "requested_parameters": { "$ref": "#/$defs/programParameters" },
+        "executed_program": { "$ref": "#/$defs/nullableProgramId" },
+        "executed_modulation": { "$ref": "#/$defs/nullableProgramModulation" },
+        "executed_parameters": { "$ref": "#/$defs/nullableProgramParameters" },
+        "emitted_motors": {
+          "$ref": "#/$defs/motorVector",
+          "description": "The primitive motors the running program emitted on this tick, already clamped by the authority; neutral when REJECTED."
+        },
+        "validation": { "$ref": "#/$defs/programValidation" },
+        "reason": { "$ref": "#/$defs/programRefusalReason" },
+        "fault_code": { "$ref": "#/$defs/nullableFaultCode" }
+      }
+    },
+    "controlOperation": {
+      "enum": ["PAUSE", "RESUME", "SINGLE_STEP", "RESET", "RECORD_START", "RECORD_STOP", "REPLAY_START", "REPLAY_STOP", "LESION_APPLY", "LESION_CLEAR", "STIMULATION_APPLY", "STIMULATION_CLEAR"]
+    },
+    "controlState": {
+      "enum": ["RUNNING", "PAUSED", "STEP_ARMED", "RECORDING", "REPLAYING", "FAULTED"]
+    },
+    "controlCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "protocol", "identity", "control_seq", "issued_tick", "operation", "content_id", "content_hash"],
+      "properties": {
+        "type": { "const": "control_command" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "control_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "issued_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "operation": { "$ref": "#/$defs/controlOperation" },
+        "content_id": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/identifier" }] },
+        "content_hash": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/sha256" }] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "operation": { "enum": ["PAUSE", "RESUME", "SINGLE_STEP", "RESET"] } } },
+          "then": { "properties": { "content_id": { "type": "null" }, "content_hash": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "enum": ["LESION_APPLY", "STIMULATION_APPLY"] } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" }, "content_hash": { "$ref": "#/$defs/sha256" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "enum": ["LESION_CLEAR", "STIMULATION_CLEAR"] } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "const": "REPLAY_START" } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" }, "content_hash": { "$ref": "#/$defs/sha256" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "enum": ["RECORD_START", "RECORD_STOP", "REPLAY_STOP"] } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" } } }
+        }
+      ]
+    },
+    "controlAck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "protocol", "identity", "control_seq", "issued_tick", "operation", "content_id", "content_hash", "accepted", "state", "effective_tick", "fault_code"],
+      "properties": {
+        "type": { "const": "control_ack" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "control_seq": { "$ref": "#/$defs/nonnegativeInteger" },
+        "issued_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "operation": { "$ref": "#/$defs/controlOperation" },
+        "content_id": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/identifier" }] },
+        "content_hash": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/sha256" }] },
+        "accepted": { "type": "boolean" },
+        "state": { "$ref": "#/$defs/controlState" },
+        "effective_tick": {
+          "$ref": "#/$defs/nonnegativeInteger",
+          "description": "Implementations require issued_tick through issued_tick + 1, except an accepted RESET, which is stamped with its governed action target_tick: one action budget (two ticks) after the observation it was materialized against, so issued_tick + 2 or issued_tick + 3. Frames from the earlier one-tick budget (issued_tick + 1) still parse."
+        },
+        "fault_code": { "$ref": "#/$defs/nullableFaultCode" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "operation": { "enum": ["PAUSE", "RESUME", "SINGLE_STEP", "RESET"] } } },
+          "then": { "properties": { "content_id": { "type": "null" }, "content_hash": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "enum": ["LESION_APPLY", "STIMULATION_APPLY"] } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" }, "content_hash": { "$ref": "#/$defs/sha256" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "enum": ["LESION_CLEAR", "STIMULATION_CLEAR"] } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "const": "REPLAY_START" } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" }, "content_hash": { "$ref": "#/$defs/sha256" } } }
+        },
+        {
+          "if": { "properties": { "operation": { "enum": ["RECORD_START", "RECORD_STOP", "REPLAY_STOP"] } } },
+          "then": { "properties": { "content_id": { "$ref": "#/$defs/identifier" } } }
+        }
+      ]
+    },
+    "faultCode": {
+      "enum": [
+        "MALFORMED",
+        "OVERSIZE",
+        "UNKNOWN_FIELD",
+        "UNAUTHORIZED",
+        "IDENTITY_MISMATCH",
+        "SEQUENCE",
+        "STALE",
+        "FUTURE",
+        "QUEUE_OVERFLOW",
+        "TRACE_FAILURE",
+        "INTERNAL",
+        "DISCONNECTED",
+        "CONTROL_UNAVAILABLE",
+        "INVALID_STATE",
+        "RECEIPT_MISMATCH"
+      ]
+    },
+    "nullableFaultCode": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/faultCode" }]
+    },
+    "fault": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "protocol",
+        "identity",
+        "code",
+        "message",
+        "game_tick",
+        "related_observation_seq",
+        "neutral_applied"
+      ],
+      "properties": {
+        "type": { "const": "fault" },
+        "protocol": { "const": "neurocraft.protocol.v2" },
+        "identity": { "$ref": "#/$defs/identity" },
+        "code": { "$ref": "#/$defs/faultCode" },
+        "message": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "game_tick": { "$ref": "#/$defs/nonnegativeInteger" },
+        "related_observation_seq": {
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/nonnegativeInteger" }]
+        },
+        "neutral_applied": { "const": true }
+      }
+    }
+  }
+}

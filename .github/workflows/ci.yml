@@ -1,0 +1,165 @@
+# Public source checks; private Git audit and one historical telemetry replay are excluded.
+name: verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python 3.13 locked verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out immutable revision
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install pinned uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.13.6"
+          python-version: "3.13.18"
+          enable-cache: false
+
+      - name: Companion UI regressions
+        run: node --test tests/integration/companion_ui.test.cjs
+
+      - name: Sync exact lock
+        run: uv sync --frozen --all-packages
+
+      - name: Lint
+        run: uv run --frozen ruff check .
+
+      - name: Formatting
+        run: uv run --frozen ruff format --check .
+
+      - name: Type-check
+        run: make typecheck
+
+      - name: Build the native neural kernel
+        run: |
+          uv run --frozen python -B scripts/build_spmv_kernel.py
+          uv run --frozen python -c 'from neurocraft_neural.spmv_kernel import load_c_kernel; print(load_c_kernel().identity.identity_sha256)'
+
+      - name: Unit and integration tests
+        run: >-
+          uv run --frozen pytest -q
+          --deselect tests/protocol/test_sensor_contract_v2.py::test_all_seven_historical_sensor_payloads_round_trip_exactly
+          --deselect tests/governance/test_audit_repository.py::test_repository_hygiene_and_g0_identities
+          --cov=neurocraft_connectome
+          --cov=neurocraft_controller
+          --cov=neurocraft_experiments
+          --cov=neurocraft_neural
+          --cov=neurocraft_protocol
+          --cov=neurocraft_service
+          --cov-report=term-missing
+
+      - name: Verify the frozen pilot snapshot's recorded bytes (no reexecution on any platform)
+        run: uv run --frozen python scripts/verify_fixture_pilot_snapshot.py
+
+      - name: Execute the headless research notebooks and audit their environment
+        run: make research-verify
+
+      - name: Dependency vulnerability audit
+        # Keep CI identical to the narrow, source-backed exception documented in
+        # SECURITY.md and enforced by `make audit`.
+        run: >-
+          uv run --frozen pip-audit --local --progress-spinner off
+          --ignore-vuln PYSEC-2026-113
+
+      - name: Dependency license inventory
+        run: uv run --frozen pip-licenses --format=markdown --with-urls
+
+      - name: JVM dependency advisory audit (OSV.dev)
+        # Fail-closed scan of mod/gradle.lockfile against api.osv.dev; the only
+        # exceptions live in docs/security/jvm-advisory-exceptions.json, are
+        # exact-match with mandatory expiry, and are documented in SECURITY.md.
+        run: >-
+          uv run --frozen python -B scripts/scan_jvm_advisories.py
+          --lockfile mod/gradle.lockfile
+          --exceptions docs/security/jvm-advisory-exceptions.json
+          --output artifacts/audit/jvm-advisories.json
+          --receipt artifacts/audit/jvm-advisories.receipt.json
+
+  fabric:
+    name: Java 21 Fabric build and tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out immutable revision
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+
+      - name: Install Java 21
+        uses: actions/setup-java@1bcf9fb12cf4aa7d266a90ae39939e61372fe520 # v5.4.0
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Compile, unit-test, build, and run server GameTests
+        working-directory: mod
+        run: >-
+          ./gradlew --no-daemon --dependency-verification strict --stacktrace
+          clean check build runGameTest
+
+      - name: Emit the locked JVM dependency graph
+        working-directory: mod
+        run: >-
+          ./gradlew --no-daemon --dependency-verification strict --stacktrace
+          emitJvmDependencyGraph
+
+      - name: Build the JVM SBOM and license/NOTICE inventory
+        # The converter is stdlib-only, so the fabric job needs no uv or extra
+        # Python setup; a drifted tracked notices file fails the job.
+        run: |
+          mkdir -p artifacts/sbom
+          python3 -B scripts/build_jvm_inventory.py \
+            --graph mod/build/reports/jvm-dependency-graph.json \
+            --verification mod/gradle/verification-metadata.xml \
+            --lockfile mod/gradle.lockfile \
+            --overrides docs/compliance/jvm-license-overrides.json \
+            --sbom artifacts/sbom/jvm.cdx.json \
+            --notices docs/compliance/JVM_THIRD_PARTY_NOTICES.md
+          git diff --exit-code docs/compliance/
+
+  fabric-client:
+    name: Java 21 Fabric client renderer GameTest (Linux/Xvfb)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out immutable revision
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+
+      - name: Install Java 21
+        uses: actions/setup-java@1bcf9fb12cf4aa7d266a90ae39939e61372fe520 # v5.4.0
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Run the isolated client renderer and HUD GameTest under Xvfb
+        working-directory: mod
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "true"
+        run: >-
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x720x24"
+          ./gradlew --no-daemon --dependency-verification strict --stacktrace
+          runClientGameTest
+
+      - name: Require renderer evidence outputs
+        working-directory: mod
+        run: >-
+          test -s build/receipts/fly-renderer-observation.json
+          && test -s build/receipts/fly-renderer-observation.png

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+license = "MIT"
+license-files = ["LICENSE"]
+name = "neurocraft-embodiment"
+version = "0.1.0"
+description = "Embodiment seam and deterministic reference body for the NeuroCraft Fly controller"
+# Deliberately identical to every other workspace package. The optional FlyGym
+# lane below needs >=3.12; that constraint is asserted at runtime in
+# flygym_body.require_flygym rather than raised here, so that
+# `uv sync --frozen --all-packages` keeps working on the workspace-wide floor.
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "neurocraft-connectome==0.1.0",
+  "neurocraft-controller==0.1.0",
+  "neurocraft-neural==0.1.0",
+  "neurocraft-protocol==0.1.0",
+]
+
+# The FlyGym pin lives in a tool table, NOT in [project.optional-dependencies].
+# uv resolves every extra of every workspace member into uv.lock, so declaring an
+# extra would put flygym (and mujoco, numba/llvmlite, matplotlib, pillow and
+# imageio-ffmpeg, which bundles an FFmpeg binary whose licence PyPI does not
+# declare) into the frozen lock, the CycloneDX SBOM, pip-audit --local and
+# pip-licenses -- exactly the fail-closed compliance surface this lane must stay
+# out of. The pin below is declarative provenance only; nothing resolves it.
+#
+#   install (opt-in, outside the locked environment):
+#     UV_CACHE_DIR=.uv-cache uv pip install "flygym==2.1.0"
+#
+# A test asserts this value equals flygym_body.REQUIRED_FLYGYM_VERSION so the pin
+# and the runtime error message cannot drift apart.
+[tool.neurocraft.optional-embodiment.flygym]
+version = "2.1.0"
+license = "Apache-2.0"
+requires-python = ">=3.12,<3.15"
+resolved-by-uv = false
+compliance-scope = "separate-from-core-lane"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neurocraft_embodiment"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/neurocraft_embodiment/py.typed" = "neurocraft_embodiment/py.typed"

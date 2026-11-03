@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "id": "male-cns:v1.0",
+    "release_date": "2026-06-08",
+    "license": "CC BY 4.0",
+    "license_spdx": "CC-BY-4.0",
+    "official_download_url": "https://male-cns.janelia.org/download/",
+    "official_release_notes_url": "https://male-cns.janelia.org/release/",
+    "citation": {
+      "authors": "Berg et al.",
+      "title": "Sexual dimorphism in the complete connectome of the Drosophila male central nervous system",
+      "doi": "10.1101/2025.10.09.680999",
+      "url": "https://doi.org/10.1101/2025.10.09.680999",
+      "version": "bioRxiv v2, 2025-10-30",
+      "status": "preprint"
+    }
+  },
+  "default_cache_dir": "data/cache/male-cns-v1.0",
+  "sources": [
+    {
+      "id": "annotations",
+      "filename": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather?generation=1780494878811468",
+      "generation": "1780494878811468",
+      "bytes": 14483314,
+      "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+      "purpose": "Curated neuron annotations excluding neurotransmitter properties",
+      "cache_policy": "required"
+    },
+    {
+      "id": "neurotransmitters",
+      "filename": "body-neurotransmitters-male-cns-v1.0.feather",
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-neurotransmitters-male-cns-v1.0.feather?generation=1780894899156750",
+      "generation": "1780894899156750",
+      "bytes": 43282834,
+      "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621",
+      "purpose": "Aggregate neurotransmitter predictions for each neuron",
+      "cache_policy": "required"
+    },
+    {
+      "id": "weights",
+      "filename": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+      "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather?generation=1780494887545976",
+      "generation": "1780494887545976",
+      "bytes": 1051241946,
+      "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1",
+      "purpose": "Full segment-to-segment connection-strength graph at minimum confidence 0.5",
+      "cache_policy": "required"
+    }
+  ],
+  "metadata_documents": [
+    {
+      "id": "download_index",
+      "filename": "male-cns-v1.0-download-index.html",
+      "url": "https://male-cns.janelia.org/download/",
+      "generation": null,
+      "bytes": 44208,
+      "sha256": "51144922891ccdc5cda2490d55b39ef69222134ed6944bbff2766379e403ad3c",
+      "purpose": "Official download index describing the v1.0 bulk products",
+      "cache_policy": "optional"
+    },
+    {
+      "id": "release_notes",
+      "filename": "male-cns-v1.0-release-notes.html",
+      "url": "https://male-cns.janelia.org/release/",
+      "generation": null,
+      "bytes": 21431,
+      "sha256": "b2a4d40f0ae376f8c887cfbdbbc3dd10a6a165380b658fce8a20fd153a0a16aa",
+      "purpose": "Official release notes identifying v1.0 and its release date",
+      "cache_policy": "optional"
+    },
+    {
+      "id": "license_legalcode",
+      "filename": "cc-by-4.0-legalcode.en.html",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "generation": null,
+      "bytes": 48970,
+      "sha256": "6d55b998ed5c54f43426d059a8c549ed58a3321e5463e6a6af1c6b56ab78c333",
+      "purpose": "Creative Commons Attribution 4.0 International legal code",
+      "cache_policy": "optional"
+    }
+  ]
+}

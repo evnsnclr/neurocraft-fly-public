@@ -1,0 +1,38 @@
+{
+  "type": "program_action",
+  "protocol": "neurocraft.protocol.v2",
+  "identity": {
+    "run_id": "demo-001",
+    "session_epoch": 1,
+    "entity_id": "fly-01",
+    "graph_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+    "adapter_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+    "dynamics_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+    "decoder_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+    "observation_schema_hash": "5555555555555555555555555555555555555555555555555555555555555555"
+  },
+  "command_seq": 0,
+  "observation_seq": 0,
+  "observation_tick": 100,
+  "target_tick": 102,
+  "valid_through_tick": 102,
+  "neural_step_start": 0,
+  "neural_step_end": 5,
+  "state_digest": "6666666666666666666666666666666666666666666666666666666666666666",
+  "program": "CRUISE",
+  "modulation": {
+    "speed": 0.7,
+    "turn_rate": 1.0,
+    "amplitude": 1.0,
+    "urgency": 0.0
+  },
+  "parameters": {
+    "turn_bias": -0.25
+  },
+  "readout": {
+    "ttmn_jump": 0.0,
+    "dna01_turn": -0.25,
+    "wing_common": 0.61
+  },
+  "policy_hash": "7777777777777777777777777777777777777777777777777777777777777777"
+}
