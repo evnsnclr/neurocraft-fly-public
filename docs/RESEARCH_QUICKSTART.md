@@ -26,9 +26,10 @@ sensory encoder, the body programs or biological recordings.
 ## Run the notebooks
 
 Use Python **3.13.18** and uv **0.13.6**, the tested project tool versions; uv must
-be exactly 0.13.6 (`pyproject.toml` sets `required-version`), for example
-`pip install uv==0.13.6` or the standalone installer for that version at
-`https://astral.sh/uv/0.13.6/install.sh`, and `uv python install 3.13.18` fetches
+be exactly 0.13.6 (`pyproject.toml` sets `required-version`). Install it with the
+standalone installer for that version at `https://astral.sh/uv/0.13.6/install.sh`,
+or with `pip install uv==0.13.6` inside a virtual environment (a bare `pip install`
+fails on Homebrew's externally managed Python); `uv python install 3.13.18` fetches
 the interpreter if it is absent. Run the following from the source root. Installation downloads the locked Python
 packages; the example needs no account, Minecraft, Java, native C build or bulk
 data download. It uses the Python reference engine.

@@ -10,7 +10,7 @@ authors:
   - family-names: Smith
     given-names: Evan
     website: https://github.com/evnsnclr
-version: 0.2.0-rc.5
+version: 0.2.0-rc.6
 abstract: >-
   Local release candidate for an interactive Minecraft demo with modeled
   dynamics on a retained MaleCNS fruit-fly connectome. Engineered inputs and
@@ -28,7 +28,7 @@ preferred-citation:
       given-names: Evan
   year: 2026
   url: https://github.com/evnsnclr/neurocraft-fly-public
-  notes: Project landing page; software release is in preparation.
+  notes: Project landing page; source release candidates are published as GitHub pre-releases.
 keywords:
   - connectomics
   - computational neuroscience

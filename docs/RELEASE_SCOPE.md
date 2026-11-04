@@ -1,6 +1,6 @@
-# Release scope: 0.2.0-rc.5 candidate
+# Release scope: 0.2.0-rc.6 candidate
 
-This describes the 0.2.0-rc.5 source candidate: a Play route built from source on
+This describes the 0.2.0-rc.6 source candidate: a Play route built from source on
 Apple Silicon macOS as a developer alpha, and the separate research kit. The
 packaged Companion and its native Windows port are present in the source, but
 their bundles are private testing material outside this release. It does not
@@ -15,7 +15,7 @@ and bytes tested; earlier packages and videos keep their original identities.
 | --- | --- |
 | Platform | Apple Silicon macOS, built from source, with installation and automated comparison runs so far qualified only on the development Mac, for the earlier candidate `c1ff8b1`. Linux is experimental. Native Windows is implemented in this tree as private testing material, unqualified, and not a supported platform of this release. Independent installation and sustained manual play remain separate checks. |
 | Components | Matching Fabric mod and the local Python neural service, both built from this source tree, plus a fresh showcase world generated at launch. The packaged Companion in this tree is not part of the release; installing the JAR alone is insufficient. |
-| Game tuple | Minecraft 1.21.5, Fabric Loader 0.16.10, Fabric API 0.128.2+1.21.5; project mod 0.2.0-rc.5. |
+| Game tuple | Minecraft 1.21.5, Fabric Loader 0.16.10, Fabric API 0.128.2+1.21.5; project mod 0.2.0-rc.6. |
 | Player requirements | A matching Fabric client, the player's own Minecraft Java account, a writable setup folder and network access for setup, plus the pinned Python and uv toolchain, Java 21, a supported C compiler, Git and Make to build the kernel and run the service. |
 | Model | `full_mcns_interactions_program_v2`, retained MaleCNS v1.0 derivative: 166,700 neurons and 25,582,938 directed edges. Graph, sign, dynamics, encoder, readout and control identities travel with results. |
 | Interactions | Player approach, nearby mob, brush, attack attempt, food and light. Each uses a declared source gate, named modeled populations and scripted body programs. Attack is a tactile proxy with no injury or nociception model. |

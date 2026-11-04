@@ -28,7 +28,7 @@ of the later software candidate.
 
 ## Choose your starting point
 
-**Candidate `0.2.0-rc.5` is a source release candidate.** This repository holds the Fabric
+**Candidate `0.2.0-rc.6` is a source release candidate.** This repository holds the Fabric
 mod and local neural service sources, the research kit and the curated documents;
 it ships no packaged downloads. The Play route builds from source on Apple Silicon
 macOS as a developer alpha, with installation and automated comparison runs so far
@@ -117,14 +117,15 @@ Smith, E. (2026). *NeuroCraft Fly*. [Project landing page](https://github.com/ev
   title = {{NeuroCraft Fly}},
   year = {2026},
   url = {https://github.com/evnsnclr/neurocraft-fly-public},
-  note = {Project landing page; software release is in preparation}
+  note = {Project landing page; source release candidates are published as GitHub pre-releases}
 }
 ```
 
 [Download the project BibTeX](https://github.com/evnsnclr/neurocraft-fly-public/blob/main/CITATION.bib)
-or use [CITATION.cff](CITATION.cff). This landing-page citation does not identify
-a published software release. When using candidate code, record its version and
-the exact source revision too. Cite the underlying MaleCNS reconstruction
+or use [CITATION.cff](CITATION.cff). This landing-page citation does not pin a
+specific release. When using candidate code, record its version and the exact
+source revision too (`CITATION.cff` carries the current candidate version). Cite
+the underlying MaleCNS reconstruction
 separately as described in [credits](docs/CREDITS.md).
 
 ## Participate
@@ -133,8 +134,8 @@ Created by [Evan Smith](https://github.com/evnsnclr). Start with the
 [roadmap](docs/ROADMAP.md), [contributing guide](CONTRIBUTING.md) and
 [community code](CODE_OF_CONDUCT.md). Questions and reproducible bug reports
 belong in repository issues when enabled. For sensitive findings, follow
-[SECURITY.md](SECURITY.md); the private reporting route must be verified before
-submitting sensitive material.
+[SECURITY.md](SECURITY.md): private vulnerability reporting is enabled on the
+public repository, so keep exploit details out of public issues.
 
 Project software and associated documentation use the [MIT License](LICENSE).
 Third-party software, data and assets retain their separate terms; see

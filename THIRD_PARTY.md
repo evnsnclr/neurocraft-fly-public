@@ -129,6 +129,9 @@ These records remain only to prevent an older report from silently reviving them
 ## Acquired and fallback connectome data
 
 MaleCNS and its extracted fixture are data inputs, not software dependencies. Their provenance never implies a biological or behavioral result.
+The gate names in the last column (G1, G3, G4) are the retired research-gate
+ladder's vocabulary ([ADR 0019](docs/adr/0019-pivot-to-interactive-connectome-demo.md)),
+kept as recorded in the historical receipts; they are not current release gates.
 
 | Target | License / attribution | Current evidence state | Gate before use or redistribution |
 |---|---|---|---|

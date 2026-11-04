@@ -58,5 +58,5 @@ Inspect any extra excerpt before sharing. Remove personal paths, player/account
 identifiers, tokens, cookies and private world/network data. Never upload entire
 session/setup folders, launcher profiles, environment dumps, caches or source data.
 Keep the unchanged original privately; a sanitized excerpt has different bytes.
-For suspected vulnerabilities, follow [SECURITY.md](../SECURITY.md), verify the
+For suspected vulnerabilities, follow [SECURITY.md](../SECURITY.md), use its
 private reporting route and keep exploit details out of public issues.

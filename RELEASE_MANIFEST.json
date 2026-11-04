@@ -1,7 +1,7 @@
 {
   "distribution_ready": false,
   "documentation_links": {
-    "checked_documents": 93,
+    "checked_documents": 94,
     "historical_omissions": [
       {
         "document": "docs/ARCHITECTURE_2026-08-18.md",
@@ -119,7 +119,7 @@
         "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md."
       }
     ],
-    "local_link_occurrences": 275,
+    "local_link_occurrences": 280,
     "scope": "Markdown inline links and reference definitions, including notebook Markdown; exported file/directory existence only; no heading or external URL validation",
     "status": "passed-with-declared-historical-omissions"
   },
@@ -227,11 +227,11 @@
       "source_path": ".python-version"
     },
     {
-      "bytes": 2102,
+      "bytes": 2130,
       "mode": "100644",
       "path": "CITATION.cff",
-      "sha256": "39f5fc0db6b5e8f8fc473b53ce6e99f4b97e48da8c7c62a38c84af0dd05b9f7a",
-      "source_blob": "b4025e89f8d848c8499dd5f7d52a73521005804b",
+      "sha256": "eb6ea274ec2d1ad53a9624820a539a43df7f4a1166f82aef1d5b3c643375cf4a",
+      "source_blob": "07948b5ddcaf236b1d2251472f7fe83bb83f2d9a",
       "source_path": "CITATION.cff"
     },
     {
@@ -275,27 +275,27 @@
       "source_path": "NOTICE"
     },
     {
-      "bytes": 8642,
+      "bytes": 8742,
       "mode": "100644",
       "path": "README.md",
-      "sha256": "8ad312c409cb8fff1898c173bd3c6b1483d7bc5d8e40a17131519606f4d9aea1",
-      "source_blob": "5e57ff11473a03c5919115dad09dbfe54b537801",
+      "sha256": "640898a3963f0e047d3940efd22f3222d44ccb180ad305d97fe1430e9aba4b10",
+      "source_blob": "95490515684a2415da34cafa0e5fdd1b12e7311c",
       "source_path": "docs/public/README.md"
     },
     {
-      "bytes": 7831,
+      "bytes": 8299,
       "mode": "100644",
       "path": "SECURITY.md",
-      "sha256": "9b842a9aab38f7c04a6d296754aa7bad645918cfa9a33de6eadc917e19238f5a",
-      "source_blob": "3f53dd737edd4c98a378eb91ed6b3240bc98ee06",
+      "sha256": "687b636a5092e79810d46381b32dc37d74682c3c69cc6a5fcd44dfd3fa02b326",
+      "source_blob": "bffdc8cd49b88159c7684f03fa2f1e7f4498d331",
       "source_path": "SECURITY.md"
     },
     {
-      "bytes": 26532,
+      "bytes": 26779,
       "mode": "100644",
       "path": "THIRD_PARTY.md",
-      "sha256": "1cf170433f15dce11d96ef3536b8a6a0c2d0db4d31c87b74ba167e9c4ba131c0",
-      "source_blob": "5481593829bd47c54757ecf253960711171a4978",
+      "sha256": "22cfa528b20c7d930d98fec384e32e2fd398b9b4846a7f38b569b44293546a6d",
+      "source_blob": "92a09c9ecd9c8a05f36f4157c6177fb744484bbb",
       "source_path": "THIRD_PARTY.md"
     },
     {
@@ -494,8 +494,8 @@
       "bytes": 8445,
       "mode": "100644",
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "f79167821d7fb4b831ea7c39c55b728efccaee5aa9da3f98e9479c0cf85f8615",
-      "source_blob": "bb0a510381aab17f680abc040ad6daf4ee1ac1b4",
+      "sha256": "467fac1ae1539d4cf899b2bf6302559df4adc656b801f9b0a6de537a7a9adef0",
+      "source_blob": "2a6de8003985ccbc3c1b63ac9cc394513b1e4f50",
       "source_path": "docs/ARCHITECTURE.md"
     },
     {
@@ -510,8 +510,8 @@
       "bytes": 5781,
       "mode": "100644",
       "path": "docs/COMPANION.md",
-      "sha256": "be346552aa2a35c1b00d277784072a08ef98445abe9ce9b8d1e4b87b9bd5b3e2",
-      "source_blob": "e31d30b54e1e40c14c2b4bc2fa080b73e1e8b6a6",
+      "sha256": "d3490a5808e85443692d8bd870579d3497f5741404b544d0a13c4d96446e9b55",
+      "source_blob": "49fe99148b1518ed79bf582711b3d0c7bc8e49cc",
       "source_path": "docs/public/COMPANION.md"
     },
     {
@@ -523,11 +523,11 @@
       "source_path": "docs/public/CREDITS.md"
     },
     {
-      "bytes": 13464,
+      "bytes": 13907,
       "mode": "100644",
       "path": "docs/DATA_PROVENANCE.md",
-      "sha256": "1079c582c92d215e45d9b208c3e72bc23a85beb3b1ee3da7f5302afa92bf3fdb",
-      "source_blob": "ac75b82fc13dea15d51b2938f0d6ec9da2f62fff",
+      "sha256": "549263c6004e99149efea95f68767649edab3871f189bc4b63cbf93ad00551f1",
+      "source_blob": "b34073d08c5d6398bf1cf53dfff60c8d906b19a0",
       "source_path": "docs/DATA_PROVENANCE.md"
     },
     {
@@ -555,19 +555,19 @@
       "source_path": "docs/FULL_GRAPH_RESOURCES.md"
     },
     {
-      "bytes": 9933,
+      "bytes": 10043,
       "mode": "100644",
       "path": "docs/INSTALL.md",
-      "sha256": "41487d34d8b973a00aff2c944faf47338443f7c8831d7485379d3d85e85aeefb",
-      "source_blob": "03e7b4206b2955de72f31116689dfff1af43538b",
+      "sha256": "d37cb779cd1f42683c9bcceeb70d1daf611147856d9a5bb36a6ea95fd4d43904",
+      "source_blob": "cc76b74bdb30609a147f600d034f775838424851",
       "source_path": "docs/public/INSTALL.md"
     },
     {
       "bytes": 16742,
       "mode": "100644",
       "path": "docs/MODEL_CARD.md",
-      "sha256": "80b182c6b1685857862b8b138d13ccf0aa147176b2cc131aaaebde675551d22f",
-      "source_blob": "b10ca27ecf6411ff1902ff9c75aab01ef8cbe879",
+      "sha256": "2da285bfd821cb894054d41f236846ffe327ab1ed5f66d078a6606342e84686f",
+      "source_blob": "091a33af905ef4b65a72231178a7d31601685ce4",
       "source_path": "docs/MODEL_CARD.md"
     },
     {
@@ -582,24 +582,24 @@
       "bytes": 6610,
       "mode": "100644",
       "path": "docs/RELEASE_SCOPE.md",
-      "sha256": "0bd1e187fc34be39e71ab779f4ef58061816395f130a4e9f531ef427da819716",
-      "source_blob": "996054e5f836c2e0f06947d271a51d1ffe563504",
+      "sha256": "ead4735c9e746001b6030a9d38e9f088994e3894ae49784a9bd98501c47986a7",
+      "source_blob": "f9329078f281f700558a2ab3636d920205c99549",
       "source_path": "docs/public/RELEASE_SCOPE.md"
     },
     {
-      "bytes": 7613,
+      "bytes": 7717,
       "mode": "100644",
       "path": "docs/RESEARCH_QUICKSTART.md",
-      "sha256": "a686e434514443aad79021cfc2b7891d021a02ea3fa6a0a506ca4aafbb32d657",
-      "source_blob": "6be204b009e36493327678ce8133d6be86e68bc4",
+      "sha256": "98930352af480eb751434069f73da83dc06dd4047af6dcfdb353fc505bf89c17",
+      "source_blob": "70d8d2fe0984bce7e71def8401f7d0e0e598d28a",
       "source_path": "docs/RESEARCH_QUICKSTART.md"
     },
     {
       "bytes": 3854,
       "mode": "100644",
       "path": "docs/ROADMAP.md",
-      "sha256": "4551d60367a61f40597a9e2073a1bb41ba521e38d293e7379c4d8c4178943fcd",
-      "source_blob": "4ac600c0083145b56764f0f27312e33200a18491",
+      "sha256": "a9f880a851441171db785902650a35d9cf032cf5f1064d5ca8a326c879e2fb10",
+      "source_blob": "a5ebbef1c2448402efd8aa8fb2d97b8afe7558af",
       "source_path": "docs/public/ROADMAP.md"
     },
     {
@@ -619,11 +619,11 @@
       "source_path": "docs/SCIENTIFIC_CLAIMS_2026-08-18.md"
     },
     {
-      "bytes": 6176,
+      "bytes": 6173,
       "mode": "100644",
       "path": "docs/TROUBLESHOOTING.md",
-      "sha256": "4ff66f54dadcb1a6e183dec1db6947ac82c3e1b625133dd0bbe6a48ff2d366d6",
-      "source_blob": "3be736caed04a504098d10982afde3d67ce8aea3",
+      "sha256": "ea9cdfe297290fffc371c14907c6c25c6c8241e55456464e15397baf9752730c",
+      "source_blob": "a6784c9f09a267f807eca21911dc7282d398ba9e",
       "source_path": "docs/public/TROUBLESHOOTING.md"
     },
     {
@@ -1091,6 +1091,14 @@
       "source_path": "docs/security/JVM_TRIAGE_2026-10-30.md"
     },
     {
+      "bytes": 15755,
+      "mode": "100644",
+      "path": "docs/security/JVM_TRIAGE_2026-11-03.md",
+      "sha256": "3675d101266b21990b04da703a6fb98e7df39758e85eb387e3387281a7b72e22",
+      "source_blob": "071800fbfa7a00379625507295edb1670d47fa36",
+      "source_path": "docs/security/JVM_TRIAGE_2026-11-03.md"
+    },
+    {
       "bytes": 5487,
       "mode": "100644",
       "path": "docs/security/RUNTIME_ASSESSMENT_2026-10-30.md",
@@ -1099,11 +1107,11 @@
       "source_path": "docs/security/RUNTIME_ASSESSMENT_2026-10-30.md"
     },
     {
-      "bytes": 55586,
+      "bytes": 78582,
       "mode": "100644",
       "path": "docs/security/jvm-advisory-exceptions.json",
-      "sha256": "ec8c6e3d61de417818388b92f3e13c56e5e1ca68a73dfe7f6c81cf826cd4e75b",
-      "source_blob": "ba45acc59a1532bbc15c78ce28a15f06a43ac6fd",
+      "sha256": "32eac872572c2fe3ae5b501c02c6bacf1597a3eff75d266f9fb067e8a43d66b9",
+      "source_blob": "10638e10ab27f83581faf4fa3d7015b5e06892f0",
       "source_path": "docs/security/jvm-advisory-exceptions.json"
     },
     {
@@ -1326,8 +1334,8 @@
       "bytes": 286,
       "mode": "100644",
       "path": "mod/gradle.properties",
-      "sha256": "4971ef8141806ecd614a6d7e3d702dc91344cede9ad75c0e9d9b39a9959f78c7",
-      "source_blob": "ec20616782af02eaf21ac5442e5e889bccbcf30e",
+      "sha256": "4b60f25a8aac93a487ece1776b73c3ec94b9993d0602ab467add16507f149a7e",
+      "source_blob": "d3bd3b2c5bfb9461c3eae7fe2d9599e33b43ba8c",
       "source_path": "mod/gradle.properties"
     },
     {
@@ -3947,11 +3955,11 @@
       "source_path": "release/java-runtime-pins.json"
     },
     {
-      "bytes": 130009,
+      "bytes": 130142,
       "mode": "100644",
       "path": "release/public-files.json",
-      "sha256": "e109fbe7ddc949e2c51e3cbb29f8f472cd7f74ef27cdceaee8555bd4c85c93b2",
-      "source_blob": "315d8c10643cbbbea7cec8714c90a895332e17f7",
+      "sha256": "31614d0f55777d433006810010c2467eb718c64f9abf96e6b0deeabed0ee7f67",
+      "source_blob": "ff1845cd3557d5cfe7d262d1ccf5da6cf122a740",
       "source_path": "release/public-files.json"
     },
     {
@@ -4675,11 +4683,11 @@
       "source_path": "scripts/measure_sign_overlay.py"
     },
     {
-      "bytes": 41939,
+      "bytes": 41961,
       "mode": "100644",
       "path": "scripts/prepare_gametest_demo.py",
-      "sha256": "fa78b47492d907e397d32dad1b060c8bc79861825950bc65d8e4f56f35474538",
-      "source_blob": "a4dc16ab76ff71b5d24c73e62c67652ca956e38d",
+      "sha256": "ab34ec88aa22b94b769b5e5101e0c5bfa3d238f2482dd636f1e46a7d318585ba",
+      "source_blob": "43164dbeb14ef43d15acc4d8c0081f8930dcef20",
       "source_path": "scripts/prepare_gametest_demo.py"
     },
     {
@@ -4891,11 +4899,11 @@
       "source_path": "scripts/run_connectome_service.py"
     },
     {
-      "bytes": 64260,
+      "bytes": 64667,
       "mode": "100644",
       "path": "scripts/run_external_gametest.py",
-      "sha256": "6780fce20a0e4dad5a2557de573d3f3900cb0a8d319ed2db3de76e5a2b126033",
-      "source_blob": "f78281271600678e88e6338d39076761f2476e05",
+      "sha256": "e583a74472f80977e6ade15a450c02b44e228170ef9108bd1791c6a0985c72b8",
+      "source_blob": "86858aa8bed15d64324c153e734c2f48160dd203",
       "source_path": "scripts/run_external_gametest.py"
     },
     {
@@ -6131,11 +6139,11 @@
       "source_path": "tests/integration/test_matched_summary.py"
     },
     {
-      "bytes": 29200,
+      "bytes": 29222,
       "mode": "100644",
       "path": "tests/integration/test_prepare_gametest_demo.py",
-      "sha256": "a8f6f02b2e8d7ab5945822f1115dd90b83f4fdb2380728354bff249e610e5e9f",
-      "source_blob": "5d7bbbe0cc1c1fd9d71820e7650d09d7f0bb48e1",
+      "sha256": "63996ddf7584491a43551cff08b3f3c1436d18a18dbe0ec37589ce6ac7c801a1",
+      "source_blob": "ebce27d2612686d27bcd35acea458b23ca7a52d5",
       "source_path": "tests/integration/test_prepare_gametest_demo.py"
     },
     {
@@ -6187,11 +6195,11 @@
       "source_path": "tests/integration/test_replay_minecraft_trace.py"
     },
     {
-      "bytes": 31691,
+      "bytes": 33033,
       "mode": "100644",
       "path": "tests/integration/test_run_external_gametest.py",
-      "sha256": "250b14918f9b2799cf00825a8603a386f7c9dafef46e650faa1706bb6734d1dd",
-      "source_blob": "60816e9c98c2936f24fc9c5b7aab8c5e45ce0e8f",
+      "sha256": "1b76e22226adcc8099711c7923fba6afd89a1c0654e958efa01799ca5b871f5f",
+      "source_blob": "5627ce40c50082d3206855630ee935247a276701",
       "source_path": "tests/integration/test_run_external_gametest.py"
     },
     {
@@ -6549,11 +6557,11 @@
     }
   },
   "source": {
-    "commit": "bee8ca243232a42eb2ccd13049d75459bdb3d954",
+    "commit": "eb3adc597eeff797f6a65f62df004eb2c8164155",
     "content_origin": "unchanged committed Git blobs; selected documents are path-mapped",
     "history_included": false,
     "selection_path": "release/public-files.json",
-    "selection_sha256": "e109fbe7ddc949e2c51e3cbb29f8f472cd7f74ef27cdceaee8555bd4c85c93b2",
+    "selection_sha256": "31614d0f55777d433006810010c2467eb718c64f9abf96e6b0deeabed0ee7f67",
     "working_directory_changes_included": false
   },
   "status": "candidate-pending-release-review"

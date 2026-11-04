@@ -3155,6 +3155,10 @@
       "destination": "docs/security/JVM_TRIAGE_2026-10-30.md"
     },
     {
+      "source": "docs/security/JVM_TRIAGE_2026-11-03.md",
+      "destination": "docs/security/JVM_TRIAGE_2026-11-03.md"
+    },
+    {
       "source": "docs/adr/0037-patched-companion-dependencies.md",
       "destination": "docs/adr/0037-patched-companion-dependencies.md"
     },

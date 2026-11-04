@@ -1,6 +1,6 @@
 # Build and run from source
 
-**This is the Play route of the 0.2.0-rc.5 source release:** build the mod and the
+**This is the Play route of the 0.2.0-rc.6 source release:** build the mod and the
 local neural service from source on Apple Silicon macOS. The packaged Companion in
 [the Companion guide](COMPANION.md) is private testing material outside this release.
 Do not mix source, mod, model or native-kernel files from different candidates.
@@ -32,8 +32,10 @@ evidence of full-network manual gameplay on any platform.
 
 Use the Python version in `.python-version` (3.13.18), uv **0.13.6** exactly
 (`pyproject.toml` sets `required-version`, so another uv refuses to run; install
-it with `pip install uv==0.13.6` or the standalone installer for that version,
-`https://astral.sh/uv/0.13.6/install.sh`, and let it fetch the pinned Python),
+it with the standalone installer for that version,
+`https://astral.sh/uv/0.13.6/install.sh`, or with `pip install uv==0.13.6` inside
+a virtual environment, since a bare `pip install` fails on Homebrew's externally
+managed Python; then let uv fetch the pinned Python),
 Java 21, a supported C compiler, Git and Make. The
 Gradle wrapper supplies its pinned Gradle version. A source build requires a
 JDK, and Node.js 18 or newer only for the Companion UI tests that `make verify`
@@ -93,7 +95,7 @@ The pinned game tuple is **Minecraft 1.21.5 / Fabric Loader 0.16.10 / Fabric API
 cd mod
 ./gradlew --no-daemon --dependency-verification strict build
 cd ..
-python3 -I scripts/installed_mod.py --output artifacts/installed-runtime --mod-jar mod/build/libs/neurocraft-fly-0.2.0-rc.5.jar
+python3 -I scripts/installed_mod.py --output artifacts/installed-runtime --mod-jar mod/build/libs/neurocraft-fly-0.2.0-rc.6.jar
 ```
 
 Use the candidate's actual versioned production JAR, not the sources JAR. The

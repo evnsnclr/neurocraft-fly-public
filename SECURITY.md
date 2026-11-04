@@ -6,20 +6,20 @@ or certify a current release as secure.
 
 ## Report a vulnerability
 
-The intended route is this repository's **Security → Report a vulnerability**
-(GitHub private vulnerability reporting). **Enablement has not been verified for
-this alpha.** Maintainers must enable and check it before public release.
+The route is the public repository's **Security → Report a vulnerability**
+(GitHub private vulnerability reporting,
+`https://github.com/evnsnclr/neurocraft-fly-public/security/advisories/new`).
+It was enabled on 2026-11-03 and verified the same day: the Security tab shows the
+Report a vulnerability entry to a logged-out visitor. Include the affected
+revision, component, minimal reproduction, impact and relevant sanitized evidence
+there. Do not include credentials or unrelated personal information. Do not open a
+public issue with exploit details.
 
-If that private action is available, include the affected revision, component,
-minimal reproduction, impact and relevant sanitized evidence there. Do not include
-credentials or unrelated personal information. Do not open a public issue with
-exploit details.
-
-If private reporting is absent, use **Issues → New issue → Private contact request**
-to request a confidential security-report destination. Give no technical exploit
-details in that public request and wait for a private channel. No personal email
-address or already-enabled confidential service is implied by this document.
-There is no promised response time or bug-bounty program.
+If that private action is unavailable to you, use **Issues → New issue → Private
+contact request** to request a confidential security-report destination. Give no
+technical exploit details in that public request and wait for a private channel.
+No personal email address or other confidential service is implied by this
+document. There is no promised response time or bug-bounty program.
 
 ## Security boundaries
 
@@ -101,10 +101,15 @@ configurations subset validated against the lockfile, and a justification
 naming the classpath scope and the reachability boundary. A stale or expired
 entry fails the scan.
 
-The October 24 companion candidate adds 15 exact, scoped exceptions expiring
-**2026-11-24**, assessed in [the current JVM triage](docs/security/JVM_TRIAGE_2026-10-24.md).
-The upstream package ranges remain affected; managed-launch constraints and
-private Java temporary directories are part of that assessment. Arbitrary worlds,
+The October 24 companion candidate added 15 exact, scoped exceptions, assessed in
+[the October 24 JVM triage](docs/security/JVM_TRIAGE_2026-10-24.md). The upstream
+package ranges remain affected; managed-launch constraints and private Java
+temporary directories are part of that assessment. On 2026-11-03 all 34 entries
+were re-triaged for source candidate 0.2.0-rc.6
+([the November 3 re-triage](docs/security/JVM_TRIAGE_2026-11-03.md)): OSV was
+re-queried, the Mojang 1.21.5 manifest and Loom 1.10.5 pins, the unbundled mod JAR
+and the inspected consumers were re-confirmed, and every entry was replaced by a
+new entry carrying that re-check and expiring **2027-01-31**. Arbitrary worlds,
 extra mods, unmanaged JVMs and shared writable installations require re-triage.
 The separately launched player client is controlled by its own launcher.
 
@@ -125,8 +130,9 @@ The packaged Python also uses a [pinned SQLite 3.54.1 rebuild](docs/compliance/S
 Its source/recipe/native hashes and actual loaded version are checked before
 packaging, and the bundled self-test checks the engine after relocation.
 
-Exceptions expire on their recorded dates, 2026-11-24 for the 15 October 24 entries
-and 2026-12-31 for the rest, and must be re-triaged, not silently renewed. The
+Exceptions expire on their recorded dates, 2027-01-31 for all 34 entries after the
+November 3 re-triage, and must be re-triaged, not silently renewed; from
+2027-02-01 the scan fails until that happens. The
 2026-10-24 Circuit Playground verification triage is a private record; its JVM
 entries were re-assessed in the companion triages above, and its JNI-extraction
 exception still requires explicit owner-only JVM temporary directories, with

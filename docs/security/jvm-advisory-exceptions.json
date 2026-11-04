@@ -25,9 +25,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-h46c-h94j-95f3",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The deeply-nested-input StackOverflowError requires attacker-controlled JSON reaching a Jackson parser; this project constructs no Jackson parser, and its protocol-v2 frames are parsed by the mod's own bounded reader over a loopback-only authenticated bridge.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.15.0; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The deeply-nested-input StackOverflowError requires attacker-controlled JSON reaching a Jackson parser; this project constructs no Jackson parser, and its protocol-v2 frames are parsed by the mod's own bounded reader over a loopback-only authenticated bridge.",
       "package": "com.fasterxml.jackson.core:jackson-core",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4"
@@ -55,9 +55,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-r7wm-3cxj-wff9",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The bypass requires a NonBlockingJsonParser fed attacker-controlled chunks; jackson-core is present only as a transitive Minecraft/MSAL client library and this project instantiates no Jackson parser.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.8, 2.21.4; record last modified 2026-10-02); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The bypass requires a NonBlockingJsonParser fed attacker-controlled chunks; jackson-core is present only as a transitive Minecraft/MSAL client library and this project instantiates no Jackson parser.",
       "package": "com.fasterxml.jackson.core:jackson-core",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4"
@@ -87,9 +87,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-3wrr-7qpf-2prh",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The StackOverflowError requires calling toString() on a deeply nested JsonNode built from untrusted input; this project performs no Jackson data binding and builds no JsonNode.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.14.0; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The StackOverflowError requires calling toString() on a deeply nested JsonNode built from untrusted input; this project performs no Jackson data binding and builds no JsonNode.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -119,9 +119,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-5jmj-h7xm-6q6v",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The bypass requires case-insensitive deserialization into a type using per-property @JsonIgnoreProperties; databind is transitive under Minecraft's authlib/MSAL session code, which binds only responses from Mojang and Microsoft HTTPS endpoints and is never exercised by the offline GameTest paths.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.9, 2.21.5, 2.22.1, 3.1.4; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The bypass requires case-insensitive deserialization into a type using per-property @JsonIgnoreProperties; databind is transitive under Minecraft's authlib/MSAL session code, which binds only responses from Mojang and Microsoft HTTPS endpoints and is never exercised by the offline GameTest paths.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -151,9 +151,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-hgj6-7826-r7m5",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The SSRF requires deserializing an attacker-supplied InetSocketAddress; this project performs no Jackson data binding, and the offline GameTest and loopback-demo paths never authenticate.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.8, 2.21.4, 3.1.4; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The SSRF requires deserializing an attacker-supplied InetSocketAddress; this project performs no Jackson data binding, and the offline GameTest and loopback-demo paths never authenticate.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -183,9 +183,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-j3rv-43j4-c7qm",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The PolymorphicTypeValidator bypass requires polymorphic deserialization of untrusted input; this project configures no ObjectMapper, no default typing, and no PolymorphicTypeValidator.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.8, 2.21.4, 3.1.4; record last modified 2026-10-28); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The PolymorphicTypeValidator bypass requires polymorphic deserialization of untrusted input; this project configures no ObjectMapper, no default typing, and no PolymorphicTypeValidator.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -215,9 +215,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-rmj7-2vxq-3g9f",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The allowlist bypass requires BasicPolymorphicTypeValidator with allowIfSubTypeIsArray on untrusted input; this project configures no ObjectMapper and no PolymorphicTypeValidator.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.8, 2.21.4, 3.1.4; record last modified 2026-09-11); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The allowlist bypass requires BasicPolymorphicTypeValidator with allowIfSubTypeIsArray on untrusted input; this project configures no ObjectMapper and no PolymorphicTypeValidator.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -247,9 +247,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-xwmg-2g98-w7v9",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The nested-JSON DoS is reachable only through com.microsoft.azure:msal4j during Microsoft account sign-in; the offline GameTest and loopback demo paths never authenticate and never parse a third-party JOSE object.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 10.0.2, 9.37.4; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no com.nimbusds API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The nested-JSON DoS is reachable only through com.microsoft.azure:msal4j during Microsoft account sign-in; the offline GameTest and loopback demo paths never authenticate and never parse a third-party JOSE object.",
       "package": "com.nimbusds:nimbus-jose-jwt",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "9.40"
@@ -279,9 +279,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-3p8m-j85q-pgmj",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The zip-bomb DoS lives in netty's optional decompression decoders; the Minecraft protocol installs none of them, and the mod's neural bridge is a java.net.http.WebSocket client, not a Netty pipeline exposed to untrusted peers.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.125.Final; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The zip-bomb DoS lives in netty's optional decompression decoders; the Minecraft protocol installs none of them, and the mod's neural bridge is a java.net.http.WebSocket client, not a Netty pipeline exposed to untrusted peers.",
       "package": "io.netty:netty-codec",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -311,9 +311,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-558v-64gr-wgg4",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The infinite loop is in Bzip2Decoder, which neither Minecraft's protocol nor this mod installs; the mod's neural bridge uses java.net.http.WebSocket rather than a Netty pipeline.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.136.Final; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The infinite loop is in Bzip2Decoder, which neither Minecraft's protocol nor this mod installs; the mod's neural bridge uses java.net.http.WebSocket rather than a Netty pipeline.",
       "package": "io.netty:netty-codec",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -343,9 +343,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-mj4r-2hfc-f8p6",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The resource exhaustion is in Lz4FrameDecoder, which neither Minecraft's protocol nor this mod installs; the mod's neural bridge uses java.net.http.WebSocket rather than a Netty pipeline.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.133.Final; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The resource exhaustion is in Lz4FrameDecoder, which neither Minecraft's protocol nor this mod installs; the mod's neural bridge uses java.net.http.WebSocket rather than a Netty pipeline.",
       "package": "io.netty:netty-codec",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -375,9 +375,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-3qp7-7mw8-wx86",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: The IPv6 subnet-filter bypass requires an IpSubnetFilterRule access-control list; neither Minecraft nor this mod installs one, and the mod's neural bridge is a java.net.http.WebSocket client rather than a Netty pipeline.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.135.Final, 4.2.15.Final; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: The IPv6 subnet-filter bypass requires an IpSubnetFilterRule access-control list; neither Minecraft nor this mod installs one, and the mod's neural bridge is a java.net.http.WebSocket client rather than a Netty pipeline.",
       "package": "io.netty:netty-handler",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -407,9 +407,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-c653-97m9-rcg9",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: Silent hostname-verification loss applies to an SslContext wrapping a plain X509TrustManager; this project builds no Netty SslContext and its bridge is loopback ws:// over java.net.http.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.135.Final, 4.2.15.Final; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: Silent hostname-verification loss applies to an SslContext wrapping a plain X509TrustManager; this project builds no Netty SslContext and its bridge is loopback ws:// over java.net.http.",
       "package": "io.netty:netty-handler",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -439,9 +439,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-x4gw-5cx5-pgmh",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: The 16 MiB SNI pre-allocation requires a server-side SniHandler exposed to untrusted peers; the offline GameTest and loopback demo expose no public TLS listener.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.135.Final, 4.2.15.Final; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: The 16 MiB SNI pre-allocation requires a server-side SniHandler exposed to untrusted peers; the offline GameTest and loopback demo expose no public TLS listener.",
       "package": "io.netty:netty-handler",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -471,9 +471,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-pq2g-wx69-c263",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. json-smart is transitive under nimbus-jose-jwt in the MSAL sign-in chain; the uncontrolled-recursion DoS needs an attacker-supplied deeply nested document, and the offline GameTest and loopback demo paths never authenticate.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.5.2; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.minidev API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. json-smart is transitive under nimbus-jose-jwt in the MSAL sign-in chain; the uncontrolled-recursion DoS needs an attacker-supplied deeply nested document, and the offline GameTest and loopback demo paths never authenticate.",
       "package": "net.minidev:json-smart",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.5.1"
@@ -503,9 +503,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-j288-q9x7-2f5v",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The uncontrolled recursion is in ClassUtils.getAbbreviatedName on very long attacker-controlled class names; this project calls no commons-lang3 API, and the library is present only as a transitive Minecraft client library.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 3.18.0; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no org.apache.commons.lang3 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. The uncontrolled recursion is in ClassUtils.getAbbreviatedName on very long attacker-controlled class names; this project calls no commons-lang3 API, and the library is present only as a transitive Minecraft client library.",
       "package": "org.apache.commons:commons-lang3",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "3.17.0"
@@ -535,9 +535,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-cmp6-m4wj-q63q",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: NO upstream fix exists (OSV lists no fixed version). Information leak in the Java safe decompressor requires attacker-controlled compressed input; Minecraft decompresses locally produced chunk data in the offline GameTest and loopback demo.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: NO upstream fix exists (OSV lists no fixed version). Information leak in the Java safe decompressor requires attacker-controlled compressed input; Minecraft decompresses locally produced chunk data in the offline GameTest and loopback demo.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -567,9 +567,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-vqf4-7m7x-wgfc",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18, accepted with the noted caveat: upstream 1.8.1 does contain a fix, so the only barrier is Mojang's pin. Out-of-bounds memory operations require decompressing attacker-controlled LZ4 input; Minecraft uses lz4 for locally produced chunk data in the offline GameTest and loopback demo.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 1.8.1; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18, accepted with the noted caveat: upstream 1.8.1 does contain a fix, so the only barrier is Mojang's pin. Out-of-bounds memory operations require decompressing attacker-controlled LZ4 input; Minecraft uses lz4 for locally produced chunk data in the offline GameTest and loopback demo.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -599,9 +599,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-12-31",
+      "expires": "2027-01-31",
       "id": "GHSA-xx22-p4ch-683r",
-      "justification": "Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: NO upstream fix exists (OSV lists no fixed version). Native XXHash crashes the JVM on invalid byte-array ranges supplied by the caller; this project calls no lz4-java API directly.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-08-18 for the fail-closed scan): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-09-10); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md. Version pinned by Mojang's 1.21.5 launcher manifest and resolved onto the minecraftLibraries/minecraftClientLibraries classpaths and their derived compile, runtime, and GameTest classpaths; not project-upgradeable without diverging from that manifest and regenerating mod/gradle.lockfile and mod/gradle/verification-metadata.xml. Coordinator-triaged 2026-08-18: NO upstream fix exists (OSV lists no fixed version). Native XXHash crashes the JVM on invalid byte-array ranges supplied by the caller; this project calls no lz4-java API directly.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -631,9 +631,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-7hhh-6rmp-j9qf",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires createParser(DataInput). The mod/Minecraft do not use Jackson; inherited MSAL JsonHelper binds String JSON through a default ObjectMapper, and Log4j JSON configuration reads streams/trees. No DataInput-backed Jackson parser was found in these consumers. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.11, 2.21.7, 2.22.3.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.11, 2.21.7, 2.22.3; record last modified 2026-10-01); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires createParser(DataInput). The mod/Minecraft do not use Jackson; inherited MSAL JsonHelper binds String JSON through a default ObjectMapper, and Log4j JSON configuration reads streams/trees. No DataInput-backed Jackson parser was found in these consumers. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.11, 2.21.7, 2.22.3.",
       "package": "com.fasterxml.jackson.core:jackson-core",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4"
@@ -663,9 +663,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-5gvw-p9qm-jgwh",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires an active JsonView together with a JsonUnwrapped container authorization boundary. No JsonView references occur in the inspected non-Jackson consumers; Log4j has a JsonUnwrapped logging-output DTO but no view-based input authorization. MSAL DTOs do not use either feature. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.9, 2.21.5, 2.22.1.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.9, 2.21.5, 2.22.1; record last modified 2026-10-19); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires an active JsonView together with a JsonUnwrapped container authorization boundary. No JsonView references occur in the inspected non-Jackson consumers; Log4j has a JsonUnwrapped logging-output DTO but no view-based input authorization. MSAL DTOs do not use either feature. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.9, 2.21.5, 2.22.1.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -695,9 +695,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-cxp5-3px4-pw24",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires identity-enabled collection/map deserialization. No JsonIdentityInfo references occur in the inspected mod, Minecraft or non-Jackson consumers; MSAL uses ordinary DTOs/maps, not object-ID graphs. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.11, 2.21.7, 2.22.3.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.11, 2.21.7, 2.22.3; record last modified 2026-09-30); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires identity-enabled collection/map deserialization. No JsonIdentityInfo references occur in the inspected mod, Minecraft or non-Jackson consumers; MSAL uses ordinary DTOs/maps, not object-ID graphs. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.11, 2.21.7, 2.22.3.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -727,9 +727,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-gx83-3vf8-gh7j",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires polymorphic Comparable targets under DefaultBaseTypeLimitingValidator. Neither JsonTypeInfo nor default-typing activation occurs in the inspected consumers. MSAL JsonHelper initializes a plain ObjectMapper without polymorphic typing. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.10, 2.21.6, 2.22.2.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.10, 2.21.6, 2.22.2; record last modified 2026-09-28); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires polymorphic Comparable targets under DefaultBaseTypeLimitingValidator. Neither JsonTypeInfo nor default-typing activation occurs in the inspected consumers. MSAL JsonHelper initializes a plain ObjectMapper without polymorphic typing. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.10, 2.21.6, 2.22.2.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -759,9 +759,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-vvgp-rfg2-7rr6",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires a JSON target typed InetAddress or enabled polymorphic binding to that type. The inspected MSAL InetAddress references belong to its local HTTP listener/interactive networking, not Jackson DTOs; JSON helper binds fixed DTOs/String maps and enables no polymorphic typing. The mod performs no Jackson binding. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.9, 2.21.5, 2.22.1.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.9, 2.21.5, 2.22.1; record last modified 2026-09-28); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires a JSON target typed InetAddress or enabled polymorphic binding to that type. The inspected MSAL InetAddress references belong to its local HTTP listener/interactive networking, not Jackson DTOs; JSON helper binds fixed DTOs/String maps and enables no polymorphic typing. The mod performs no Jackson binding. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.9, 2.21.5, 2.22.1.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -791,9 +791,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-wjgm-6hv5-3cvf",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires JSON binding into java.nio.file.Path and a side-effecting filesystem provider. No such JSON target is present in the inspected consumers. MSAL uses Path for Azure Arc token-file I/O, separate from JSON DTO binding. The mod performs no Jackson binding. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.10, 2.21.6, 2.22.2.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.10, 2.21.6, 2.22.2; record last modified 2026-09-28); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires JSON binding into java.nio.file.Path and a side-effecting filesystem provider. No such JSON target is present in the inspected consumers. MSAL uses Path for Azure Arc token-file I/O, separate from JSON DTO binding. The mod performs no Jackson binding. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.10, 2.21.6, 2.22.2.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -823,9 +823,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-wv8q-qhhj-9h54",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires name-based polymorphism with defaultImpl/fallback and a long-lived mapper accepting attacker IDs. No JsonTypeInfo or default-typing activation is present in the inspected consumers; plain MSAL String/DTO binding does not supply that configuration. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 2.18.11, 2.21.7, 2.22.3.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 2.18.11, 2.21.7, 2.22.3; record last modified 2026-09-30); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source (main, client, test and GameTest) references no com.fasterxml.jackson API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires name-based polymorphism with defaultImpl/fallback and a long-lived mapper accepting attacker IDs. No JsonTypeInfo or default-typing activation is present in the inspected consumers; plain MSAL String/DTO binding does not supply that configuration. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 2.18.11, 2.21.7, 2.22.3.",
       "package": "com.fasterxml.jackson.core:jackson-databind",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "2.13.4.2"
@@ -855,9 +855,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-c4c3-7fpv-j4q5",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires SniHandler/SslClientHelloHandler TLS termination with differing default/per-name SslContexts. Neither Minecraft client/common bytecode nor project source uses those handlers. Minecraft game connections use its packet protocol; the bridge is an outbound JDK WebSocket client. No SNI authorization boundary exists here. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 4.1.137.Final, 4.2.17.Final.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.137.Final, 4.2.17.Final; record last modified 2026-09-08); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires SniHandler/SslClientHelloHandler TLS termination with differing default/per-name SslContexts. Neither Minecraft client/common bytecode nor project source uses those handlers. Minecraft game connections use its packet protocol; the bridge is an outbound JDK WebSocket client. No SNI authorization boundary exists here. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 4.1.137.Final, 4.2.17.Final.",
       "package": "io.netty:netty-handler",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -887,9 +887,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-fccg-mwvh-qqg4",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires the SniHandler/SslClientHelloHandler pre-handshake TLS aggregation path. Those handlers are absent from the inspected Minecraft/project consumers; adding an arbitrary TLS proxy is outside the companion route and requires re-triage. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 4.1.137.Final, 4.2.17.Final.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 4.1.137.Final, 4.2.17.Final; record last modified 2026-09-08); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references Netty only through io.netty.channel.embedded.EmbeddedChannel in four GameTests that build in-process connections and install no SslContext, SniHandler, subnet filter or decompression decoder; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires the SniHandler/SslClientHelloHandler pre-handshake TLS aggregation path. Those handlers are absent from the inspected Minecraft/project consumers; adding an arbitrary TLS proxy is outside the companion route and requires re-triage. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 4.1.137.Final, 4.2.17.Final.",
       "package": "io.netty:netty-handler",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "4.1.118.Final"
@@ -905,9 +905,9 @@
         "runtimeClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-5q95-hrpc-m3w3",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires control over the HISTORY_IGNORE reader configuration. This component is on Loom development-console classpaths, not the Minecraft library family used by the official installed server. Project code never sets HISTORY_IGNORE or exposes JLine variables through player/HTTP commands. Developer JVM/config modification is same-privilege trusted configuration. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. Upstream fixes for this coordinate: 3.30.15, 4.3.1.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (fixed versions 3.30.15, 4.3.1; record last modified 2026-09-23); the version is still the one Loom 1.10.5 resolves through its terminalconsoleappender 1.3.0 development dependency (loomDevelopmentDependencies), not a Mojang-manifest pin; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no org.jline API and sets no HISTORY_IGNORE; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires control over the HISTORY_IGNORE reader configuration. This component is on Loom development-console classpaths, not the Minecraft library family used by the official installed server. Project code never sets HISTORY_IGNORE or exposes JLine variables through player/HTTP commands. Developer JVM/config modification is same-privilege trusted configuration. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). Upstream fixes for this coordinate: 3.30.15, 4.3.1.",
       "package": "org.jline:jline-reader",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "3.20.0"
@@ -937,9 +937,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-343h-94h5-c4wr",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires LZ4BlockInputStream stopOnEmptyBlock=false. Minecraft RegionFileVersion uses the InputStream-only constructor, whose 1.8.0 bytecode delegates with stopOnEmptyBlock=true. The managed fresh-world launcher additionally pins region-file-compression=deflate. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-10-07); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires LZ4BlockInputStream stopOnEmptyBlock=false. Minecraft RegionFileVersion uses the InputStream-only constructor, whose 1.8.0 bytecode delegates with stopOnEmptyBlock=true. The managed fresh-world launcher additionally pins region-file-compression=deflate. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -969,9 +969,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-4v53-57pg-c464",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires attacker-controlled LZ4BlockInputStream headers. The managed server creates a new world, explicitly selects deflate, and copy_runtime rejects imported world/log state. Minecraft packet compression does not use this block-stream path. Imported LZ4 worlds and modified compression settings are excluded from this exception. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-10-07); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires attacker-controlled LZ4BlockInputStream headers. The managed server creates a new world, explicitly selects deflate, and copy_runtime rejects imported world/log state. Minecraft packet compression does not use this block-stream path. Imported LZ4 worlds and modified compression settings are excluded from this exception. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -1001,9 +1001,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-6cx8-rjf8-pr8g",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires LZ4DecompressorWithLength. No reference to that API appears in project, Minecraft common/client or the inspected non-LZ4 locked consumers. Minecraft uses LZ4BlockInputStream for optional region compression, not this length-wrapper API. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-10-07); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires LZ4DecompressorWithLength. No reference to that API appears in project, Minecraft common/client or the inspected non-LZ4 locked consumers. Minecraft uses LZ4BlockInputStream for optional region compression, not this length-wrapper API. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -1033,9 +1033,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-gm45-99xc-r7wv",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires LZ4FrameInputStream, a distinct frame format. No reference to that API appears in the inspected project/Minecraft/non-LZ4 consumers; optional Minecraft region compression uses the block-stream API, and managed worlds select deflate. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-10-07); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires LZ4FrameInputStream, a distinct frame format. No reference to that API appears in the inspected project/Minecraft/non-LZ4 consumers; optional Minecraft region compression uses the block-stream API, and managed worlds select deflate. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"
@@ -1065,9 +1065,9 @@
         "testCompileClasspath",
         "testRuntimeClasspath"
       ],
-      "expires": "2026-11-24",
+      "expires": "2027-01-31",
       "id": "GHSA-mcr4-qmvw-px4g",
-      "justification": "Triaged 2026-10-24 for the private companion candidate; exact locked package/version and listed classpaths only. Requires another local user writing the native-extraction directory. Managed installed and development interactive JVMs now receive an exclusive per-run java.io.tmpdir created mode 0700; POSIX owner/permission checks are enforced, and Windows requires CPython 3.13+, whose mkdir(0700) applies a protected user/admin ACL. Gradle explicitly forwards the path to game JVMs. Generic unmanaged JVMs/shared writable installations are excluded; fresh GameTest worlds use default DEFLATE. Windows ACL execution remains a platform qualification check, not an observed result. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-10-24.md. OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
+      "justification": "Re-triaged 2026-11-03 for source candidate 0.2.0-rc.6 (first triaged 2026-10-24 for the private companion candidate): OSV re-queried on 2026-11-03 still lists the locked version as affected (no fixed version for this coordinate; record last modified 2026-10-07); the version is still the one Mojang's 1.21.5 launcher manifest pins; mod/build.gradle declares no jar-in-jar include and the production mod JAR bundles no third-party library; project source references no net.jpountz or org.lz4 API; the neural bridge is still a java.net.http.WebSocket client on a loopback-only authenticated socket. Exact locked package/version and listed classpaths only. Requires another local user writing the native-extraction directory. Managed installed and development interactive JVMs now receive an exclusive per-run java.io.tmpdir created mode 0700; POSIX owner/permission checks are enforced, and Windows requires CPython 3.13+, whose mkdir(0700) applies a protected user/admin ACL. Gradle explicitly forwards the path to game JVMs. Generic unmanaged JVMs/shared writable installations are excluded; fresh GameTest worlds use default DEFLATE. Windows ACL execution remains a platform qualification check, not an observed result. The library remains in the affected upstream range; this is a scoped reachability/mitigation exception, not a library patch. Re-triage if callers/configuration change. Evidence: docs/security/JVM_TRIAGE_2026-11-03.md (re-triage) and docs/security/JVM_TRIAGE_2026-10-24.md (assessment). OSV reports no fixed org.lz4 coordinate version; the maintained at.yawk.lz4 fork has fixes, and changing only Gradle would not update the official installed Minecraft runtime.",
       "package": "org.lz4:lz4-java",
       "security_md_anchor": "jvm-advisory-exceptions",
       "version": "1.8.0"

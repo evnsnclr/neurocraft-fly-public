@@ -408,6 +408,37 @@ def test_private_temp_rejects_replaceable_ancestor_and_option_quote(tmp_path: Pa
         orchestrator._require_private_temporary_directory(quoted.resolve())
 
 
+def test_tool_probe_timeout_is_widened_and_still_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """The one-shot tool probes get a bound that a loaded CI runner can meet.
+
+    On 2026-11-03 a GitHub-hosted runner exceeded the earlier 10-second bound on
+    ``java -XshowSettings:properties -version`` while the same bytes passed elsewhere.
+    """
+    seen: list[float] = []
+
+    def fake_run(argv: list[str], **kwargs: object) -> subprocess.CompletedProcess[bytes]:
+        timeout = kwargs["timeout"]
+        assert isinstance(timeout, float)
+        seen.append(timeout)
+        if argv[-1] == "-version":
+            raise subprocess.TimeoutExpired(argv[0], timeout=timeout)
+        return subprocess.CompletedProcess(argv, 0, stdout=b"  probe output \n", stderr=b"")
+
+    monkeypatch.setattr(orchestrator.subprocess, "run", fake_run)
+    environment = {"PATH": orchestrator._CHILD_PATH}
+
+    assert orchestrator._command_output(("uv", "--version"), environment=environment) == (
+        "probe output"
+    )
+    with pytest.raises(orchestrator.OrchestrationError, match="could not verify execution tool"):
+        orchestrator._command_output(("java", "-version"), environment=environment)
+
+    assert seen == [orchestrator._TOOL_PROBE_TIMEOUT_SECONDS] * 2
+    assert orchestrator._TOOL_PROBE_TIMEOUT_SECONDS >= 60.0
+
+
 def test_real_child_jvm_observes_private_temp_and_rejects_wrong_property(tmp_path: Path) -> None:
     java = shutil.which("java")
     if java is None:

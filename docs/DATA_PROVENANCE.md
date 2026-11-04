@@ -16,7 +16,7 @@ _Source acquisition, local inspection, and transformation boundaries as observed
 | **Local storage** | `data/cache/male-cns-v1.0/`; ignored by Git |
 | **Observed source state** | Three official Feather objects acquired and locally integrity-checked |
 | **Derived state** | Attributed 14-node/22-edge `mcns-v1.0-flight-power-v1` CI fixture and 128-node/887-edge `mcns-v1.0-flight-steering-v1` fixture extracted ([FIXTURE-MCNS-02](./receipts/FIXTURE-MCNS-02.md)); ignored `male-cns-v1.0-superclass-v1` full artifact built twice byte-identically |
-| **Gate state** | G0 passed; G1 passed only for the evidence bundle comprising full-artifact manifest `b33bdda8…f67c98c` plus companion `RUNTIME-MCNS-01` |
+| **Gate state** | G0 passed; G1 passed only for the evidence bundle comprising full-artifact manifest `b33bdda8…f67c98c` plus companion `RUNTIME-MCNS-01` (historical: the G0–G6 research-gate ladder was retired by [ADR 0019](adr/0019-pivot-to-interactive-connectome-demo.md); gate names here are kept as recorded in the receipts and are not current release gates) |
 
 The acquisition receipt establishes that the named bytes were present and inspected.
 [FIXTURE-MCNS-01](./receipts/FIXTURE-MCNS-01.md) separately establishes the bounded
@@ -228,6 +228,10 @@ Suggested attribution:
 Scientific citation: Berg et al., “Sexual dimorphism in the complete Drosophila male central nervous system connectome,” Cell 189(18):5504–5526.e15 (2026), https://doi.org/10.1016/j.cell.2026.08.015.[^4] The pinned acquisition manifest records the bioRxiv v2 preprint (2025-10-30, https://doi.org/10.1101/2025.10.09.680999) that was current at acquisition.[^5]
 
 ## 🚧 Gate impact
+
+_Historical: the gate ladder named below (G0–G3) was retired as a project goal by
+[ADR 0019](adr/0019-pivot-to-interactive-connectome-demo.md); the receipts keep its
+vocabulary as recorded, and it is not a current release gate._
 
 `ACQ-MCNS-01` closes the bounded source-acquisition question;
 `FIXTURE-MCNS-01` closes exact bilateral fixture extraction and file-level

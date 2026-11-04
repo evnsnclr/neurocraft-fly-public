@@ -96,6 +96,11 @@ _HASH = re.compile(r"[0-9a-f]{64}")
 _TOKEN = re.compile(r"[A-Za-z0-9_-]{32,256}")
 _MAX_JSON_BYTES = 32 * 1024 * 1024
 _CHILD_PATH = "/usr/bin:/bin:/usr/sbin:/sbin"
+# Wall-clock bound for the one-shot tool probes (``uv --version``, ``java -version`` and
+# the ``-XshowSettings:properties`` temporary-directory check). A GitHub-hosted runner
+# exceeded the earlier 10-second bound on 2026-11-03 while the same bytes passed on
+# another runner; the probes are harmless, so a generous bound costs nothing on success.
+_TOOL_PROBE_TIMEOUT_SECONDS = 60.0
 _FORBIDDEN_ENV_EXACT = {
     "BASH_ENV",
     "CDPATH",
@@ -805,7 +810,7 @@ def _command_output(
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             check=True,
-            timeout=10.0,
+            timeout=_TOOL_PROBE_TIMEOUT_SECONDS,
             shell=False,
         )
     except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
