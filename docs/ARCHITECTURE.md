@@ -113,7 +113,7 @@ redistribute Minecraft.
 
 The pinned game tuple is Minecraft Java 1.21.5, Java 21, Fabric Loader 0.16.10,
 Fabric API 0.128.2+1.21.5 and Loom 1.10.5. The current mod version is
-0.2.0-rc.6. This is a local developer alpha, not established arbitrary-world or public
+0.2.0-rc.7. This is a local developer alpha, not established arbitrary-world or public
 multiplayer support. Same-host production-client compatibility and fresh exported
 source verification were recorded for earlier candidates (September 2026); the
 consolidated candidate has development-worktree verification and an export preflight

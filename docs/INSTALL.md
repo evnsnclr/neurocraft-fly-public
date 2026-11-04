@@ -1,6 +1,6 @@
 # Build and run from source
 
-**This is the Play route of the 0.2.0-rc.6 source release:** build the mod and the
+**This is the Play route of the 0.2.0-rc.7 source release:** build the mod and the
 local neural service from source on Apple Silicon macOS. The packaged Companion in
 [the Companion guide](COMPANION.md) is private testing material outside this release.
 Do not mix source, mod, model or native-kernel files from different candidates.
@@ -95,7 +95,7 @@ The pinned game tuple is **Minecraft 1.21.5 / Fabric Loader 0.16.10 / Fabric API
 cd mod
 ./gradlew --no-daemon --dependency-verification strict build
 cd ..
-python3 -I scripts/installed_mod.py --output artifacts/installed-runtime --mod-jar mod/build/libs/neurocraft-fly-0.2.0-rc.6.jar
+python3 -I scripts/installed_mod.py --output artifacts/installed-runtime --mod-jar mod/build/libs/neurocraft-fly-0.2.0-rc.7.jar
 ```
 
 Use the candidate's actual versioned production JAR, not the sources JAR. The

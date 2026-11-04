@@ -2,8 +2,8 @@
 
 Scope: all 34 entries of `docs/security/jvm-advisory-exceptions.json`, re-triaged
 for source candidate 0.2.0-rc.6. Fifteen entries from
-[the October 24 triage](JVM_TRIAGE_2026-10-24.md) expired on 2026-11-24 and the 19
-entries introduced with the fail-closed scan on 2026-08-18 on 2026-12-31; from
+[the October 24 triage](JVM_TRIAGE_2026-10-24.md) were due to expire on 2026-11-24
+and the 19 entries introduced with the fail-closed scan on 2026-08-18 on 2026-12-31; from
 2026-11-25 `make jvm-audit`, `make verify` and the CI workflow of the published
 candidate 0.2.0-rc.5 fail on any push or pull request. This record states what was
 re-checked, finding by finding, and the new expiry. It is a static re-triage with
@@ -37,10 +37,11 @@ to publish.
    still lists jackson-core 2.13.4, jackson-databind 2.13.4.2, netty-codec and
    netty-handler 4.1.118.Final, lz4-java 1.8.0, nimbus-jose-jwt 9.40, json-smart
    2.5.1, commons-lang3 3.17.0, msal4j 1.17.2 and authlib 6.0.58, the versions in
-   `mod/gradle.lockfile`. JLine 3.20.0 is still on `loomDevelopmentDependencies`
-   only, resolved by Loom 1.10.5 (`mod/gradle.properties`) through
-   terminalconsoleappender 1.3.0, whose POM declares jline-reader; it is not a
-   Mojang-manifest pin. The lockfile was last changed by the rc.3 patch commit
+   `mod/gradle.lockfile`. JLine 3.20.0 is still resolved only by Loom 1.10.5
+   (`mod/gradle.properties`) through terminalconsoleappender 1.3.0, whose POM
+   declares jline-reader: it sits on `loomDevelopmentDependencies` and on the four
+   runtime classpaths Loom launches development and GameTest JVMs with, never on a
+   compile or `minecraft*` configuration; it is not a Mojang-manifest pin. The lockfile was last changed by the rc.3 patch commit
    `75fe931` (Guava, failureaccess and the Log4j family only); every coordinate
    in this ledger has the same lock line it had at the October 24 triage.
 3. **Shipped classpath.** `mod/build.gradle` declares no jar-in-jar `include`.

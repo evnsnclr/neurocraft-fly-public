@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.0-rc.7 (source frozen 2026-11-04)
+
+- Redesign the landing README: the showcase artwork as a hero, a navigation line
+  and badge row, a bold summary, an animated SVG of the control path
+  (`docs/assets/pipeline.svg`), the demo with its chapter guide, a two-column
+  entry table, quick-start blocks taken from the guides, a numbered how-it-works
+  and a status table. Every claim-bearing passage is unchanged.
+- Carry the rc.6 follow-ups: the November 3 triage note says the October 24
+  entries were due to expire on 2026-11-24 and states JLine's five lock
+  configurations; the `CITATION.cff` abstract says "a general software release"
+  and its citation note matches the README and BibTeX; `SECURITY.md` opens with
+  the published pre-release state.
+- Play remains a developer alpha built from source on Apple Silicon macOS, with
+  installation and automated comparison runs so far qualified only on the
+  development Mac for the earlier candidate `c1ff8b1`; Explore is the research
+  kit. No packaged download, Windows support, playable claim or biological claim.
+
 ## 0.2.0-rc.6 (source frozen 2026-11-03)
 
 - Re-triage all 34 scoped JVM advisory exceptions in

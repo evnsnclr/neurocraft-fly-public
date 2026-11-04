@@ -77,6 +77,7 @@ def _controller() -> ConnectomeController:
         "0.2.0-rc.4",
         "0.2.0-rc.5",
         "0.2.0-rc.6",
+        "0.2.0-rc.7",
     ],
 )
 def test_preparation_accepts_only_declared_build_versions(
@@ -100,7 +101,7 @@ def test_preparation_accepts_only_declared_build_versions(
         ("fabric_api_version", "0.128.3+1.21.5"),
         ("loom_version", "1.10.6"),
         ("mod_version", "0.1.0-alpha.2"),
-        ("mod_version", "0.2.0-rc.7"),
+        ("mod_version", "0.2.0-rc.8"),
         ("mod_version", ""),
     ],
 )
@@ -151,7 +152,7 @@ def test_prepared_bundle_binds_controller_arena_forces_and_named_stimulation(
     )
 
     assert identity == controller.identity
-    assert manifest.mod == "neurocraft-fly 0.2.0-rc.6"
+    assert manifest.mod == "neurocraft-fly 0.2.0-rc.7"
     assert manifest.java == "21"
     assert manifest.minecraft == "1.21.5"
     assert manifest.fabric == "Loader 0.16.10; API 0.128.2+1.21.5; Loom 1.10.5"

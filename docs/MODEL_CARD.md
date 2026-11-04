@@ -1,7 +1,7 @@
 # NeuroCraft Fly model card
 
 Updated 2026-11-03. Maintainer: Evan Smith. Software: NeuroCraft Fly
-0.2.0-rc.6 consolidated candidate. Current interactive profile: `full_mcns_interactions_program_v2`.
+0.2.0-rc.7 consolidated candidate. Current interactive profile: `full_mcns_interactions_program_v2`.
 
 The paragraph below records the 2026-10-24 portable-builder rerun for the earlier
 Companion candidate; the consolidated candidate uses the same manifest and

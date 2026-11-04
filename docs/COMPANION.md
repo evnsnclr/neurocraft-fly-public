@@ -1,6 +1,6 @@
 # Companion (private testing route)
 
-**Private testing route, not part of the 0.2.0-rc.6 source release.** The last
+**Private testing route, not part of the 0.2.0-rc.7 source release.** The last
 Companion bundles were the unsigned `0.2.0-rc.3` private testing candidates for
 Windows x64 and Apple Silicon macOS; no bundle has been built from this candidate
 and none is published. Testers use the exact platform archive and checksum

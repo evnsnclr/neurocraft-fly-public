@@ -656,6 +656,7 @@ def _gradle_properties() -> dict[str, str]:
         "0.2.0-rc.4",
         "0.2.0-rc.5",
         "0.2.0-rc.6",
+        "0.2.0-rc.7",
     )
     if result.get("mod_version") not in preparable_mod_versions:
         raise PreparationError(

@@ -2,7 +2,7 @@
 
 The next milestone has two entrances: **Play from source** and **Explore the
 model in Python**. The [public project home](https://github.com/evnsnclr/neurocraft-fly-public)
-already contains the demo and citation. Candidate `0.2.0-rc.6` is a source
+already contains the demo and citation. Candidate `0.2.0-rc.7` is a source
 release candidate; the earlier `0.2.0-rc.3` Companion archives remain private
 testing material, and no public software release is announced.
 

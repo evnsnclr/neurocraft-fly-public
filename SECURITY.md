@@ -1,8 +1,8 @@
 # Security policy
 
-NeuroCraft Fly is being prepared as a local developer alpha. It is not a hardened
-public multiplayer server distribution. This policy does not announce publication
-or certify a current release as secure.
+NeuroCraft Fly is published as source release candidates of a local developer
+alpha. It is not a hardened public multiplayer server distribution. This policy
+does not announce a general release or certify a current release as secure.
 
 ## Report a vulnerability
 

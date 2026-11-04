@@ -91,6 +91,10 @@
       "source": "docs/public/README.md"
     },
     {
+      "destination": "docs/assets/pipeline.svg",
+      "source": "docs/public/assets/pipeline.svg"
+    },
+    {
       "destination": "SECURITY.md",
       "source": "SECURITY.md"
     },

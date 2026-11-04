@@ -119,7 +119,7 @@
         "reason": "Unchanged historical record references omitted internal support material; scope and availability are explained in docs/EVIDENCE.md."
       }
     ],
-    "local_link_occurrences": 280,
+    "local_link_occurrences": 288,
     "scope": "Markdown inline links and reference definitions, including notebook Markdown; exported file/directory existence only; no heading or external URL validation",
     "status": "passed-with-declared-historical-omissions"
   },
@@ -227,11 +227,11 @@
       "source_path": ".python-version"
     },
     {
-      "bytes": 2130,
+      "bytes": 2135,
       "mode": "100644",
       "path": "CITATION.cff",
-      "sha256": "eb6ea274ec2d1ad53a9624820a539a43df7f4a1166f82aef1d5b3c643375cf4a",
-      "source_blob": "07948b5ddcaf236b1d2251472f7fe83bb83f2d9a",
+      "sha256": "026e2729566ef06d7b92d5043e741f257a7b30a8e777a2dd47f8986daa64123a",
+      "source_blob": "62b9bfa7f947ecf9914b882bf8fad01956a2bba8",
       "source_path": "CITATION.cff"
     },
     {
@@ -275,19 +275,19 @@
       "source_path": "NOTICE"
     },
     {
-      "bytes": 8742,
+      "bytes": 17120,
       "mode": "100644",
       "path": "README.md",
-      "sha256": "640898a3963f0e047d3940efd22f3222d44ccb180ad305d97fe1430e9aba4b10",
-      "source_blob": "95490515684a2415da34cafa0e5fdd1b12e7311c",
+      "sha256": "1d7ca0a7a7ec0cb88c152244b23bc6bbbed3f92e5367cb1281f09e6404f35136",
+      "source_blob": "2e014b5dfc94b531a76a4a471672dc5e2341ce7b",
       "source_path": "docs/public/README.md"
     },
     {
-      "bytes": 8299,
+      "bytes": 8329,
       "mode": "100644",
       "path": "SECURITY.md",
-      "sha256": "687b636a5092e79810d46381b32dc37d74682c3c69cc6a5fcd44dfd3fa02b326",
-      "source_blob": "bffdc8cd49b88159c7684f03fa2f1e7f4498d331",
+      "sha256": "30643c7e06ca279d0c91662baf4a38f4073f938fc68efea76cee182d93f00ff6",
+      "source_blob": "62883170500110caa8bd414a377e5e2f9bb08add",
       "source_path": "SECURITY.md"
     },
     {
@@ -494,8 +494,8 @@
       "bytes": 8445,
       "mode": "100644",
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "467fac1ae1539d4cf899b2bf6302559df4adc656b801f9b0a6de537a7a9adef0",
-      "source_blob": "2a6de8003985ccbc3c1b63ac9cc394513b1e4f50",
+      "sha256": "5a78b2b9ab80fa6cc1454f70b5ffbe28c239eb081b3090b9ea55bed9779a25e5",
+      "source_blob": "1b47926b134a9f38c3ad4ee5587ec2cd472d3814",
       "source_path": "docs/ARCHITECTURE.md"
     },
     {
@@ -510,8 +510,8 @@
       "bytes": 5781,
       "mode": "100644",
       "path": "docs/COMPANION.md",
-      "sha256": "d3490a5808e85443692d8bd870579d3497f5741404b544d0a13c4d96446e9b55",
-      "source_blob": "49fe99148b1518ed79bf582711b3d0c7bc8e49cc",
+      "sha256": "d84e68e83512341aea2b406c918492ecdf592bfeaa2645171c31ef5fab6557bf",
+      "source_blob": "766a4fb73c7898957a6ec057aa533a97e978de6c",
       "source_path": "docs/public/COMPANION.md"
     },
     {
@@ -558,16 +558,16 @@
       "bytes": 10043,
       "mode": "100644",
       "path": "docs/INSTALL.md",
-      "sha256": "d37cb779cd1f42683c9bcceeb70d1daf611147856d9a5bb36a6ea95fd4d43904",
-      "source_blob": "cc76b74bdb30609a147f600d034f775838424851",
+      "sha256": "cd6aab71e4b48aea3bf1e7240fb66244fdbe690c5864690742d7ccebd7c34f61",
+      "source_blob": "6770059772af17462393cb5d0c16a10b312a78a4",
       "source_path": "docs/public/INSTALL.md"
     },
     {
       "bytes": 16742,
       "mode": "100644",
       "path": "docs/MODEL_CARD.md",
-      "sha256": "2da285bfd821cb894054d41f236846ffe327ab1ed5f66d078a6606342e84686f",
-      "source_blob": "091a33af905ef4b65a72231178a7d31601685ce4",
+      "sha256": "086f28d97e2633d8027e744a9e7f44b9a4757746c5c29991ccbc3ddc68e4d2f6",
+      "source_blob": "c3f6ee37c3d0527614ba0a715755aabb09a87ba6",
       "source_path": "docs/MODEL_CARD.md"
     },
     {
@@ -582,8 +582,8 @@
       "bytes": 6610,
       "mode": "100644",
       "path": "docs/RELEASE_SCOPE.md",
-      "sha256": "ead4735c9e746001b6030a9d38e9f088994e3894ae49784a9bd98501c47986a7",
-      "source_blob": "f9329078f281f700558a2ab3636d920205c99549",
+      "sha256": "abb6a8934d39f30fab4c5d615a4cb3fe9b083d6596ba1f401332bcef731a353d",
+      "source_blob": "5abe7c86423680173e1ea56cfa5b51c67e7d5f19",
       "source_path": "docs/public/RELEASE_SCOPE.md"
     },
     {
@@ -598,8 +598,8 @@
       "bytes": 3854,
       "mode": "100644",
       "path": "docs/ROADMAP.md",
-      "sha256": "a9f880a851441171db785902650a35d9cf032cf5f1064d5ca8a326c879e2fb10",
-      "source_blob": "a5ebbef1c2448402efd8aa8fb2d97b8afe7558af",
+      "sha256": "dd0531c66a41fcedfa17d06af8b4a02a46d5c96a3bfa9197054e1e6d8b80645f",
+      "source_blob": "6472920be33e500738d0b141f7632448c2d098a8",
       "source_path": "docs/public/ROADMAP.md"
     },
     {
@@ -939,6 +939,14 @@
       "source_path": "docs/adr/0038-trained-readout-result-scope.md"
     },
     {
+      "bytes": 8599,
+      "mode": "100644",
+      "path": "docs/assets/pipeline.svg",
+      "sha256": "388adaae40e6a5f9fdb230e4c4b75d771bcf505ba3af692484feea8969dd6351",
+      "source_blob": "c12abcb36527a7fd5b6c14c2e9cd8f44431e0d8a",
+      "source_path": "docs/public/assets/pipeline.svg"
+    },
+    {
       "bytes": 3738,
       "mode": "100644",
       "path": "docs/compliance/COMPANION_RUNTIME_NOTICES.md",
@@ -1091,11 +1099,11 @@
       "source_path": "docs/security/JVM_TRIAGE_2026-10-30.md"
     },
     {
-      "bytes": 15755,
+      "bytes": 15911,
       "mode": "100644",
       "path": "docs/security/JVM_TRIAGE_2026-11-03.md",
-      "sha256": "3675d101266b21990b04da703a6fb98e7df39758e85eb387e3387281a7b72e22",
-      "source_blob": "071800fbfa7a00379625507295edb1670d47fa36",
+      "sha256": "0588901cce79915519f55eec1e50133eb6e57b5a124e967b56e422c5eb8486ba",
+      "source_blob": "d52d32e3f76b46e507cfe15982314b9e53524482",
       "source_path": "docs/security/JVM_TRIAGE_2026-11-03.md"
     },
     {
@@ -1334,8 +1342,8 @@
       "bytes": 286,
       "mode": "100644",
       "path": "mod/gradle.properties",
-      "sha256": "4b60f25a8aac93a487ece1776b73c3ec94b9993d0602ab467add16507f149a7e",
-      "source_blob": "d3bd3b2c5bfb9461c3eae7fe2d9599e33b43ba8c",
+      "sha256": "3bba376559ee88beb18326bd3e03b9d4634d14968a87d917d9cea7e862a55609",
+      "source_blob": "a61f3f6d72a2315e93439858013ce7468fab68ca",
       "source_path": "mod/gradle.properties"
     },
     {
@@ -3955,11 +3963,11 @@
       "source_path": "release/java-runtime-pins.json"
     },
     {
-      "bytes": 130142,
+      "bytes": 130254,
       "mode": "100644",
       "path": "release/public-files.json",
-      "sha256": "31614d0f55777d433006810010c2467eb718c64f9abf96e6b0deeabed0ee7f67",
-      "source_blob": "ff1845cd3557d5cfe7d262d1ccf5da6cf122a740",
+      "sha256": "750ff8034c2b00827c247d6bcafd4ddf5bb07a468b7534621e7ad040b7a95578",
+      "source_blob": "377754d18c9f4e861d431c0b0cdd0dd696a36836",
       "source_path": "release/public-files.json"
     },
     {
@@ -4683,11 +4691,11 @@
       "source_path": "scripts/measure_sign_overlay.py"
     },
     {
-      "bytes": 41961,
+      "bytes": 41983,
       "mode": "100644",
       "path": "scripts/prepare_gametest_demo.py",
-      "sha256": "ab34ec88aa22b94b769b5e5101e0c5bfa3d238f2482dd636f1e46a7d318585ba",
-      "source_blob": "43164dbeb14ef43d15acc4d8c0081f8930dcef20",
+      "sha256": "3d672ffca6139fd1c6660cb9a360a08aaf1d74eea2756849a66fd366366c4bf1",
+      "source_blob": "6f902960ad82914ed4e307dff2a1717923b71224",
       "source_path": "scripts/prepare_gametest_demo.py"
     },
     {
@@ -6139,11 +6147,11 @@
       "source_path": "tests/integration/test_matched_summary.py"
     },
     {
-      "bytes": 29222,
+      "bytes": 29244,
       "mode": "100644",
       "path": "tests/integration/test_prepare_gametest_demo.py",
-      "sha256": "63996ddf7584491a43551cff08b3f3c1436d18a18dbe0ec37589ce6ac7c801a1",
-      "source_blob": "ebce27d2612686d27bcd35acea458b23ca7a52d5",
+      "sha256": "e911b5e02d6e51204e3f5e3c6e2363e851ea3a01b2077574428807c84fbadb7a",
+      "source_blob": "711d432cc2a683f46695abf0f28762e720055527",
       "source_path": "tests/integration/test_prepare_gametest_demo.py"
     },
     {
@@ -6557,11 +6565,11 @@
     }
   },
   "source": {
-    "commit": "eb3adc597eeff797f6a65f62df004eb2c8164155",
+    "commit": "e06920dd9c0024e9870fb1bf597857d6afd1473b",
     "content_origin": "unchanged committed Git blobs; selected documents are path-mapped",
     "history_included": false,
     "selection_path": "release/public-files.json",
-    "selection_sha256": "31614d0f55777d433006810010c2467eb718c64f9abf96e6b0deeabed0ee7f67",
+    "selection_sha256": "750ff8034c2b00827c247d6bcafd4ddf5bb07a468b7534621e7ad040b7a95578",
     "working_directory_changes_included": false
   },
   "status": "candidate-pending-release-review"
